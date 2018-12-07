@@ -54,17 +54,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ComandDataSenderFolder\Brain.cs" />
-    <Compile Include="Assets\Scripts\ComandDataSenderFolder\MoveDataSender.cs" />
-    <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandCreator.cs" />
+    <Compile Include="Assets\Scripts\BrainFolder\Brain.cs" />
+    <Compile Include="Assets\Scripts\BrainFolder\MoveDataSender.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\CommandCreatorFolder\ComandCreator.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataBase.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataMove.cs" />
-    <Compile Include="Assets\Scripts\ComandFolder\ComandData\Command.cs" />
-    <Compile Include="Assets\Scripts\ComandFolder\ComandData\CommandMove.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\Commands\Command.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\Commands\CommandMove.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\AnimatorModule.cs" />
-    <Compile Include="Assets\Scripts\HumanMonoModules\FacadeHumanMono.cs" />
+    <Compile Include="Assets\Scripts\HumanMonoModules\HumanFacadeFolder\FacadeHumanMono.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\PhysicsModule.cs" />
-    <Compile Include="Assets\Scripts\StateFolder\StateController.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateControllerFolder\StateController.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\TransformModule.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateBase.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateIdle.cs" />
@@ -314,7 +314,10 @@
       <HintPath>E:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Scripts\StateFolder\StateTreeFolder\StateConnections\" />
+    <Folder Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

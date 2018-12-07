@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
+using Assets.Scripts.StateFolder.StateHumFolder;
 using UnityEngine;
 
 namespace Assets.Scripts.ComandFolder.ComandData
@@ -44,7 +45,12 @@ namespace Assets.Scripts.ComandFolder.ComandData
         public override void PrepareCommandoAction()
         {
             StateController.TransformModule.Move();
-            StateController.Triggers.Add(TriggersTemp.TriggerWalk);
+            if (StateController.CurrentState is StateIdle)
+            {
+                //Debug.Log("WalkTrigger Added!");
+                StateController.Triggers.Add(TriggersTemp.TriggerWalk);
+            }
+            
             Prodlit();
         }
         public override bool ContinueCommandoCheck()
@@ -64,7 +70,12 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         public override void BreakCommandoAction()
         {
-            StateController.Triggers.Add(TriggersTemp.TriggerIdle);
+            if (StateController.CurrentState is StateWalk)
+            {
+                //Debug.Log("IdleTrigger Added!"+StateController.CurrentState);
+                StateController.Triggers.Add(TriggersTemp.TriggerIdle);
+            }
+            
         }
 
         

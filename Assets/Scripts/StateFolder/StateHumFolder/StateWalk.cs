@@ -16,5 +16,10 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
            
             CommandsInState[0].StateController = StateController;
         }
+
+        public override void StateEnterAction()
+        {
+            StateController.AnimatorModule.ToggleWalk(true);
+        }
     }
 }
