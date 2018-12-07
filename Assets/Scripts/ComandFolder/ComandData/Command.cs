@@ -6,6 +6,12 @@ using Assets.Scripts.HumanMonoModules;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
+    public interface INeedDataToContinue
+    {
+        bool IsProdlena { get;  set; }
+        void Prodlit();
+        void UnProdlit();
+    }
     public class Command
     {
         public StateController StateController;
@@ -58,10 +64,23 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
                 Iniciated = ContinueCommandoCheck();
 
+                INeedDataToContinue ineed = this as INeedDataToContinue;
+                if (ineed != null)
+                {
+                    if (!ineed.IsProdlena)
+                    {
+                        Iniciated = false;
+                    }
+                    else
+                    {
+                        ineed.UnProdlit();
+                    }
+                }
                 if (!Iniciated)
                 {
                     BreakCommandoAction();
                 }
+                
             }
         }
     }

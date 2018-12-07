@@ -7,5 +7,14 @@ namespace Assets.Scripts.ComandFolder.ComandData
 {
     public class ComandDataBase
     {
+        public bool IsProcessed { get; private set; }
+
+        public void Process()
+        {
+            
+            IsProcessed = true;
+        }
+
+        
     }
 }

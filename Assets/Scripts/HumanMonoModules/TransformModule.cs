@@ -10,6 +10,12 @@ namespace Assets.Scripts.HumanMonoModules
     {
         public Transform MainTransform;
 
-        
+        public Vector3 TargetVector3;
+
+        public void Move()
+        {
+            TargetVector3 = MainTransform.forward;
+            MainTransform.Translate(TargetVector3*Time.deltaTime);
+        }
     }
 }

@@ -5,44 +5,48 @@ using System.Text;
 using Assets.Scripts.ComandFolder;
 using Assets.Scripts.ComandFolder.ComandData;
 using Assets.Scripts.StateFolder.StateHumFolder;
+using Assets.Scripts.StateFolder.StateTreeFolder;
 using UnityEngine;
 
 namespace Assets.Scripts.HumanMonoModules
 {
+    public enum TriggersTemp
+    {
+        TriggerIdle,
+        TriggerWalk
+    }
     public class StateController
     {
-        public StateController(TransformModule transformModule, AnimatorModule animatorModule, PhysicsModule physicsModule)
+        public StateController(IFacade iFacade,TransformModule transformModule, AnimatorModule animatorModule, PhysicsModule physicsModule)
         {
             TransformModule = transformModule;
             AnimatorModule = animatorModule;
             PhysicsModule = physicsModule;
+            Ifacade = iFacade;
 
+            StateTree=new StateTree(this);
+            CurrentState = StateTree._stateIdle;
         }
         public TransformModule TransformModule;
         public AnimatorModule AnimatorModule;
         public PhysicsModule PhysicsModule;
-
-
-        private List<ComandDataBase> _dataToProcessList=new List<ComandDataBase>();
-
-        public void AddToDataList(ComandDataBase comandData)
-        {
-            _dataToProcessList.Add(comandData);
-        }
+        public IFacade Ifacade;
 
         public StateBase CurrentState;
+        public StateTree StateTree;
+        
+        public List<TriggersTemp>Triggers=new List<TriggersTemp>();
 
-        public void ProcessInputData()
+
+        public void StateControllerUpdateAction()
         {
+            CurrentState.StateUpdateAction();
 
-            foreach (var data in _dataToProcessList)
+            if (Triggers.Count>0)
             {
-                CurrentState.ProcessData(data);
-            }
+                StateTree.NewStateTrigger(Triggers[0]);
 
-            foreach (var command in CurrentState.Commands)
-            {
-                command.UpdateCommand();
+                Triggers.RemoveAt(0);
             }
         }
     }

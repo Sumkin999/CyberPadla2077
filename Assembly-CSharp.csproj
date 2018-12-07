@@ -54,6 +54,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ComandDataSenderFolder\Brain.cs" />
+    <Compile Include="Assets\Scripts\ComandDataSenderFolder\MoveDataSender.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandCreator.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataBase.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataMove.cs" />
@@ -66,6 +68,8 @@
     <Compile Include="Assets\Scripts\HumanMonoModules\TransformModule.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateBase.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateIdle.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateWalk.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/TestProjects/CyberPadla2077/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
