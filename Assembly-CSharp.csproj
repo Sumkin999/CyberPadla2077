@@ -69,6 +69,14 @@
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateBase.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateIdle.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateWalk.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\ScrObjStateTreeFolder\CustomEditorStateTreeCreator.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\ScrObjStateTreeFolder\ScriptableObjectUtility.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\ScrObjStateTreeFolder\ScrObjectEditorStateTreeCreator.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\ScrObjStateTreeFolder\ScrObjStateConnection.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\ScrObjStateTreeFolder\ScrObjStateNode.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\ScrObjStateTreeFolder\ScrObjStateTree.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateConnections\StateConnection.cs" />
+    <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\StateNode.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/TestProjects/CyberPadla2077/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
@@ -314,10 +322,7 @@
       <HintPath>E:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Scripts\StateFolder\StateTreeFolder\StateConnections\" />
-    <Folder Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

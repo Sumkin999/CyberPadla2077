@@ -442,6 +442,7 @@ MonoBehaviour:
   TransformModule: {fileID: 838452990}
   PhysicsModule: {fileID: 838452989}
   AnimatorModule: {fileID: 1754084663}
+  ScrObjStateTree: {fileID: 11400000, guid: 5cfd667f0f28d4846875f19da88bca52, type: 2}
 --- !u!114 &838452993
 MonoBehaviour:
   m_ObjectHideFlags: 0

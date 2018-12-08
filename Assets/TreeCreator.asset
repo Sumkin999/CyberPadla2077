@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e079223483c1b9049b25ac6005868991, type: 3}
+  m_Name: TreeCreator
+  m_EditorClassIdentifier: 
+  StateDictionary:
+  - StateName: IdleState
+    StateEnum: 0
+  - StateName: WalkState
+    StateEnum: 1
+  TriggerDictionary:
+  - TriggerName: IdleTrigger
+    TriggerEnum: 0
+  - TriggerName: WalkTrigger
+    TriggerEnum: 1
+  TreeFolderName: HumanTree
+  Animator: {fileID: 9100000, guid: aa13b8dd86019b24e8a97cd5b1acb5ea, type: 2}
+  StateTreeSo: {fileID: 0}

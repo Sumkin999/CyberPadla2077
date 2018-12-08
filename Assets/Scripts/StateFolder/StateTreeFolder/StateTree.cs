@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
 using Assets.Scripts.StateFolder.StateHumFolder;
+using Assets.Scripts.StateFolder.StateTreeFolder.StateConnections;
+using Assets.Scripts.StateFolder.StateTreeFolder.StateNodes;
 
 namespace Assets.Scripts.StateFolder.StateTreeFolder
 {
@@ -20,6 +22,13 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
 
         public StateWalk _walkState;
         public StateIdle _stateIdle;
+
+        public StateNode CurrentNode;
+
+        //public StateNode LastNode;
+
+        public StateNode[] Nodes;
+        public StateConnection[] Connections;
 
         public void NewStateTrigger(TriggersTemp triggersTemp)
         {
@@ -42,6 +51,28 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
                     }
                 }
             }
+        }
+
+
+        public void TrySetTrigger(TriggersTemp triggerName)
+        {
+            
+            foreach (StateConnection connection in CurrentNode.ConnectionsFromThis)
+            {
+                if (connection.TriggerName == triggerName)
+                {
+                    //LastNode = CurrentNode;
+                    //CurrentNode.State.ExitState();
+                    
+                    CurrentNode = connection.StateNodeTo;
+                    StateController.CurrentState = CurrentNode.State;
+                    StateController.CurrentState.StateEnterAction();
+                    //CurrentNode.State.StateEnterAction();
+
+                    break;
+                }
+            }
+
         }
     }
 }

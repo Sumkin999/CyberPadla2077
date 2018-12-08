@@ -44,7 +44,8 @@ namespace Assets.Scripts.HumanMonoModules
 
             if (Triggers.Count>0)
             {
-                StateTree.NewStateTrigger(Triggers[0]);
+                //StateTree.NewStateTrigger(Triggers[0]);
+                StateTree.TrySetTrigger(Triggers[0]);
 
                 Triggers.RemoveAt(0);
             }
