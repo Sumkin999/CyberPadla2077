@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\StateNode.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponBase.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponVisuals.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/TestProjects/CyberPadla2077/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

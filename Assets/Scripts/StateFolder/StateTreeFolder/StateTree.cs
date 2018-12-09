@@ -29,7 +29,7 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
         public StateNode[] Nodes;
         public StateConnection[] Connections;
 
-        public void NewStateTrigger(TriggersTemp triggersTemp)
+        /*public void NewStateTrigger(TriggersTemp triggersTemp)
         {
             if (StateController.CurrentState is StateWalk)
             {
@@ -50,7 +50,7 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
                     }
                 }
             }
-        }
+        }*/
 
 
         public void TrySetTrigger(TriggersTemp triggerName)

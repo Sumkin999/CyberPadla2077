@@ -19,11 +19,12 @@ namespace Assets.Scripts.HumanMonoModules
     }
     public class StateController
     {
-        public StateController(IFacade iFacade,TransformModule transformModule, AnimatorModule animatorModule, PhysicsModule physicsModule)
+        public StateController(IFacade iFacade,TransformModule transformModule, AnimatorModule animatorModule, PhysicsModule physicsModule,WeaponModule weaponModule)
         {
             TransformModule = transformModule;
             AnimatorModule = animatorModule;
             PhysicsModule = physicsModule;
+            WeaponModule = weaponModule;
             Ifacade = iFacade;
 
             StateTree=new StateTree(this);
@@ -32,6 +33,7 @@ namespace Assets.Scripts.HumanMonoModules
         public TransformModule TransformModule;
         public AnimatorModule AnimatorModule;
         public PhysicsModule PhysicsModule;
+        public WeaponModule WeaponModule;
         public IFacade Ifacade;
 
         public StateBase CurrentState;

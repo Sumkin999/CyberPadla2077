@@ -19,7 +19,7 @@ namespace Assets.Scripts.HumanMonoModules
         public TransformModule TransformModule;
         public PhysicsModule PhysicsModule;
         public AnimatorModule AnimatorModule;
-
+        public WeaponModule WeaponModule;
 
 
         public ScrObjStateTree ScrObjStateTree;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.HumanMonoModules
 
         void Start()
         {
-            _stateController=new StateController(this,TransformModule,AnimatorModule,PhysicsModule);
+            _stateController=new StateController(this,TransformModule,AnimatorModule,PhysicsModule,WeaponModule);
 
             ScrObjStateTree.InicateTree(_stateController);
 

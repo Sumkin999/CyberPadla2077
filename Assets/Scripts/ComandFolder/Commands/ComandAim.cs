@@ -10,21 +10,27 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandAim:Command
     {
+       
         public override void GetInputData(ComandDataBase comandData)
         {
-            StartCommando();
+           
 
         }
-        public override void PrepareCommandoAction()
+
+        protected override bool StartConditionCheck()
         {
-            StateController.TransformModule.Move();
+            return true;
+        }
+        protected override void PrepareCommandoAction()
+        {
+            //StateController.TransformModule.Move();
             if (!StateController.CurrentState.StateFlags.IsAiming)
             {
                 //Debug.Log("WalkTrigger Added!");
                 StateController.Triggers.Add(TriggersTemp.TriggerAim);
             }
-
             
         }
+
     }
 }

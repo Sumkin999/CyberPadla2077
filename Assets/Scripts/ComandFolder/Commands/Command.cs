@@ -20,12 +20,12 @@ namespace Assets.Scripts.ComandFolder.ComandData
         {
             
         }
-        public virtual bool StartConditionCheck()
+        protected virtual bool StartConditionCheck()
         {
             return true;
         }
 
-        public bool Iniciated;
+        public bool Iniciated { get; private set; }
         public void StartCommando()
         {
 
@@ -38,20 +38,20 @@ namespace Assets.Scripts.ComandFolder.ComandData
             }
 
         }
-        public virtual void PrepareCommandoAction()
+        protected virtual void PrepareCommandoAction()
         {
 
         }
-        public virtual void ExecuteAction()
+        protected virtual void ExecuteAction()
         {
 
         }
-        public virtual bool ContinueCommandoCheck()
+        protected virtual bool ContinueCommandoCheck()
         {
             return false;
         }
 
-        public virtual void BreakCommandoAction()
+        protected virtual void BreakCommandoAction()
         {
 
         }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Scripts.HumanMonoModules
+namespace Assets.Scripts.WeaponsFolder
 {
-    public class PhysicsModule:MonoBehaviour
+    public class WeaponVisuals:MonoBehaviour
     {
-        
+
     }
 }

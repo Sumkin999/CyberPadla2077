@@ -32,18 +32,30 @@ namespace Assets.Scripts.ComandFolder.ComandData
         {
             _isProdlena = false;
         }
-        public override bool StartConditionCheck()
+
+
+        private Vector3 _targetVector3;
+        protected override bool StartConditionCheck()
         {
             Debug.Log("AAA");
             return true;
         }
         public override void GetInputData(ComandDataBase comandData)
         {
-            StartCommando();
+            ComandDataMove comandDataMove=comandData as ComandDataMove;
+            if (comandDataMove!=null)
+            {
+                _targetVector3 = comandDataMove.Vector3;
+            }
+            
             
         }
-        public override void PrepareCommandoAction()
+        protected override void PrepareCommandoAction()
         {
+            StateController.TransformModule.TargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
+            StateController.TransformModule.TargetVector3.Normalize();
+
+
             StateController.TransformModule.Move();
             if (!StateController.CurrentState.StateFlags.IsMoving)
             {
@@ -53,12 +65,12 @@ namespace Assets.Scripts.ComandFolder.ComandData
             
             Prodlit();
         }
-        public override bool ContinueCommandoCheck()
+        protected override bool ContinueCommandoCheck()
         {
             return true;
         }
 
-        public override void ExecuteAction()
+        protected override void ExecuteAction()
         {
             
                 
@@ -68,7 +80,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
             //StateController.TransformModule.MainTransform.transform.Translate(Vector3.forward*Time.deltaTime);
         }
 
-        public override void BreakCommandoAction()
+        protected override void BreakCommandoAction()
         {
             if (StateController.CurrentState.StateFlags.IsMoving)
             {

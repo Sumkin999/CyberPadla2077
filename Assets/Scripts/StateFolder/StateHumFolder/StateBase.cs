@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
+using Assets.Scripts.ComandFolder.Commands;
 using Assets.Scripts.HumanMonoModules;
 using UnityEngine;
 
@@ -47,6 +48,20 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                     if (command is CommandMove)
                     {
                         command.GetInputData(comandData);
+                        command.StartCommando();
+                        return;
+                    }
+                }
+            }
+            ComandDataAim comandDataAim=comandData as ComandDataAim;
+            if (comandDataAim!=null)
+            {
+                foreach (var command in CommandsInState)
+                {
+                    if (command is ComandAim)
+                    {
+                        command.GetInputData(comandData);
+                        command.StartCommando();
                         return;
                     }
                 }

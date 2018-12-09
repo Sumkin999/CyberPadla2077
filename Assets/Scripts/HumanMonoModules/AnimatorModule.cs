@@ -15,5 +15,10 @@ namespace Assets.Scripts.HumanMonoModules
         {
             Animator.SetBool("Walk",walkbool);
         }
+
+        public void ToggleAim(bool aimBool)
+        {
+            Animator.SetBool("IsAiming", aimBool);
+        }
     }
 }

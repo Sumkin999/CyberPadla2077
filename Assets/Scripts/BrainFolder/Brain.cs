@@ -12,13 +12,14 @@ namespace Assets.Scripts.ComandDataSenderFolder
         public FacadeHumanMono Facade;
         public MoveDataSender MoveDataSender=new MoveDataSender();
 
+        public GameObject TargetTEMP;
         void Update()
         {
             Vector3 v = Facade.gameObject.transform.position;
 
             if (Input.GetKey("w"))
             {
-                v += Facade.gameObject.transform.forward;
+                v = TargetTEMP.gameObject.transform.position;
                 MoveDataSender.SendMoveComand(Facade, v);
             }
 

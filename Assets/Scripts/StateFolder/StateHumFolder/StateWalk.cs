@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
+using Assets.Scripts.ComandFolder.Commands;
 using Assets.Scripts.HumanMonoModules;
 
 namespace Assets.Scripts.StateFolder.StateHumFolder
@@ -13,11 +14,14 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         {
             StateController = stateController;
             CommandsInState.Add(new CommandMove());
-           
+            CommandsInState.Add(new ComandAim());
+
             CommandsInState[0].StateController = StateController;
+            CommandsInState[1].StateController = stateController;
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = true;
+            StateFlags.IsAiming = false;
         }
 
         public override void StateEnterAction()
