@@ -15,11 +15,21 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState.Add(new CommandMove());
            
             CommandsInState[0].StateController = StateController;
+
+            StateFlags.CanMove = true;
+            StateFlags.IsMoving = true;
         }
 
         public override void StateEnterAction()
         {
             StateController.AnimatorModule.ToggleWalk(true);
+        }
+        public override void StateExitAction(StateBase stateTo)
+        {
+            if (!stateTo.StateFlags.CanMove)
+            {
+                StateController.AnimatorModule.ToggleWalk(false);
+            }
         }
     }
 }

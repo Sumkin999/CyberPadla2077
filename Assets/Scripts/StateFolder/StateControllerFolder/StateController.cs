@@ -13,7 +13,9 @@ namespace Assets.Scripts.HumanMonoModules
     public enum TriggersTemp
     {
         TriggerIdle,
-        TriggerWalk
+        TriggerWalk,
+        TriggerAim,
+        TriggerUnaim
     }
     public class StateController
     {

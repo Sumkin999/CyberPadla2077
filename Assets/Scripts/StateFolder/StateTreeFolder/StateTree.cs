@@ -23,9 +23,8 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
         public StateWalk _walkState;
         public StateIdle _stateIdle;
 
-        public StateNode CurrentNode;
-
-        //public StateNode LastNode;
+        public StateNode CurrentNode;//{ get; private set; }
+        //public StateNode LastNode { get; private set; }
 
         public StateNode[] Nodes;
         public StateConnection[] Connections;
@@ -62,9 +61,11 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
                 if (connection.TriggerName == triggerName)
                 {
                     //LastNode = CurrentNode;
-                    //CurrentNode.State.ExitState();
-                    
                     CurrentNode = connection.StateNodeTo;
+
+                    StateController.CurrentState.StateExitAction(CurrentNode.State);
+                    
+                    
                     StateController.CurrentState = CurrentNode.State;
                     StateController.CurrentState.StateEnterAction();
                     //CurrentNode.State.StateEnterAction();

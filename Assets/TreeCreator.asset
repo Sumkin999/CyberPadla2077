@@ -16,11 +16,19 @@ MonoBehaviour:
     StateEnum: 0
   - StateName: WalkState
     StateEnum: 1
+  - StateName: AimStandingState
+    StateEnum: 2
+  - StateName: AimWalkingState
+    StateEnum: 3
   TriggerDictionary:
   - TriggerName: IdleTrigger
     TriggerEnum: 0
   - TriggerName: WalkTrigger
     TriggerEnum: 1
+  - TriggerName: AimTrigger
+    TriggerEnum: 2
+  - TriggerName: UnAimTrigger
+    TriggerEnum: 3
   TreeFolderName: HumanTree
   Animator: {fileID: 9100000, guid: aa13b8dd86019b24e8a97cd5b1acb5ea, type: 2}
-  StateTreeSo: {fileID: 0}
+  StateTreeSo: {fileID: 11400000, guid: 5cfd667f0f28d4846875f19da88bca52, type: 2}

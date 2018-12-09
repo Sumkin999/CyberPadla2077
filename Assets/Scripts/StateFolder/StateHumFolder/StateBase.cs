@@ -8,11 +8,19 @@ using UnityEngine;
 
 namespace Assets.Scripts.StateFolder.StateHumFolder
 {
+
     public class StateBase
     {
+        public class StateFlagsClass
+        {
+            public bool CanMove { get;  protected internal set; }
+            public bool IsMoving { get; protected internal set; }
+            public bool IsAiming { get; protected internal set; }
+        }
         public StateController StateController;
         public List<ComandDataBase> CommandDataToProcessList=new List<ComandDataBase>();
         protected List<Command> CommandsInState=new List<Command>();
+        public StateFlagsClass StateFlags=new StateFlagsClass();
 
         public void AddCommandData(ComandDataBase comandData)
         {
@@ -20,6 +28,11 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         }
 
         public virtual void StateEnterAction()
+        {
+            
+        }
+
+        public virtual void StateExitAction(StateBase nextState)
         {
             
         }

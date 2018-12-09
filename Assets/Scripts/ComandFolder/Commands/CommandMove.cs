@@ -45,7 +45,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         public override void PrepareCommandoAction()
         {
             StateController.TransformModule.Move();
-            if (StateController.CurrentState is StateIdle)
+            if (!StateController.CurrentState.StateFlags.IsMoving)
             {
                 //Debug.Log("WalkTrigger Added!");
                 StateController.Triggers.Add(TriggersTemp.TriggerWalk);
@@ -70,7 +70,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         public override void BreakCommandoAction()
         {
-            if (StateController.CurrentState is StateWalk)
+            if (StateController.CurrentState.StateFlags.IsMoving)
             {
                 //Debug.Log("IdleTrigger Added!"+StateController.CurrentState);
                 StateController.Triggers.Add(TriggersTemp.TriggerIdle);

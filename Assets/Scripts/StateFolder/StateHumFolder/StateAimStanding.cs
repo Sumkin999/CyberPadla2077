@@ -4,21 +4,18 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
 using Assets.Scripts.HumanMonoModules;
-using UnityEngine;
 
 namespace Assets.Scripts.StateFolder.StateHumFolder
 {
-    public class StateIdle:StateBase
+    public class StateAimStanding:StateBase
     {
-        public StateIdle(StateController stateController)
+        public StateAimStanding(StateController stateController)
         {
             StateController = stateController;
             CommandsInState.Add(new CommandMove());
-            
-            CommandsInState[0].StateController = StateController;
+           
 
-            StateFlags.CanMove = true;
-            StateFlags.IsMoving = false;
+            CommandsInState[0].StateController = StateController;
         }
         public override void StateEnterAction()
         {

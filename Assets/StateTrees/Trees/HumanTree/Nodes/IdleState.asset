@@ -15,3 +15,4 @@ MonoBehaviour:
   StateEnum: 0
   ConnectionsFromThisArray:
   - {fileID: 11400000, guid: 536a4e521192ef54e8255d0ca381d252, type: 2}
+  - {fileID: 11400000, guid: 35f1bffb5bc9d3343b6313494fdc0f03, type: 2}

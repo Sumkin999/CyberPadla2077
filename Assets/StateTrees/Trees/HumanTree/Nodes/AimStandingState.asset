@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98fbe7947bc1b234b832a2a4652dd59e, type: 3}
-  m_Name: WalkState
+  m_Name: AimStandingState
   m_EditorClassIdentifier: 
-  StateName: WalkState
-  StateEnum: 1
+  StateName: AimStandingState
+  StateEnum: 2
   ConnectionsFromThisArray:
-  - {fileID: 11400000, guid: 3928ac2dae9f9474c9a31b3439c49e6a, type: 2}
-  - {fileID: 11400000, guid: 6a644c98ebcfe6341b2d7c3dd442d737, type: 2}
+  - {fileID: 11400000, guid: 21c22b4e4e70c9f4bb9b62ad8a0cc5d6, type: 2}
+  - {fileID: 11400000, guid: bf12a4fce1fb5a5408e4ace74670cb1b, type: 2}

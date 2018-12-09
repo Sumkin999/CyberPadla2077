@@ -45,6 +45,14 @@ namespace Assets.Scripts.HumanMonoModules
         void Update()
         {
            _stateController.StateControllerUpdateAction();
+
+
+            if (Input.GetKeyDown("a"))
+            {
+                AnimatorModule.Animator.SetBool("IsAiming",!AnimatorModule.Animator.GetBool("IsAiming"));
+            }
+            
+            
         }
     }
 }

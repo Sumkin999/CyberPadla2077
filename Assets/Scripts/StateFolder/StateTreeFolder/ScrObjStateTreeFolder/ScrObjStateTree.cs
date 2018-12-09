@@ -13,7 +13,9 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
     public enum StateEnum
     {
         IdleState,
-        WalkState
+        WalkState,
+        AimStandingState,
+        AimWalkingState
     }
 
     [CreateAssetMenu(fileName = "Tree", menuName = "StateTree/Trees", order = 1)]
@@ -32,6 +34,12 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
 
                 case StateEnum.WalkState:
                     return new StateWalk(stateController);
+
+                case StateEnum.AimStandingState:
+                    return new StateAimStanding(stateController);
+
+                case StateEnum.AimWalkingState:
+                    return new StateAimWalking(stateController);
             }
 
             Debug.LogAssertion("Error!");
