@@ -8,9 +8,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
-    public class CommandMove:Command, INeedDataToContinue
+    public class CommandMove:Command//, INeedDataToContinue
     {
-        private bool _isProdlena;
+        public CommandMove(bool isNeedProdlenie)
+        {
+            IsNeededProdlenie = isNeedProdlenie;
+        }
+        /*private bool _isProdlena;
         public bool IsProdlena
         {
             get
@@ -31,7 +35,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         public void UnProdlit()
         {
             _isProdlena = false;
-        }
+        }*/
 
 
         private Vector3 _targetVector3;
@@ -62,8 +66,9 @@ namespace Assets.Scripts.ComandFolder.ComandData
                 //Debug.Log("WalkTrigger Added!");
                 StateController.Triggers.Add(TriggersTemp.TriggerWalk);
             }
-            
-            Prodlit();
+
+            IsProdlena = true;
+            //Prodlit();
         }
         protected override bool ContinueCommandoCheck()
         {

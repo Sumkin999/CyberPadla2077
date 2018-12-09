@@ -14,7 +14,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateIdle(StateController stateController)
         {
             StateController = stateController;
-            CommandsInState.Add(new CommandMove());
+            CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
 
             CommandsInState[0].StateController = StateController;

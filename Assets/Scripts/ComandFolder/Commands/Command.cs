@@ -6,15 +6,18 @@ using Assets.Scripts.HumanMonoModules;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
-    public interface INeedDataToContinue
+    /*public interface INeedDataToContinue
     {
         bool IsProdlena { get;  set; }
         void Prodlit();
         void UnProdlit();
-    }
+    }*/
     public class Command
     {
         public StateController StateController;
+
+        public bool IsNeededProdlenie { get; protected set; }
+        public bool IsProdlena { get; set; }
 
         public virtual void GetInputData(ComandDataBase comandData)
         {
@@ -64,7 +67,18 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
                 Iniciated = ContinueCommandoCheck();
 
-                INeedDataToContinue ineed = this as INeedDataToContinue;
+                if (IsNeededProdlenie)
+                {
+                    if (!IsProdlena)
+                    {
+                        Iniciated = false;
+                    }
+                    else
+                    {
+                        IsProdlena=false;
+                    }
+                }
+                /*INeedDataToContinue ineed = this as INeedDataToContinue;
                 if (ineed != null)
                 {
                     if (!ineed.IsProdlena)
@@ -75,7 +89,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
                     {
                         ineed.UnProdlit();
                     }
-                }
+                }*/
                 if (!Iniciated)
                 {
                     BreakCommandoAction();
