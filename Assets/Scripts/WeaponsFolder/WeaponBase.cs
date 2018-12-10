@@ -10,21 +10,30 @@ namespace Assets.Scripts.WeaponsFolder
     [System.Serializable]
     public class WeaponBase
     {
-        private WeaponMethodsHolder _weaponMethodsHolder;
+        protected WeaponMethodsHolder WeaponMethodsHolder;
         public WeaponVisuals WeaponVisulasPrefab;
 
         public WeaponBase(WeaponMethodsHolder weaponMethodsHolder)
         {
-            _weaponMethodsHolder = weaponMethodsHolder;
+            WeaponMethodsHolder = weaponMethodsHolder;
 
-            WeaponVisuals=new WeaponVisuals();
+            //WeaponVisuals=new WeaponVisuals();
         }
         public WeaponVisuals WeaponVisuals;
 
         public bool HasPrimary;
         public bool HasSecondary;
 
-        public void WeaponUpdate()
+        public virtual void WeaponSelectedAction()
+        {
+            
+        }
+
+        public virtual void WeaponDeselectedAction()
+        {
+            
+        }
+        public virtual void WeaponUpdate()
         {
             
         }

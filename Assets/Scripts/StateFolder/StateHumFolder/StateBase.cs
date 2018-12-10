@@ -66,6 +66,19 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                     }
                 }
             }
+            ComandDataSelectWeapon comandDataSelectWeapon=comandData as ComandDataSelectWeapon;
+            if (comandDataSelectWeapon!=null)
+            {
+                foreach (var command in CommandsInState)
+                {
+                    if (command is ComandSelectWeapon)
+                    {
+                        command.GetInputData(comandData);
+                        command.StartCommando();
+                        return;
+                    }
+                }
+            }
         }
 
         public  void StateUpdateAction()

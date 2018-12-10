@@ -16,9 +16,11 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             StateController = stateController;
             CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
+            CommandsInState.Add(new ComandSelectWeapon());
 
             CommandsInState[0].StateController = StateController;
-            CommandsInState[1].StateController = stateController;
+            CommandsInState[1].StateController = StateController;
+            CommandsInState[2].StateController = StateController;
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = false;

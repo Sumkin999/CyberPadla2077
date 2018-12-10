@@ -56,11 +56,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BrainFolder\Brain.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\MoveDataSender.cs" />
+    <Compile Include="Assets\Scripts\BrainFolder\WeaponDataSender.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataAim.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataSelectWeapon.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\CommandCreatorFolder\ComandCreator.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataBase.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataMove.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandAim.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandSelectWeapon.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\Command.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\CommandMove.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\AnimatorModule.cs" />
@@ -84,6 +87,8 @@
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\StateNode.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponBase.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponFist.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponPistol.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponVisuals.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/TestProjects/CyberPadla2077/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

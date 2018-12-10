@@ -5,6 +5,7 @@ using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
 using Assets.Scripts.StateFolder.StateHumFolder;
 using Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder;
+using Assets.Scripts.WeaponsFolder;
 using UnityEngine;
 
 namespace Assets.Scripts.HumanMonoModules
@@ -39,7 +40,14 @@ namespace Assets.Scripts.HumanMonoModules
 
             ScrObjStateTree.InicateTree(_stateController);
 
+            WeaponModule.SetFacade(this);
 
+
+            WeaponModule.SpawnWeapon<WeaponFist>();
+            WeaponModule.SpawnWeapon<WeaponPistol>();
+            WeaponModule.CurrentWeapon = WeaponModule.InventoryWeapon[0];
+            WeaponModule.CurrentWeapon.WeaponSelectedAction();
+            //WeaponPistol pistol=new WeaponPistol(WeaponModule.);
         }
 
         void Update()

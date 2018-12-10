@@ -22,7 +22,12 @@ namespace Assets.Scripts.HumanMonoModules
         public virtual void SetAnimatorWeaponSelected()
         {
             Debug.Log("WeaponSelected!");
-           // _facadeHuman.AnimatorModule.ToggleAim(true);
+            _facadeHuman.AnimatorModule.ToggleAim(true);
+        }
+        public virtual void SetAnimatorWeaponDeSelected()
+        {
+            Debug.Log("WeaponDeSelected!");
+            _facadeHuman.AnimatorModule.ToggleAim(false);
         }
     }
     public class WeaponModule:MonoBehaviour
@@ -41,9 +46,9 @@ namespace Assets.Scripts.HumanMonoModules
         public List<WeaponBase> InventoryWeapon=new List<WeaponBase>();
 
         private WeaponMethodsHolder _weaponMethodsHolder;
-        public void SpawnWeapon()
+        public void SpawnWeapon<T>() where  T:WeaponBase//,new()
         {
-            new WeaponBase(_weaponMethodsHolder);
+            InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponMethodsHolder)); //new T(_weaponMethodsHolder));
         }
 
         

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.BrainFolder;
 using Assets.Scripts.HumanMonoModules;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Assets.Scripts.ComandDataSenderFolder
     {
         public FacadeHumanMono Facade;
         public MoveDataSender MoveDataSender=new MoveDataSender();
+        public WeaponDataSender WeaponDataSender=new WeaponDataSender();
 
         public GameObject TargetTEMP;
         void Update()
@@ -21,6 +23,11 @@ namespace Assets.Scripts.ComandDataSenderFolder
             {
                 v = TargetTEMP.gameObject.transform.position;
                 MoveDataSender.SendMoveComand(Facade, v);
+            }
+            if (Input.GetKeyDown("k"))
+            {
+
+                WeaponDataSender.SelectNextWeaponComand(Facade,true);
             }
 
 

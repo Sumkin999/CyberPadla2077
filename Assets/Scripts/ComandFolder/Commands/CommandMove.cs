@@ -41,7 +41,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         private Vector3 _targetVector3;
         protected override bool StartConditionCheck()
         {
-            Debug.Log("AAA");
+            
             return true;
         }
         public override void GetInputData(ComandDataBase comandData)
