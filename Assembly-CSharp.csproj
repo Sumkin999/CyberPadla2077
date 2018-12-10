@@ -86,6 +86,9 @@
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateConnections\StateConnection.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\StateNode.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\CustomeditorWeaponsCreator.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjEditorWeaponCreator.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjWeapon.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponBase.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponFist.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponPistol.cs" />

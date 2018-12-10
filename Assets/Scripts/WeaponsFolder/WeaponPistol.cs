@@ -17,6 +17,7 @@ namespace Assets.Scripts.WeaponsFolder
             //WeaponVisuals = new WeaponVisuals();
         }
 
+        public int In;
         public override void WeaponSelectedAction()
         {
             WeaponMethodsHolder.SetAnimatorWeaponSelected();
