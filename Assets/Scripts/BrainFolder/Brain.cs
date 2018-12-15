@@ -17,13 +17,48 @@ namespace Assets.Scripts.ComandDataSenderFolder
         public GameObject TargetTEMP;
         void Update()
         {
-            Vector3 v = Facade.gameObject.transform.position;
+            Vector3 v = Vector3.zero;// Facade.gameObject.transform.position;
 
             if (Input.GetKey("w"))
             {
-                v = TargetTEMP.gameObject.transform.position;
+                v +=  Facade.gameObject.transform .forward* 5f;
+                //MoveDataSender.SendMoveComand(Facade, v);
+            }
+            else
+            {
+                if (Input.GetKey("s"))
+                {
+                    v -= Facade.gameObject.transform.forward * 5f;
+                    
+                }
+            }
+            if (Input.GetKey("d"))
+            {
+                v += Facade.gameObject.transform.right * 5f;
+                //MoveDataSender.SendMoveComand(Facade, v);
+            }
+            else
+            {
+                if (Input.GetKey("a"))
+                {
+                    v -= Facade.gameObject.transform.right * 5f;
+
+                }
+            }
+            if (v.sqrMagnitude>0)
+            {
+                v += Facade.gameObject.transform.position;
                 MoveDataSender.SendMoveComand(Facade, v);
             }
+
+
+
+
+
+
+
+
+
             if (Input.GetKeyDown("k"))
             {
 

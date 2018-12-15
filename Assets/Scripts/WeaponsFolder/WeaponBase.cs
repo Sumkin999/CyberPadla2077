@@ -13,6 +13,8 @@ namespace Assets.Scripts.WeaponsFolder
         protected WeaponMethodsHolder WeaponMethodsHolder;
         public WeaponVisuals WeaponVisulasPrefab;
 
+        public bool IsShootOrReload { get; protected set; }
+
         public WeaponBase(WeaponMethodsHolder weaponMethodsHolder)
         {
             WeaponMethodsHolder = weaponMethodsHolder;

@@ -56,9 +56,9 @@ namespace Assets.Scripts.ComandFolder.ComandData
         }
         protected override void PrepareCommandoAction()
         {
-            StateController.TransformModule.TargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
-            StateController.TransformModule.TargetVector3.Normalize();
-
+            //StateController.TransformModule.TargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
+            //StateController.TransformModule.TargetVector3.Normalize();
+            StateController.TransformModule.TargetVector3 = _targetVector3;
 
             StateController.TransformModule.Move();
             if (!StateController.CurrentState.StateFlags.IsMoving)

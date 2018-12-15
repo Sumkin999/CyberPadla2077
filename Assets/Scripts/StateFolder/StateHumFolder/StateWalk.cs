@@ -5,6 +5,7 @@ using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
 using Assets.Scripts.ComandFolder.Commands;
 using Assets.Scripts.HumanMonoModules;
+using UnityEngine;
 
 namespace Assets.Scripts.StateFolder.StateHumFolder
 {
@@ -32,8 +33,11 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         }
         public override void StateExitAction(StateBase stateTo)
         {
-            if (!stateTo.StateFlags.CanMove)
+            if (!stateTo.StateFlags.IsMoving)
             {
+                StateController.TransformModule.NavMeshAgent.destination = StateController.TransformModule.MainTransform.position;
+                StateController.TransformModule.NavMeshAgent.isStopped = true;
+                
                 StateController.AnimatorModule.ToggleWalk(false);
             }
         }

@@ -55,10 +55,10 @@ namespace Assets.Scripts.HumanMonoModules
            _stateController.StateControllerUpdateAction();
 
 
-            if (Input.GetKeyDown("a"))
+            /*if (Input.GetKeyDown("a"))
             {
                 AnimatorModule.Animator.SetBool("IsAiming",!AnimatorModule.Animator.GetBool("IsAiming"));
-            }
+            }*/
             
             
         }
