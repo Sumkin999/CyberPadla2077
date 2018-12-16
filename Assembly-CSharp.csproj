@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BrainFolder\Brain.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\MoveDataSender.cs" />
+    <Compile Include="Assets\Scripts\BrainFolder\TestBrain.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\WeaponDataSender.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataAim.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataSelectWeapon.cs" />

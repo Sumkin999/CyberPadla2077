@@ -62,5 +62,10 @@ namespace Assets.Scripts.HumanMonoModules
             
             
         }
+
+        void FixedUpdate()
+        {
+            _stateController.StateControllerFixedUpdateAction();
+        }
     }
 }

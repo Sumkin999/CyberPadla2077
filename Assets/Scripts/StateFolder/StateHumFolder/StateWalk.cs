@@ -35,8 +35,9 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         {
             if (!stateTo.StateFlags.IsMoving)
             {
-                StateController.TransformModule.NavMeshAgent.destination = StateController.TransformModule.MainTransform.position;
-                StateController.TransformModule.NavMeshAgent.isStopped = true;
+                StateController.TransformModule.TargetVector3 = StateController.TransformModule.MainTransform.position;
+                //StateController.TransformModule.NavMeshAgent.destination = StateController.TransformModule.MainTransform.position;
+                //StateController.TransformModule.NavMeshAgent.isStopped = true;
                 
                 StateController.AnimatorModule.ToggleWalk(false);
             }

@@ -56,11 +56,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
         }
         protected override void PrepareCommandoAction()
         {
-            //StateController.TransformModule.TargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
-            //StateController.TransformModule.TargetVector3.Normalize();
-            StateController.TransformModule.TargetVector3 = _targetVector3;
+            StateController.TransformModule.TargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
+            StateController.TransformModule.TargetVector3.Normalize();
+            //StateController.TransformModule.TargetVector3 = _targetVector3;
 
-            StateController.TransformModule.Move();
+            //StateController.TransformModule.Move();
             if (!StateController.CurrentState.StateFlags.IsMoving)
             {
                 //Debug.Log("WalkTrigger Added!");
@@ -69,6 +69,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
             IsProdlena = true;
             //Prodlit();
+        }
+
+        protected override void FixedExecuteAction()
+        {
+            StateController.TransformModule.Move();
         }
         protected override bool ContinueCommandoCheck()
         {

@@ -20,5 +20,11 @@ namespace Assets.Scripts.HumanMonoModules
         {
             Animator.SetBool("IsAiming", aimBool);
         }
+
+        public void SetWalkBlendDirection()
+        {
+            //Animator.SetFloat("WalkRight", Mathf.Lerp(AnimatorModule.Animator.GetFloat("WalkRight"), reletiveVelocity.x, Time.deltaTime * VelocitySmooth));
+
+        }
     }
 }

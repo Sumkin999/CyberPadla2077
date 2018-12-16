@@ -54,5 +54,10 @@ namespace Assets.Scripts.HumanMonoModules
                 Triggers.RemoveAt(0);
             }
         }
+
+        public void StateControllerFixedUpdateAction()
+        {
+            CurrentState.StateFixedUpdateAction();
+        }
     }
 }

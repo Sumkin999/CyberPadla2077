@@ -110,5 +110,13 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 
 
         }
+
+        public void StateFixedUpdateAction()
+        {
+            foreach (var command in CommandsInState)
+            {
+                command.FixedUpdateCommand();
+            }
+        }
     }
 }

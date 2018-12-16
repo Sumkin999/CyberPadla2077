@@ -49,6 +49,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
         {
 
         }
+
+        protected virtual void FixedExecuteAction()
+        {
+            
+        }
         protected virtual bool ContinueCommandoCheck()
         {
             return false;
@@ -57,6 +62,14 @@ namespace Assets.Scripts.ComandFolder.ComandData
         protected virtual void BreakCommandoAction()
         {
 
+        }
+
+        public void FixedUpdateCommand()
+        {
+            if (Iniciated)
+            {
+                FixedExecuteAction();
+            }
         }
         public void UpdateCommand()
         {
@@ -78,18 +91,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
                         IsProdlena=false;
                     }
                 }
-                /*INeedDataToContinue ineed = this as INeedDataToContinue;
-                if (ineed != null)
-                {
-                    if (!ineed.IsProdlena)
-                    {
-                        Iniciated = false;
-                    }
-                    else
-                    {
-                        ineed.UnProdlit();
-                    }
-                }*/
+                
                 if (!Iniciated)
                 {
                     BreakCommandoAction();
