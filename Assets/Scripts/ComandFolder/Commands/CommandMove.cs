@@ -83,7 +83,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         protected override void ExecuteAction()
         {
             
-                
+                StateController.TransformModule.MoveAnimationControl();
             
             
             //Debug.Log("Move DATA!");

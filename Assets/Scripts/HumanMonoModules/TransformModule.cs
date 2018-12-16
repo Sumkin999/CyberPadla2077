@@ -19,13 +19,16 @@ namespace Assets.Scripts.HumanMonoModules
 
         public bool PathFindIsOn;
         public Vector3 TargetVector3;
+        public float MoveSpeed;
 
         public Vector3 LookAtVector3;
 
         public float VelocitySmooth = 10;
         public float RotationSpeed = 180f;
 
-        Vector3 _localTarget=new Vector3();
+        private Vector3 _localTarget;
+        private Vector3 _lastPosition;
+        private float _timerLastPosition;
         public void Move()
         {
             _localTarget = TargetVector3;
@@ -37,21 +40,31 @@ namespace Assets.Scripts.HumanMonoModules
             {
                 
             }
-            //TargetVector3 = MainTransform.forward;
-            //NavMeshAgent.destination = TargetVector3;// SetDestination(TargetVector3);//=TargetVector3;
-            //NavMeshAgent.isStopped = false;
-            RigidbodyMain.MovePosition(MainTransform.position + _localTarget * Time.deltaTime * 1f);
+            
+            RigidbodyMain.MovePosition(MainTransform.position + _localTarget.normalized * Time.deltaTime * MoveSpeed);
 
-            //Vector3 reletiveVelocity = MainTransform.InverseTransformVector(NavMeshAgent.velocity);
-
-           // AnimatorModule.Animator.SetFloat("WalkRight", Mathf.Lerp(AnimatorModule.Animator.GetFloat("WalkRight"), reletiveVelocity.x, Time.deltaTime * VelocitySmooth));
-           // AnimatorModule.Animator.SetFloat("WalkForward", Mathf.Lerp(AnimatorModule.Animator.GetFloat("WalkForward"), reletiveVelocity.z, Time.deltaTime * VelocitySmooth));
-
-            //RigidbodyMain.MovePosition(RigidbodyMain.transform.position + TargetVector3 * Time.deltaTime);
-
-
+            //_lastPosition = MainTransform.position;
 
             
+        }
+
+        public void MoveAnimationControl()
+        {
+            
+            if (_timerLastPosition<=0)
+            {
+                
+                _lastPosition = MainTransform.position;
+                _timerLastPosition = 0.2f;
+            }
+
+            Vector3 reletiveVelocity = _lastPosition - MainTransform.position;// _localTarget - MainTransform.position;
+            reletiveVelocity.Normalize();
+            reletiveVelocity = MainTransform.InverseTransformVector(-reletiveVelocity);
+            _timerLastPosition -= Time.deltaTime;
+
+
+            AnimatorModule.SetWalkBlendDirection(reletiveVelocity, VelocitySmooth);
         }
 
 
@@ -60,7 +73,7 @@ namespace Assets.Scripts.HumanMonoModules
             MainTransform.rotation = Quaternion.Lerp(MainTransform.rotation, Quaternion.AngleAxis(GetAngle(LookAtVector3), Vector3.up), Time.deltaTime * RotationSpeed);
             //MainTransform.LookAt(new Vector3(LookAtVector3.x,MainTransform.position.y,LookAtVector3.z));
         }
-        public float GetAngle(Vector3 target)
+        private float GetAngle(Vector3 target)
         {
             Vector3 targetVector = (target - transform.position + transform.forward * 0.3f).normalized;
             float angle = -Vector2.SignedAngle(Vector2.up, new Vector2(targetVector.x, targetVector.z));

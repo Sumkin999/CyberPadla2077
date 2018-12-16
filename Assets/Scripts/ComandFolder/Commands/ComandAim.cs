@@ -23,10 +23,10 @@ namespace Assets.Scripts.ComandFolder.Commands
         }
         protected override void PrepareCommandoAction()
         {
-            //StateController.TransformModule.Move();
+            
             if (!StateController.CurrentState.StateFlags.IsAiming)
             {
-                //Debug.Log("WalkTrigger Added!");
+                
                 StateController.Triggers.Add(TriggersTemp.TriggerAim);
             }
             

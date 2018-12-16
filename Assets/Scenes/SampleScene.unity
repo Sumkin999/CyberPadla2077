@@ -490,7 +490,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &838452987
 CapsuleCollider:
@@ -546,6 +546,7 @@ MonoBehaviour:
   RigidbodyMain: {fileID: 838452986}
   PathFindIsOn: 0
   TargetVector3: {x: 0, y: 0, z: 0}
+  MoveSpeed: 1
   LookAtVector3: {x: 0, y: 0, z: 0}
   VelocitySmooth: 10
   RotationSpeed: 180
@@ -1060,6 +1061,7 @@ MonoBehaviour:
   RigidbodyMain: {fileID: 1332477360}
   PathFindIsOn: 0
   TargetVector3: {x: 0, y: 0, z: 0}
+  MoveSpeed: 0
   LookAtVector3: {x: 0, y: 0, z: 0}
   VelocitySmooth: 10
   RotationSpeed: 180

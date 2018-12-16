@@ -21,33 +21,27 @@ namespace Assets.Scripts.ComandDataSenderFolder
         void Update()
         {
             CameraMain.gameObject.transform.position = new Vector3(Facade.gameObject.transform.position.x,CameraMain.gameObject.transform.position.y, Facade.gameObject.transform.position.z-10f); 
-            Vector3 v = Vector3.zero;// Facade.gameObject.transform.position;
+            Vector3 v = Vector3.zero;
 
             if (Input.GetKey("w"))
             {
-                //v +=  Facade.gameObject.transform .forward* 5f;
                 v += Vector3.forward * 5f;
-                //MoveDataSender.SendMoveComand(Facade, v);
             }
             else
             {
                 if (Input.GetKey("s"))
                 {
-                    //v -= Facade.gameObject.transform.forward * 5f;
                     v-=Vector3.forward*5f;
                 }
             }
             if (Input.GetKey("d"))
             {
-                //v += Facade.gameObject.transform.right * 5f;
                 v+=Vector3.right*5f;
-                //MoveDataSender.SendMoveComand(Facade, v);
             }
             else
             {
                 if (Input.GetKey("a"))
                 {
-                    //v -= Facade.gameObject.transform.right * 5f;
                     v-=Vector3.right*5f;
                 }
             }

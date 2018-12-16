@@ -21,10 +21,10 @@ namespace Assets.Scripts.HumanMonoModules
             Animator.SetBool("IsAiming", aimBool);
         }
 
-        public void SetWalkBlendDirection()
+        public void SetWalkBlendDirection(Vector3 relativeVector,float velocitySmooth)
         {
-            //Animator.SetFloat("WalkRight", Mathf.Lerp(AnimatorModule.Animator.GetFloat("WalkRight"), reletiveVelocity.x, Time.deltaTime * VelocitySmooth));
-
+            Animator.SetFloat("WalkRight", Mathf.Lerp(Animator.GetFloat("WalkRight"), relativeVector.x, Time.deltaTime * velocitySmooth));
+            Animator.SetFloat("WalkForward", Mathf.Lerp(Animator.GetFloat("WalkForward"), relativeVector.z, Time.deltaTime * velocitySmooth));
         }
     }
 }
