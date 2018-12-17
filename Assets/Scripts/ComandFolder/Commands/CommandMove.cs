@@ -8,34 +8,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
-    public class CommandMove:Command//, INeedDataToContinue
+    public class CommandMove:Command
     {
         public CommandMove(bool isNeedProdlenie)
         {
             IsNeededProdlenie = isNeedProdlenie;
         }
-        /*private bool _isProdlena;
-        public bool IsProdlena
-        {
-            get
-            {
-                return _isProdlena;
-            }
 
-            set
-            {
-                Debug.Log("Cant Prodlit!");
-            }
-        }
-
-        public void Prodlit()
-        {
-            _isProdlena = true;
-        }
-        public void UnProdlit()
-        {
-            _isProdlena = false;
-        }*/
 
 
         private Vector3 _targetVector3;
@@ -56,19 +35,16 @@ namespace Assets.Scripts.ComandFolder.ComandData
         }
         protected override void PrepareCommandoAction()
         {
-            StateController.TransformModule.TargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
-            StateController.TransformModule.TargetVector3.Normalize();
-            //StateController.TransformModule.TargetVector3 = _targetVector3;
+            StateController.TransformModule.MoveTargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
+            StateController.TransformModule.MoveTargetVector3.Normalize();
 
-            //StateController.TransformModule.Move();
             if (!StateController.CurrentState.StateFlags.IsMoving)
             {
-                //Debug.Log("WalkTrigger Added!");
                 StateController.Triggers.Add(TriggersTemp.TriggerWalk);
             }
 
             IsProdlena = true;
-            //Prodlit();
+
         }
 
         protected override void FixedExecuteAction()
@@ -82,19 +58,17 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         protected override void ExecuteAction()
         {
+            StateController.TransformModule.MovePathControl();
+            StateController.TransformModule.MoveAnimationControl();
             
-                StateController.TransformModule.MoveAnimationControl();
             
             
-            //Debug.Log("Move DATA!");
-            //StateController.TransformModule.MainTransform.transform.Translate(Vector3.forward*Time.deltaTime);
         }
 
         protected override void BreakCommandoAction()
         {
             if (StateController.CurrentState.StateFlags.IsMoving)
             {
-                //Debug.Log("IdleTrigger Added!"+StateController.CurrentState);
                 StateController.Triggers.Add(TriggersTemp.TriggerIdle);
             }
             

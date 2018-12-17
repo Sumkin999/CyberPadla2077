@@ -79,6 +79,19 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                     }
                 }
             }
+            ComandDataRotate comandDataRotate=comandData as ComandDataRotate;
+            if (comandDataRotate != null)
+            {
+                foreach (var command in CommandsInState)
+                {
+                    if (command is ComandRotate)
+                    {
+                        command.GetInputData(comandData);
+                        command.StartCommando();
+                        return;
+                    }
+                }
+            }
         }
 
         public  void StateUpdateAction()

@@ -13,6 +13,7 @@ namespace Assets.Scripts.ComandDataSenderFolder
         public FacadeHumanMono Facade;
         public MoveDataSender MoveDataSender=new MoveDataSender();
         public WeaponDataSender WeaponDataSender=new WeaponDataSender();
+        public RotateDataSender RotateDataSender=new RotateDataSender();
 
         private Vector3 _lookDirVector3;
 
@@ -71,11 +72,10 @@ namespace Assets.Scripts.ComandDataSenderFolder
             float dist = Mathf.Sqrt(ray.direction.y * ray.direction.y + CameraMain.transform.position.y * CameraMain.transform.position.y);
             _lookDirVector3 = ray.GetPoint(dist);
             _lookDirVector3.y = 0;
-            Facade.TransformModule.LookAtVector3 = _lookDirVector3;
+           // Facade.TransformModule.LookAtVector3 = _lookDirVector3;
 
 
-            ////!!!!!!!!!!!! TODO DELETE!!!!!!!!!
-            Facade.TransformModule.Rotate();
+            RotateDataSender.SendRotateComand(Facade,_lookDirVector3);
 
             if (Input.GetKeyDown("f"))
             {
