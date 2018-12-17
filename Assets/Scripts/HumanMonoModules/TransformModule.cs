@@ -58,6 +58,7 @@ namespace Assets.Scripts.HumanMonoModules
             {
                 MoveTargetVector3 = TEMP_AI_TARGET.transform.position;
                 _localTarget = MoveTargetVector3;
+                
                 if (Vector3.Distance(MoveTargetVector3, _previousMoveTargetVector3) > .5f)
                 {
                     Seeker.StartPath(MainTransform.position, MoveTargetVector3, OnPathComplete);
@@ -98,7 +99,15 @@ namespace Assets.Scripts.HumanMonoModules
                         break;
                     }
                 }
-                _localTarget = (CurrentPath.vectorPath[currentWaypoint] - MainTransform.position);
+                //if (!reachedEndOfPath)
+                {
+                    _localTarget = CurrentPath.vectorPath[currentWaypoint] - MainTransform.position;
+                }
+                /*else
+                {
+                    _localTarget = MainTransform.position;
+                }*/
+                
 
             }
             else

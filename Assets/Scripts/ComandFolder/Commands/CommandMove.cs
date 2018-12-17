@@ -35,6 +35,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         }
         protected override void PrepareCommandoAction()
         {
+            //TODO ПЕРЕДЕЛАТЬ
             StateController.TransformModule.MoveTargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
             StateController.TransformModule.MoveTargetVector3.Normalize();
 
