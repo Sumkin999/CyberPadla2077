@@ -20,13 +20,13 @@ namespace Assets.Scripts.WeaponsFolder
         public int In;
         public override void WeaponSelectedAction()
         {
-            WeaponMethodsHolder.SetAnimatorWeaponSelected();
+            WeaponMethodsHolder.SetAnimatorWeaponSelected(this);
             Debug.Log("Pistol Selected!");
         }
 
         public override void WeaponDeselectedAction()
         {
-            WeaponMethodsHolder.SetAnimatorWeaponDeSelected();
+            WeaponMethodsHolder.SetAnimatorWeaponDeSelected(this);
             Debug.Log("Pistol Hided!");
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.WeaponsFolder;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -16,9 +17,30 @@ namespace Assets.Scripts.HumanMonoModules
             Animator.SetBool("Walk",walkbool);
         }
 
-        public void ToggleAim(bool aimBool)
+        public void ToggleAim(bool aimBool,WeaponBase weaponBase)
         {
-            Animator.SetBool("IsAiming", aimBool);
+            
+
+            WeaponFist weaponFist=weaponBase as WeaponFist;
+            if (weaponFist!=null)
+            {
+                return;    
+            }
+            WeaponPistol weaponPistol=weaponBase as WeaponPistol;
+
+            if (weaponPistol!=null)
+            {
+                Animator.SetBool("IsAiming", aimBool);
+                return;
+            }
+
+            WeaponUzi weaponUzi=weaponBase as WeaponUzi;
+            if (weaponUzi!=null)
+            {
+                Animator.SetBool("IsAiming2",aimBool);
+                return;
+            }
+           
         }
 
         public void SetWalkBlendDirection(Vector3 relativeVector,float velocitySmooth)

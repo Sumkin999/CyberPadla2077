@@ -45,6 +45,9 @@ namespace Assets.Scripts.HumanMonoModules
 
             WeaponModule.SpawnWeapon<WeaponFist>();
             WeaponModule.SpawnWeapon<WeaponPistol>();
+            WeaponModule.SpawnWeapon<WeaponUzi>();
+
+
             WeaponModule.CurrentWeapon = WeaponModule.InventoryWeapon[0];
             WeaponModule.CurrentWeapon.WeaponSelectedAction();
             //WeaponPistol pistol=new WeaponPistol(WeaponModule.);

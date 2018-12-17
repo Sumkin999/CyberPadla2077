@@ -19,15 +19,13 @@ namespace Assets.Scripts.HumanMonoModules
 
         }
 
-        public virtual void SetAnimatorWeaponSelected()
+        public virtual void SetAnimatorWeaponSelected(WeaponBase weaponBase)
         {
-            Debug.Log("WeaponSelected!");
-            _facadeHuman.AnimatorModule.ToggleAim(true);
+            _facadeHuman.AnimatorModule.ToggleAim(true,weaponBase);
         }
-        public virtual void SetAnimatorWeaponDeSelected()
+        public virtual void SetAnimatorWeaponDeSelected(WeaponBase weaponBase)
         {
-            Debug.Log("WeaponDeSelected!");
-            _facadeHuman.AnimatorModule.ToggleAim(false);
+            _facadeHuman.AnimatorModule.ToggleAim(false,weaponBase);
         }
     }
     public class WeaponModule:MonoBehaviour

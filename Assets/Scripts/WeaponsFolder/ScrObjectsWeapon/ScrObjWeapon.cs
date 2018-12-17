@@ -37,4 +37,21 @@ namespace Assets.Scripts.WeaponsFolder.ScrObjectsWeapon
         //[SerializeField]
         //public object classesSS;
     }
+
+    [CreateAssetMenu(fileName = "WeaponUzi", menuName = "Weapons/WeaponUzi")]
+    [System.Serializable]
+    //public class ScrObjWeapon : ScriptableObject 
+    public class ScrObjWeaponUzi : ScriptableObject
+    {
+        public GameObject VisualPrefab;
+        //
+        [SerializeField]
+        public WeaponPistol classes;
+
+
+
+        //[SerializeField]
+        //public object classesSS;
+    }
+
 }
