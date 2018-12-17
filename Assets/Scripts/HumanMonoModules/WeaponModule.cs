@@ -54,7 +54,7 @@ namespace Assets.Scripts.HumanMonoModules
         {
             if (CurrentWeapon.CurrentWeaponAttack==null)
             {
-                CurrentWeapon.CurrentWeaponAttack = CurrentWeapon.TrySelectAttack();
+                CurrentWeapon.TrySelectAttack();
             }
             if (CurrentWeapon.CurrentWeaponAttack==null)
             {
@@ -69,9 +69,9 @@ namespace Assets.Scripts.HumanMonoModules
             AttackStateCheck = CheckIfAttackAvailable();
         }
 
-        public void  PrimaryNotify()
+        public bool  PrimaryNotify()
         {
-            Debug.Log("Checked!");
+            return CurrentWeapon.TrySelectAttack();
             
         }
 

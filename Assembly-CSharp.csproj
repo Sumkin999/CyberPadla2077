@@ -225,6 +225,7 @@
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjEditorWeaponCreator.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjWeapon.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponAttacksFolder\WeaponAttackBase.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponAttacksFolder\WeaponAttackFireBullet.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponBase.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponFist.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponPistol.cs" />

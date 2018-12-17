@@ -15,6 +15,7 @@ namespace Assets.Scripts.WeaponsFolder
         public WeaponVisuals WeaponVisulasPrefab;
 
         public bool IsShootOrReload { get; protected set; }
+        public bool IsPrimaryPressed { get; private set; }
 
         public WeaponBase(WeaponMethodsHolder weaponMethodsHolder)
         {
@@ -43,16 +44,18 @@ namespace Assets.Scripts.WeaponsFolder
         }
 
         public WeaponAttackBase CurrentWeaponAttack;
-        public WeaponAttackBase TrySelectAttack()
+        public bool TrySelectAttack()
         {
             foreach (var attack in PotencialAttacks)
             {
                 if (attack.Predicate(this))
                 {
-                    return attack;
+                    CurrentWeaponAttack = attack;
+                    return true;
                 }
             }
-            return null;
+            NotPressedAction();
+            return false;
         }
 
         public void WeaponAttackStateUpdate()
@@ -68,6 +71,16 @@ namespace Assets.Scripts.WeaponsFolder
             {
                 CurrentWeaponAttack.AnyStateUpdateAction();
             }
+        }
+
+        private void NotPressedAction()
+        {
+            
+        }
+
+        private void PressedAction()
+        {
+            IsPrimaryPressed = true;
         }
     }
 }

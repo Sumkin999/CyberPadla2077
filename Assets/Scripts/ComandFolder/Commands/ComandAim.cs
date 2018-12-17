@@ -18,12 +18,12 @@ namespace Assets.Scripts.ComandFolder.Commands
             {
                 if (comandDataAim.IsPrimaryPressed)
                 {
-                    
-                    StateController.WeaponModule.PrimaryNotify();
+
+                    _hasAttack = StateController.WeaponModule.PrimaryNotify();
                 }
                 
             }
-            _hasAttack = StateController.WeaponModule.AttackStateCheck;
+            
 
         }
 
