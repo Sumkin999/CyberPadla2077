@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,36 @@ namespace Assets.Scripts.HumanMonoModules
         public void SpawnWeapon<T>() where  T:WeaponBase//,new()
         {
             InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponMethodsHolder)); //new T(_weaponMethodsHolder));
+        }
+
+        public bool CheckIfAttackAvailable()
+        {
+            if (CurrentWeapon.CurrentWeaponAttack==null)
+            {
+                CurrentWeapon.CurrentWeaponAttack = CurrentWeapon.TrySelectAttack();
+            }
+            if (CurrentWeapon.CurrentWeaponAttack==null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool AttackStateCheck { get; private set; }
+        public void UpdateAction()
+        {
+            AttackStateCheck = CheckIfAttackAvailable();
+        }
+
+        public void  PrimaryNotify()
+        {
+            Debug.Log("Checked!");
+            
+        }
+
+        public void SecondaryNotify()
+        {
+            
         }
 
         

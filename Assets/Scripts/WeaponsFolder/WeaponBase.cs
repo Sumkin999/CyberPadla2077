@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
+using Assets.Scripts.WeaponsFolder.WeaponAttacksFolder;
 using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder
@@ -23,8 +24,9 @@ namespace Assets.Scripts.WeaponsFolder
         }
         public WeaponVisuals WeaponVisuals;
 
-        public bool HasPrimary;
-        public bool HasSecondary;
+        
+
+        public List<WeaponAttackBase> PotencialAttacks=new List<WeaponAttackBase>();
 
         public virtual void WeaponSelectedAction()
         {
@@ -38,6 +40,34 @@ namespace Assets.Scripts.WeaponsFolder
         public virtual void WeaponUpdate()
         {
             
+        }
+
+        public WeaponAttackBase CurrentWeaponAttack;
+        public WeaponAttackBase TrySelectAttack()
+        {
+            foreach (var attack in PotencialAttacks)
+            {
+                if (attack.Predicate(this))
+                {
+                    return attack;
+                }
+            }
+            return null;
+        }
+
+        public void WeaponAttackStateUpdate()
+        {
+            if (CurrentWeaponAttack!=null)
+            {
+                CurrentWeaponAttack.AttackStateUpdateAction();
+            }
+        }
+        public void WeaponAnyStateUpdate()
+        {
+            if (CurrentWeaponAttack != null)
+            {
+                CurrentWeaponAttack.AnyStateUpdateAction();
+            }
         }
     }
 }

@@ -6,12 +6,7 @@ using Assets.Scripts.HumanMonoModules;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
-    /*public interface INeedDataToContinue
-    {
-        bool IsProdlena { get;  set; }
-        void Prodlit();
-        void UnProdlit();
-    }*/
+    
     public class Command
     {
         public StateController StateController;
