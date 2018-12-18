@@ -16,5 +16,14 @@ namespace Assets.Scripts.BrainFolder
 
             facadeI.ComandGet(cmm);
         }
+
+        public void Attack(IFacade facadeI, bool prim, bool secondary)
+        {
+            ComandDataAim cma=new ComandDataAim();
+            cma.IsPrimaryPressed = prim;
+            cma.IsSecondaryPressed = secondary;
+
+            facadeI.ComandGet(cma);
+        }
     }
 }

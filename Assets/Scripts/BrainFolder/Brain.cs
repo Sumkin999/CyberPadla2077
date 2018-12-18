@@ -65,6 +65,20 @@ namespace Assets.Scripts.ComandDataSenderFolder
 
                 WeaponDataSender.SelectNextWeaponComand(Facade,true);
             }
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+            {
+                bool b0 = false;
+                bool b1 = false;
+                if (Input.GetMouseButton(0))
+                {
+                    b0 = true;
+                }
+                if (Input.GetMouseButton(1))
+                {
+                    b1 = true;
+                }
+                WeaponDataSender.Attack(Facade,b0,b1);
+            }
 
 
 

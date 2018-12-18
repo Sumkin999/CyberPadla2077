@@ -27,7 +27,7 @@ namespace Assets.Scripts.HumanMonoModules
         public Path CurrentPath;
         private float nextWaypointDistance = 3;
         private int currentWaypoint = 0;
-        private bool reachedEndOfPath;
+        //private bool reachedEndOfPath;
         private float distanceToWaypoint;
 
         public Vector3 LookAtVector3;
@@ -72,7 +72,8 @@ namespace Assets.Scripts.HumanMonoModules
                 // Check in a loop if we are close enough to the current waypoint to switch to the next one.
                 // We do this in a loop because many waypoints might be close to each other and we may reach
                 // several of them in the same frame.
-                reachedEndOfPath = false;
+                //TODO
+                //reachedEndOfPath = false;
                 // The distance to the next waypoint in the path
 
                 while (true)
@@ -91,7 +92,8 @@ namespace Assets.Scripts.HumanMonoModules
                         {
                             // Set a status variable to indicate that the agent has reached the end of the path.
                             // You can use this to trigger some special code if your game requires that.
-                            reachedEndOfPath = true;
+                            //TODO
+                            //reachedEndOfPath = true;
                             break;
                         }
                     }

@@ -23,7 +23,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
             
             return true;
         }
-        public override void GetInputData(ComandDataBase comandData)
+        protected override void GetInputData(ComandDataBase comandData)
         {
             ComandDataMove comandDataMove=comandData as ComandDataMove;
             if (comandDataMove!=null)
@@ -34,6 +34,20 @@ namespace Assets.Scripts.ComandFolder.ComandData
             
             
         }
+        //TODO
+        /*
+         
+             
+             MovePathControl-получать параметр Вектор3, а 
+             НЕ ЗАДАВАТЬ как
+             StateController.TransformModule.MoveTargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
+
+            в MovePathControl всешда задаетя local направление
+             
+             
+        */
+
+
         protected override void PrepareCommandoAction()
         {
             

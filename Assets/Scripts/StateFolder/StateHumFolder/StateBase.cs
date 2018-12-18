@@ -47,7 +47,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                 {
                     if (command is CommandMove)
                     {
-                        command.GetInputData(comandData);
+                        command.GetInputDataAndStart(comandData);
 
                         return;
                     }
@@ -60,7 +60,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                 {
                     if (command is ComandAim)
                     {
-                        command.GetInputData(comandData);
+                        command.GetInputDataAndStart(comandData);
  
                         return;
                     }
@@ -73,7 +73,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                 {
                     if (command is ComandSelectWeapon)
                     {
-                        command.GetInputData(comandData);
+                        command.GetInputDataAndStart(comandData);
 
                         return;
                     }
@@ -86,7 +86,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                 {
                     if (command is ComandRotate)
                     {
-                        command.GetInputData(comandData);
+                        command.GetInputDataAndStart(comandData);
 
                         return;
                     }

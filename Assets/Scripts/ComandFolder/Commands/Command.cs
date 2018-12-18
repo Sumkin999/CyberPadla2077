@@ -14,9 +14,14 @@ namespace Assets.Scripts.ComandFolder.ComandData
         public bool IsNeededProdlenie { get; protected set; }
         public bool IsProdlena { get; set; }
 
-        public virtual void GetInputData(ComandDataBase comandData)
+        protected virtual void GetInputData(ComandDataBase comandData)
         {
             
+        }
+        public void GetInputDataAndStart(ComandDataBase comandData)
+        {
+            GetInputData(comandData);
+            StartCommando();
         }
         protected virtual bool StartConditionCheck()
         {

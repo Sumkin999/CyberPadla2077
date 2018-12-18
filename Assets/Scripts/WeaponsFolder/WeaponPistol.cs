@@ -20,7 +20,7 @@ namespace Assets.Scripts.WeaponsFolder
         private float _primatyPressedTimer;
         private float _secondaryPressedTimer;
 
-        public override void WeaponAttemptAttackNotify(bool prim, bool secondary)
+        public override void WeaponSetPressedFlags(bool prim, bool secondary)
         {
             if (prim && _primatyPressedTimer<1f)
             {

@@ -8,8 +8,8 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandAttack:Command
     {
-        
-        public override void GetInputData(ComandDataBase comandData)
+
+        protected override void GetInputData(ComandDataBase comandData)
         {
             ComandDataAttack comandDataAttack=comandData as ComandDataAttack;
             if (comandDataAttack!=null)
@@ -17,7 +17,7 @@ namespace Assets.Scripts.ComandFolder.Commands
                 if (comandDataAttack.IsPrimaryPressed)
                 {
 
-                    StateController.WeaponModule.AttempToAttackNotify(comandDataAttack.IsPrimaryPressed,comandDataAttack.IsSecondaryPressed);
+                    StateController.WeaponModule.SetPressedFlags(comandDataAttack.IsPrimaryPressed,comandDataAttack.IsSecondaryPressed);
                     StartCommando();
                 }
             }

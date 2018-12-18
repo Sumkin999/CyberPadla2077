@@ -56,6 +56,13 @@ namespace Assets.Scripts.HumanMonoModules
             CurrentWeapon = InventoryWeapon[0];
             CurrentWeapon.WeaponSelectedAction();
         }
+
+        public void ModuleUpdateAction()
+        {
+            CurrentWeaponAttackAnyStateUpdateAction();
+            UnSetPressedFlags();
+            
+        }
         public void SpawnWeapon<T>() where  T:WeaponBase//,new()
         {
             InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponMethodsHolder)); //new T(_weaponMethodsHolder));
@@ -76,13 +83,22 @@ namespace Assets.Scripts.HumanMonoModules
 
        
 
-        public void  AttempToAttackNotify(bool isPrimaryPressed,bool isSecondaryPressed)
+        public void  SetPressedFlags(bool isPrimaryPressed,bool isSecondaryPressed)
         {
 
-            CurrentWeapon.WeaponAttemptAttackNotify(isPrimaryPressed,isSecondaryPressed);
+            CurrentWeapon.WeaponSetPressedFlags(isPrimaryPressed,isSecondaryPressed);
 
             //return CurrentWeapon.TrySelectAttack();
             
+        }
+
+        public void UnSetPressedFlags()
+        {
+            if (CurrentWeapon!=null)
+            {
+                CurrentWeapon.IsPrimaryPressed = false;
+                CurrentWeapon.IsSecondaryPressed = false;
+            }
         }
 
         public void CurrentWeaponAttackStateUpdateAction()
@@ -99,6 +115,14 @@ namespace Assets.Scripts.HumanMonoModules
             if (CurrentWeapon == null)
             {
                 return;
+            }
+            if (CurrentWeapon.IsPrimaryPressed)
+            {
+                Debug.Log("PRIMARY PRESSED");
+            }
+            else
+            {
+                Debug.Log("NOT PRESSED");
             }
             CurrentWeapon.WeaponAnyStateUpdate();
         }

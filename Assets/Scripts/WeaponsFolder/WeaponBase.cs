@@ -14,9 +14,9 @@ namespace Assets.Scripts.WeaponsFolder
         protected WeaponMethodsHolder WeaponMethodsHolder;
         public WeaponVisuals WeaponVisulasPrefab;
 
-        public bool IsShootOrReload { get; protected set; }
-        public bool IsPrimaryPressed { get; protected set; }
-        public bool IsSecondaryPressed { get; protected set; }
+        public bool IsShootOrReload { get;  set; }
+        public bool IsPrimaryPressed { get;  set; }
+        public bool IsSecondaryPressed { get;  set; }
 
         public WeaponBase(WeaponMethodsHolder weaponMethodsHolder)
         {
@@ -74,7 +74,7 @@ namespace Assets.Scripts.WeaponsFolder
             }
         }
 
-        public virtual void WeaponAttemptAttackNotify(bool prim,bool secondary)
+        public virtual void WeaponSetPressedFlags(bool prim,bool secondary)
         {
             IsPrimaryPressed = prim;
             IsSecondaryPressed = secondary;

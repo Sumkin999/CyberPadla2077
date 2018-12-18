@@ -17,7 +17,7 @@ namespace Assets.Scripts.ComandFolder.Commands
         private Vector3 _targetVector3;
 
 
-        public override void GetInputData(ComandDataBase comandData)
+        protected override void GetInputData(ComandDataBase comandData)
         {
             ComandDataRotate comandDataRotate = comandData as ComandDataRotate;
             if (comandDataRotate != null)

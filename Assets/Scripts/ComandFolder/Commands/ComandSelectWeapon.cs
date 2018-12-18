@@ -9,7 +9,7 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandSelectWeapon:Command
     {
-        public override void GetInputData(ComandDataBase comandData)
+        protected override void GetInputData(ComandDataBase comandData)
         {
             StartCommando();
         }

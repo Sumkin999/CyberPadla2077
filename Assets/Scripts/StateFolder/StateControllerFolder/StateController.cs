@@ -55,7 +55,7 @@ namespace Assets.Scripts.HumanMonoModules
             }
 
 
-            WeaponModule.CurrentWeaponAttackAnyStateUpdateAction();
+            WeaponModule.ModuleUpdateAction();
         }
 
         public void StateControllerFixedUpdateAction()
