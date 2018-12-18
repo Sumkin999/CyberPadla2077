@@ -17,27 +17,24 @@ namespace Assets.Scripts.ComandFolder.Commands
                 if (comandDataAttack.IsPrimaryPressed)
                 {
 
-                    StateController.WeaponModule.PrimaryNotify();
+                    StateController.WeaponModule.AttempToAttackNotify(comandDataAttack.IsPrimaryPressed,comandDataAttack.IsSecondaryPressed);
+                    StartCommando();
                 }
             }
 
         }
-        protected override bool StartConditionCheck()
-        {
-           
-            return true;
-        }
+        
 
         protected override void ExecuteAction()
         {
-            StateController.WeaponModule.CurrentWeapon.WeaponUpdate();
-            StateController.WeaponModule.CurrentWeapon.WeaponAnyStateUpdate();
-            StateController.WeaponModule.CurrentWeapon.WeaponAttackStateUpdate();
+            
+            
+            StateController.WeaponModule.CurrentWeaponAttackStateUpdateAction();
         }
 
         protected override bool ContinueCommandoCheck()
         {
-            if (StateController.WeaponModule.AttackStateCheck)
+            if (StateController.WeaponModule.CheckIfAttackAvailable())
             {
                 return true;
             }

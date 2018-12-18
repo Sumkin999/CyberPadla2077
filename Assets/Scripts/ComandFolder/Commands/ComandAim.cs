@@ -10,40 +10,41 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandAim:Command
     {
-        private bool _hasAttack;
+        
         public override void GetInputData(ComandDataBase comandData)
         {
             ComandDataAim comandDataAim=comandData as ComandDataAim;
             if (comandDataAim!=null)
             {
-                if (comandDataAim.IsPrimaryPressed)
-                {
-
-                    _hasAttack = StateController.WeaponModule.PrimaryNotify();
-                }
                 
+                StateController.WeaponModule.AttempToAttackNotify(comandDataAim.IsPrimaryPressed,comandDataAim.IsSecondaryPressed);
+
+                StartCommando();
             }
             
 
         }
 
-        protected override bool StartConditionCheck()
+        private bool _r;
+        protected override void ExecuteAction()
         {
-            if (!_hasAttack)
-            {
-                return false;
-            }   
-            return true;
-        }
-        protected override void PrepareCommandoAction()
-        {
+
+            _r = StateController.WeaponModule.CheckIfAttackAvailable();
             
+            if (!_r)
+            {
+                return;
+            }
             if (!StateController.CurrentState.StateFlags.IsAiming)
             {
                 
                 StateController.Triggers.Add(TriggersTemp.TriggerAim);
             }
             
+        }
+        protected override bool ContinueCommandoCheck()
+        {
+            return _r;
         }
 
     }

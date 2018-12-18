@@ -32,7 +32,7 @@ namespace Assets.Scripts.HumanMonoModules
     public class WeaponModule:MonoBehaviour
     {
         
-        public WeaponBase CurrentWeapon;
+        protected WeaponBase CurrentWeapon;
 
         private FacadeHumanMono _facadeHuman;
 
@@ -45,6 +45,17 @@ namespace Assets.Scripts.HumanMonoModules
         public List<WeaponBase> InventoryWeapon=new List<WeaponBase>();
 
         private WeaponMethodsHolder _weaponMethodsHolder;
+
+        public void IniciateWeaponModule()
+        {
+            SpawnWeapon<WeaponFist>();
+            SpawnWeapon<WeaponPistol>();
+            SpawnWeapon<WeaponUzi>();
+
+
+            CurrentWeapon = InventoryWeapon[0];
+            CurrentWeapon.WeaponSelectedAction();
+        }
         public void SpawnWeapon<T>() where  T:WeaponBase//,new()
         {
             InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponMethodsHolder)); //new T(_weaponMethodsHolder));
@@ -63,23 +74,76 @@ namespace Assets.Scripts.HumanMonoModules
             return true;
         }
 
-        public bool AttackStateCheck { get; private set; }
-        public void UpdateAction()
-        {
-            AttackStateCheck = CheckIfAttackAvailable();
-        }
+       
 
-        public bool  PrimaryNotify()
+        public void  AttempToAttackNotify(bool isPrimaryPressed,bool isSecondaryPressed)
         {
-            return CurrentWeapon.TrySelectAttack();
+
+            CurrentWeapon.WeaponAttemptAttackNotify(isPrimaryPressed,isSecondaryPressed);
+
+            //return CurrentWeapon.TrySelectAttack();
             
         }
 
-        public void SecondaryNotify()
+        public void CurrentWeaponAttackStateUpdateAction()
         {
+            if (CurrentWeapon==null)
+            {
+                return;
+            }
+            CurrentWeapon.WeaponAttackStateUpdate();
+        }
+
+        public void CurrentWeaponAttackAnyStateUpdateAction()
+        {
+            if (CurrentWeapon == null)
+            {
+                return;
+            }
+            CurrentWeapon.WeaponAnyStateUpdate();
+        }
+
+        public void CurrentWeaponDeselectedAction()
+        {
+            if (CurrentWeapon==null)
+            {
+                return;
+            }
+            CurrentWeapon.WeaponDeselectedAction();
+        }
+
+        public void CurrentWeaponSelectedAction()
+        {
+            if (CurrentWeapon == null)
+            {
+                return;
+            }
+            CurrentWeapon.WeaponSelectedAction();
+        }
+
+        public void SelectNextWeapon()
+        {
+            int index = 0;
+            if (CurrentWeapon!=null)
+            {
+                CurrentWeapon.WeaponDeselectedAction();
+                index = InventoryWeapon.IndexOf(CurrentWeapon);
+                index++;
+            }
+             
             
+            if (index >= InventoryWeapon.Count)
+            {
+                index = 0;
+            }
+            CurrentWeapon = InventoryWeapon[index];
+            CurrentWeapon.WeaponSelectedAction();
         }
 
         
+
+
+
+
     }
 }

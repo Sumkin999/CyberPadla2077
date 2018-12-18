@@ -15,7 +15,8 @@ namespace Assets.Scripts.WeaponsFolder
         public WeaponVisuals WeaponVisulasPrefab;
 
         public bool IsShootOrReload { get; protected set; }
-        public bool IsPrimaryPressed { get; private set; }
+        public bool IsPrimaryPressed { get; protected set; }
+        public bool IsSecondaryPressed { get; protected set; }
 
         public WeaponBase(WeaponMethodsHolder weaponMethodsHolder)
         {
@@ -54,7 +55,7 @@ namespace Assets.Scripts.WeaponsFolder
                     return true;
                 }
             }
-            NotPressedAction();
+            
             return false;
         }
 
@@ -73,14 +74,13 @@ namespace Assets.Scripts.WeaponsFolder
             }
         }
 
-        private void NotPressedAction()
+        public virtual void WeaponAttemptAttackNotify(bool prim,bool secondary)
         {
-            
+            IsPrimaryPressed = prim;
+            IsSecondaryPressed = secondary;
+            //Потом в любом случае в false in Update
         }
 
-        private void PressedAction()
-        {
-            IsPrimaryPressed = true;
-        }
+        
     }
 }

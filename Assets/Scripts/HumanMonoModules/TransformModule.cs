@@ -50,6 +50,7 @@ namespace Assets.Scripts.HumanMonoModules
 
         public void MovePathControl()
         {
+            
             _previousMoveTargetVector3 = MoveTargetVector3;
 
             _localTarget = MoveTargetVector3;

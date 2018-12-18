@@ -29,12 +29,14 @@ namespace Assets.Scripts.ComandFolder.ComandData
             if (comandDataMove!=null)
             {
                 _targetVector3 = comandDataMove.Vector3;
+                StartCommando();
             }
             
             
         }
         protected override void PrepareCommandoAction()
         {
+            
             //TODO ПЕРЕДЕЛАТЬ
             StateController.TransformModule.MoveTargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
             StateController.TransformModule.MoveTargetVector3.Normalize();
@@ -59,6 +61,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         protected override void ExecuteAction()
         {
+
             StateController.TransformModule.MovePathControl();
             StateController.TransformModule.MoveAnimationControl();
             

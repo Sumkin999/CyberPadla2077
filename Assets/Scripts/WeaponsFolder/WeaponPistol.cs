@@ -17,7 +17,22 @@ namespace Assets.Scripts.WeaponsFolder
             //WeaponVisuals = new WeaponVisuals();
         }
 
-        public int In;
+        private float _primatyPressedTimer;
+        private float _secondaryPressedTimer;
+
+        public override void WeaponAttemptAttackNotify(bool prim, bool secondary)
+        {
+            if (prim && _primatyPressedTimer<1f)
+            {
+                _primatyPressedTimer += Time.deltaTime * 2f;
+            }
+            if (secondary && _secondaryPressedTimer<1f)
+            {
+                _secondaryPressedTimer += Time.deltaTime * 2f;
+            }
+            
+        }
+
         public override void WeaponSelectedAction()
         {
             WeaponMethodsHolder.SetAnimatorWeaponSelected(this);
@@ -29,5 +44,7 @@ namespace Assets.Scripts.WeaponsFolder
             WeaponMethodsHolder.SetAnimatorWeaponDeSelected(this);
             Debug.Log("Pistol Hided!");
         }
+
+        
     }
 }

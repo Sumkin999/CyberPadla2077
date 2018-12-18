@@ -53,11 +53,16 @@ namespace Assets.Scripts.HumanMonoModules
 
                 Triggers.RemoveAt(0);
             }
+
+
+            WeaponModule.CurrentWeaponAttackAnyStateUpdateAction();
         }
 
         public void StateControllerFixedUpdateAction()
         {
             CurrentState.StateFixedUpdateAction();
         }
+
+        
     }
 }

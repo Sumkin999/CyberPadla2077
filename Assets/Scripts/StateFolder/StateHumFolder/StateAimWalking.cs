@@ -25,7 +25,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         }
         public override void StateEnterAction()
         {
-            StateController.AnimatorModule.ToggleAim(true, StateController.WeaponModule.CurrentWeapon);
+            //StateController.AnimatorModule.ToggleAim(true, StateController.WeaponModule.CurrentWeapon);
             StateController.AnimatorModule.ToggleWalk(true);
         }
 
@@ -33,7 +33,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         {
             if (!stateTo.StateFlags.IsAiming)
             {
-                StateController.AnimatorModule.ToggleAim(false, StateController.WeaponModule.CurrentWeapon);
+                //StateController.AnimatorModule.ToggleAim(false, StateController.WeaponModule.CurrentWeapon);
             }
         }
     }

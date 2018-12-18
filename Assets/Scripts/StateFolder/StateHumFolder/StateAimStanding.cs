@@ -28,14 +28,14 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         }
         public override void StateEnterAction()
         {
-            StateController.AnimatorModule.ToggleAim(true, StateController.WeaponModule.CurrentWeapon);
+            //StateController.AnimatorModule.ToggleAim(true, StateController.WeaponModule.CurrentWeapon);
             StateController.AnimatorModule.ToggleWalk(false);
         }
         public override void StateExitAction(StateBase stateTo)
         {
             if (!stateTo.StateFlags.IsAiming)
             {
-                StateController.AnimatorModule.ToggleAim(false, StateController.WeaponModule.CurrentWeapon);
+                //StateController.AnimatorModule.ToggleAim(false, StateController.WeaponModule.CurrentWeapon);
             }
         }
     }

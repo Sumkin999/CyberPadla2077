@@ -9,6 +9,10 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandSelectWeapon:Command
     {
+        public override void GetInputData(ComandDataBase comandData)
+        {
+            StartCommando();
+        }
         protected override bool StartConditionCheck()
         {
             
@@ -21,16 +25,9 @@ namespace Assets.Scripts.ComandFolder.Commands
         }
         protected override void PrepareCommandoAction()
         {
-            StateController.WeaponModule.CurrentWeapon.WeaponDeselectedAction();
+            StateController.WeaponModule.SelectNextWeapon();
 
-            int index = StateController.WeaponModule.InventoryWeapon.IndexOf(StateController.WeaponModule.CurrentWeapon);
-            index++;
-            if (index>= StateController.WeaponModule.InventoryWeapon.Count)
-            {
-                index = 0;
-            }
-            StateController.WeaponModule.CurrentWeapon = StateController.WeaponModule.InventoryWeapon[index];
-            StateController.WeaponModule.CurrentWeapon.WeaponSelectedAction();
+            
 
 
         }
