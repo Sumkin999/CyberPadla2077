@@ -13,12 +13,9 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
             return false;
         }
 
-        public virtual void AttackStateUpdateAction()
-        {
-            
-        }
+       
 
-        public virtual void AnyStateUpdateAction()
+        public virtual void ExecuteAttack()
         {
             
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
+using Assets.Scripts.WeaponsFolder.WeaponAttacksFolder;
 using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder
@@ -14,6 +15,7 @@ namespace Assets.Scripts.WeaponsFolder
         {
             WeaponMethodsHolder = weaponMethodsHolder;
 
+            PotencialAttacks.Add(new WeaponAttackFireBullet());
             //WeaponVisuals = new WeaponVisuals();
         }
 
@@ -22,6 +24,8 @@ namespace Assets.Scripts.WeaponsFolder
 
         public override void WeaponSetPressedFlags(bool prim, bool secondary)
         {
+            IsPrimaryPressed = prim;
+            IsSecondaryPressed = secondary;
             if (prim && _primatyPressedTimer<1f)
             {
                 _primatyPressedTimer += Time.deltaTime * 2f;

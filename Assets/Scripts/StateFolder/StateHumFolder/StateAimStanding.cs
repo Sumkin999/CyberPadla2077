@@ -14,7 +14,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         {
             StateController = stateController;
             CommandsInState.Add(new CommandMove(true));
-            CommandsInState.Add(new ComandAim());
+            CommandsInState.Add(new ComandAttack());
             CommandsInState.Add(new ComandRotate(true));
 
             CommandsInState[0].StateController = StateController;

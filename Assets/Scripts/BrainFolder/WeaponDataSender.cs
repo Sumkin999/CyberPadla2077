@@ -20,10 +20,15 @@ namespace Assets.Scripts.BrainFolder
         public void Attack(IFacade facadeI, bool prim, bool secondary)
         {
             ComandDataAim cma=new ComandDataAim();
+            ComandDataAttack cda=new ComandDataAttack();
             cma.IsPrimaryPressed = prim;
             cma.IsSecondaryPressed = secondary;
 
+            cda.IsPrimaryPressed = prim;
+            cda.IsSecondaryPressed = secondary;
+
             facadeI.ComandGet(cma);
+            facadeI.ComandGet(cda);
         }
     }
 }

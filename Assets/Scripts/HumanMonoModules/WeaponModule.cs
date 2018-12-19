@@ -70,12 +70,16 @@ namespace Assets.Scripts.HumanMonoModules
 
         public bool CheckIfAttackAvailable()
         {
-            if (CurrentWeapon.CurrentWeaponAttack==null)
+            if (CurrentWeapon==null)
             {
-                CurrentWeapon.TrySelectAttack();
+                return false;
             }
+            
+            CurrentWeapon.TrySelectAttack();
+            
             if (CurrentWeapon.CurrentWeaponAttack==null)
             {
+                
                 return false;
             }
             return true;
@@ -87,8 +91,6 @@ namespace Assets.Scripts.HumanMonoModules
         {
 
             CurrentWeapon.WeaponSetPressedFlags(isPrimaryPressed,isSecondaryPressed);
-
-            //return CurrentWeapon.TrySelectAttack();
             
         }
 
@@ -101,14 +103,7 @@ namespace Assets.Scripts.HumanMonoModules
             }
         }
 
-        public void CurrentWeaponAttackStateUpdateAction()
-        {
-            if (CurrentWeapon==null)
-            {
-                return;
-            }
-            CurrentWeapon.WeaponAttackStateUpdate();
-        }
+        
 
         public void CurrentWeaponAttackAnyStateUpdateAction()
         {
@@ -122,28 +117,22 @@ namespace Assets.Scripts.HumanMonoModules
             }
             else
             {
-                Debug.Log("NOT PRESSED");
+                Debug.Log("NOT PPRESSED");
             }
-            CurrentWeapon.WeaponAnyStateUpdate();
+            if (CurrentWeapon.IsSecondaryPressed)
+            {
+                Debug.Log("SECONDARY PRESSED");
+            }
+            else
+            {
+                Debug.Log("NOT SPRESSED");
+            }
+            CurrentWeapon.WeaponUpdate();
         }
 
-        public void CurrentWeaponDeselectedAction()
-        {
-            if (CurrentWeapon==null)
-            {
-                return;
-            }
-            CurrentWeapon.WeaponDeselectedAction();
-        }
+        
 
-        public void CurrentWeaponSelectedAction()
-        {
-            if (CurrentWeapon == null)
-            {
-                return;
-            }
-            CurrentWeapon.WeaponSelectedAction();
-        }
+        
 
         public void SelectNextWeapon()
         {

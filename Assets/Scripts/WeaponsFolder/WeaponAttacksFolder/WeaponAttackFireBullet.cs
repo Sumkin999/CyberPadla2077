@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 {
@@ -9,6 +10,7 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
     {
         public override bool Predicate(WeaponBase weaponBase)
         {
+            Debug.Log("PRED");
             if (weaponBase.IsPrimaryPressed)
             {
                 return true;
@@ -16,14 +18,12 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
             return false;
         }
 
-        public override void AttackStateUpdateAction()
+
+        
+
+        public override void ExecuteAttack()
         {
-
-        }
-
-        public override void AnyStateUpdateAction()
-        {
-
+            Debug.Log("FIRE");
         }
     }
 }

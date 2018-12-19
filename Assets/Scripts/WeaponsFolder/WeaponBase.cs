@@ -39,10 +39,7 @@ namespace Assets.Scripts.WeaponsFolder
         {
             
         }
-        public virtual void WeaponUpdate()
-        {
-            
-        }
+        
 
         public WeaponAttackBase CurrentWeaponAttack;
         public bool TrySelectAttack()
@@ -55,22 +52,17 @@ namespace Assets.Scripts.WeaponsFolder
                     return true;
                 }
             }
-            
+            Debug.Log("No attack");
+            CurrentWeaponAttack = null;
             return false;
         }
 
-        public void WeaponAttackStateUpdate()
-        {
-            if (CurrentWeaponAttack!=null)
-            {
-                CurrentWeaponAttack.AttackStateUpdateAction();
-            }
-        }
-        public void WeaponAnyStateUpdate()
+        
+        public void WeaponUpdate()
         {
             if (CurrentWeaponAttack != null)
             {
-                CurrentWeaponAttack.AnyStateUpdateAction();
+                CurrentWeaponAttack.ExecuteAttack();
             }
         }
 
