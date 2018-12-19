@@ -15,7 +15,7 @@ namespace Assets.Scripts.WeaponsFolder
         {
             WeaponMethodsHolder = weaponMethodsHolder;
 
-            PotencialAttacks.Add(new WeaponAttackFireBullet());
+            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponMethodsHolder));
             //WeaponVisuals = new WeaponVisuals();
         }
 

@@ -29,7 +29,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
             if (comandDataMove!=null)
             {
                 _targetVector3 = comandDataMove.Vector3;
-                StartCommando();
+                //StartCommando();
             }
             
             

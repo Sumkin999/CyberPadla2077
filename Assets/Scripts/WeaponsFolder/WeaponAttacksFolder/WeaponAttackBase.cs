@@ -8,6 +8,12 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 {
     public class WeaponAttackBase
     {
+        public WeaponAttackBase(WeaponMethodsHolder weaponMethodsHolder)
+        {
+            WeaponMethodsHolder = weaponMethodsHolder;
+        }
+        protected WeaponMethodsHolder WeaponMethodsHolder;
+
         public virtual bool Predicate(WeaponBase weaponBase)
         {
             return false;

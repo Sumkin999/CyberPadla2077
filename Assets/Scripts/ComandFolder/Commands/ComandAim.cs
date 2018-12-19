@@ -19,7 +19,7 @@ namespace Assets.Scripts.ComandFolder.Commands
                 
                 StateController.WeaponModule.SetPressedFlags(comandDataAim.IsPrimaryPressed,comandDataAim.IsSecondaryPressed);
 
-                StartCommando();
+                //StartCommando();
             }
             
 

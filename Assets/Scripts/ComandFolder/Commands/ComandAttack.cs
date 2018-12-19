@@ -19,7 +19,7 @@ namespace Assets.Scripts.ComandFolder.Commands
                 {
 
                     StateController.WeaponModule.SetPressedFlags(comandDataAttack.IsPrimaryPressed,comandDataAttack.IsSecondaryPressed);
-                    StartCommando();
+                    //StartCommando();
                 }
             }
 
@@ -32,7 +32,7 @@ namespace Assets.Scripts.ComandFolder.Commands
             _r = StateController.WeaponModule.CheckIfAttackAvailable();
             if (_r)
             {
-                StateController.WeaponModule.CurrentWeaponAttackAnyStateUpdateAction();  
+                //StateController.WeaponModule.CurrentWeaponAttackAnyStateUpdateAction();  
             }
             
 

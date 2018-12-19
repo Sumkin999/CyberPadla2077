@@ -11,7 +11,7 @@ namespace Assets.Scripts.ComandFolder.Commands
     {
         protected override void GetInputData(ComandDataBase comandData)
         {
-            StartCommando();
+            
         }
         protected override bool StartConditionCheck()
         {

@@ -23,7 +23,7 @@ namespace Assets.Scripts.ComandFolder.Commands
             if (comandDataRotate != null)
             {
                 _targetVector3 = comandDataRotate.LookAtVector3;
-                StartCommando();
+                //StartCommando();
             }
         }
 

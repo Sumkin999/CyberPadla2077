@@ -29,7 +29,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         }
 
         public bool Iniciated { get; private set; }
-        protected void StartCommando()
+        private void StartCommando()
         {
 
             

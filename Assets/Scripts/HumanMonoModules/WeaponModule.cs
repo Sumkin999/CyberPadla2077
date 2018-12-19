@@ -17,7 +17,7 @@ namespace Assets.Scripts.HumanMonoModules
         }
         public void SetShotAnimation()
         {
-
+            _facadeHuman.AnimatorModule.Animator.SetTrigger("ShotTrigger");
         }
 
         public virtual void SetAnimatorWeaponSelected(WeaponBase weaponBase)
