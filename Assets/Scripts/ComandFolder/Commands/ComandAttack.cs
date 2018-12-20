@@ -26,14 +26,10 @@ namespace Assets.Scripts.ComandFolder.Commands
         }
 
 
-        private bool _r;
+        
         protected override void ExecuteAction()
         {
-            _r = StateController.WeaponModule.CheckIfAttackAvailable();
-            if (_r)
-            {
-                //StateController.WeaponModule.CurrentWeaponAttackAnyStateUpdateAction();  
-            }
+            
             
 
 

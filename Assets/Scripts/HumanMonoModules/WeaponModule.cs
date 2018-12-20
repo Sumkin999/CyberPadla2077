@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.WeaponsFolder;
+using Assets.Scripts.WeaponsFolder.ScrObjectsWeapon;
 using UnityEngine;
 
 namespace Assets.Scripts.HumanMonoModules
@@ -11,10 +12,13 @@ namespace Assets.Scripts.HumanMonoModules
     public class WeaponMethodsHolder
     {
         private FacadeHumanMono _facadeHuman;
-        public WeaponMethodsHolder(FacadeHumanMono facadeHuman)
+        private Transform _rightHandTransform;
+        public WeaponMethodsHolder(FacadeHumanMono facadeHuman,Transform rightHandTransform)
         {
             _facadeHuman = facadeHuman;
+            _rightHandTransform = rightHandTransform;
         }
+
         public void SetShotAnimation()
         {
             _facadeHuman.AnimatorModule.Animator.SetTrigger("ShotTrigger");
@@ -28,10 +32,20 @@ namespace Assets.Scripts.HumanMonoModules
         {
             _facadeHuman.AnimatorModule.ToggleAim(false,weaponBase);
         }
+
+        public void SpawnPistolAtRightHand()
+        {
+            GameObject pistolGameObject =
+                GameObject.Instantiate(_facadeHuman.WeaponModule.ScrObjWeaponPistol.VisualPrefab,
+                    _facadeHuman.WeaponModule.RightHandTransform.position, Quaternion.identity);
+
+            pistolGameObject.transform.parent = _facadeHuman.WeaponModule.RightHandTransform;
+        }
     }
     public class WeaponModule:MonoBehaviour
     {
         
+        public ScrObjWeaponPistol ScrObjWeaponPistol;
         protected WeaponBase CurrentWeapon;
 
         private FacadeHumanMono _facadeHuman;
@@ -39,12 +53,14 @@ namespace Assets.Scripts.HumanMonoModules
         public void SetFacade(FacadeHumanMono facadeHumanMono)
         {
             _facadeHuman = facadeHumanMono;
-            _weaponMethodsHolder=new WeaponMethodsHolder(_facadeHuman);
+            _weaponMethodsHolder=new WeaponMethodsHolder(_facadeHuman,RightHandTransform);
         }
 
         public List<WeaponBase> InventoryWeapon=new List<WeaponBase>();
 
         private WeaponMethodsHolder _weaponMethodsHolder;
+
+        public Transform RightHandTransform;
 
         public void IniciateWeaponModule()
         {
@@ -59,7 +75,7 @@ namespace Assets.Scripts.HumanMonoModules
 
         public void ModuleUpdateAction()
         {
-            CurrentWeaponAttackAnyStateUpdateAction();
+            CurrentWeaponExecuteAttack();
             UnSetPressedFlags();
             
         }
@@ -105,28 +121,13 @@ namespace Assets.Scripts.HumanMonoModules
 
         
 
-        public void CurrentWeaponAttackAnyStateUpdateAction()
+        public void CurrentWeaponExecuteAttack()
         {
             if (CurrentWeapon == null)
             {
                 return;
             }
-            if (CurrentWeapon.IsPrimaryPressed)
-            {
-                Debug.Log("PRIMARY PRESSED");
-            }
-            else
-            {
-                Debug.Log("NOT PPRESSED");
-            }
-            if (CurrentWeapon.IsSecondaryPressed)
-            {
-                Debug.Log("SECONDARY PRESSED");
-            }
-            else
-            {
-                Debug.Log("NOT SPRESSED");
-            }
+            
             CurrentWeapon.WeaponUpdate();
         }
 

@@ -221,16 +221,17 @@
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateConnections\StateConnection.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\StateNode.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponMonoFolder\WeaponPistolMono.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\CustomeditorWeaponsCreator.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjEditorWeaponCreator.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjWeapon.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponAttacksFolder\WeaponAttackBase.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\WeaponAttacksFolder\WeaponAttackFireBullet.cs" />
-    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponBase.cs" />
-    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponFist.cs" />
-    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponPistol.cs" />
-    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponUzi.cs" />
-    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponVisuals.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponBase.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponFist.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponPistol.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponUzi.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponVisuals.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/TestProjects/CyberPadla2077/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -14,6 +14,11 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
         }
         protected WeaponMethodsHolder WeaponMethodsHolder;
 
+        public virtual void NullingAction()
+        {
+            
+        }
+
         public virtual bool Predicate(WeaponBase weaponBase)
         {
             return false;

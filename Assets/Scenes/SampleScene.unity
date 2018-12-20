@@ -309,7 +309,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4b7e5ff41fb40eb40929ae922ac3faeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -426,6 +426,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 43.805, y: 0, z: 0}
+--- !u!4 &694340046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400084, guid: 4210ffdcfc4f64a4fa527833ff7e632e,
+    type: 3}
+  m_PrefabInternal: {fileID: 842634559}
 --- !u!1 &715615276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: 4210ffdcfc4f64a4fa527833ff7e632e,
@@ -579,10 +584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81bf7436248630446ae53b39a3c89744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon:
-    WeaponVisulasPrefab: {fileID: 0}
-    WeaponVisuals: {fileID: 0}
+  ScrObjWeaponPistol: {fileID: 11400000, guid: 42f2e38a3ac67034bbed9c7138ca0812, type: 2}
   InventoryWeapon: []
+  RightHandTransform: {fileID: 694340046}
 --- !u!114 &838452993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,10 +1016,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81bf7436248630446ae53b39a3c89744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon:
-    WeaponVisulasPrefab: {fileID: 0}
-    WeaponVisuals: {fileID: 0}
+  ScrObjWeaponPistol: {fileID: 0}
   InventoryWeapon: []
+  RightHandTransform: {fileID: 0}
 --- !u!114 &1332477357
 MonoBehaviour:
   m_ObjectHideFlags: 0

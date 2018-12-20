@@ -15,7 +15,7 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
         }
         public override bool Predicate(WeaponBase weaponBase)
         {
-            Debug.Log("PRED");
+
             if (weaponBase.IsPrimaryPressed)
             {
                 return true;
