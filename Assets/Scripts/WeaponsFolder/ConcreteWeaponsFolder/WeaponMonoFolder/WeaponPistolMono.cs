@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder.ConcreteWeaponsFolder.WeaponMonoFolder
 {
-    public class WeaponPistolMono:MonoBehaviour
+    public class WeaponPistolMono:WeaponVisuals
     {
         public GameObject PistolGameObject;
         public ParticleSystem MuzzleParticleSystem;

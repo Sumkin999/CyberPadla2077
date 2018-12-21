@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
+using Assets.Scripts.WeaponsFolder.ConcreteWeaponsFolder.WeaponMonoFolder;
 using Assets.Scripts.WeaponsFolder.WeaponAttacksFolder;
 using UnityEngine;
 
@@ -16,9 +17,14 @@ namespace Assets.Scripts.WeaponsFolder
             WeaponMethodsHolder = weaponMethodsHolder;
 
             PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponMethodsHolder));
+
+            WeaponPistolMono = weaponMethodsHolder.SpawnPistolAtRightHand() ;
+
+            
             //WeaponVisuals = new WeaponVisuals();
         }
 
+        public WeaponPistolMono WeaponPistolMono;
         private float _primatyPressedTimer;
         private float _secondaryPressedTimer;
 
@@ -40,13 +46,13 @@ namespace Assets.Scripts.WeaponsFolder
         public override void WeaponSelectedAction()
         {
            // WeaponMethodsHolder.SetAnimatorWeaponSelected(this);
-           WeaponMethodsHolder.SpawnPistolAtRightHand();
+           WeaponPistolMono.gameObject.SetActive(true);
             Debug.Log("Pistol Selected!");
         }
 
         public override void WeaponDeselectedAction()
         {
-            WeaponMethodsHolder.SetAnimatorWeaponDeSelected(this);
+            WeaponPistolMono.gameObject.SetActive(false);
             Debug.Log("Pistol Hided!");
         }
 

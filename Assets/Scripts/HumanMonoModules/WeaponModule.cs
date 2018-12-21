@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.WeaponsFolder;
+using Assets.Scripts.WeaponsFolder.ConcreteWeaponsFolder.WeaponMonoFolder;
 using Assets.Scripts.WeaponsFolder.ScrObjectsWeapon;
 using UnityEngine;
 
@@ -33,13 +34,19 @@ namespace Assets.Scripts.HumanMonoModules
             _facadeHuman.AnimatorModule.ToggleAim(false,weaponBase);
         }
 
-        public void SpawnPistolAtRightHand()
+        public WeaponPistolMono SpawnPistolAtRightHand()
         {
             GameObject pistolGameObject =
                 GameObject.Instantiate(_facadeHuman.WeaponModule.ScrObjWeaponPistol.VisualPrefab,
                     _facadeHuman.WeaponModule.RightHandTransform.position, Quaternion.identity);
 
             pistolGameObject.transform.parent = _facadeHuman.WeaponModule.RightHandTransform;
+            pistolGameObject.transform.localPosition=new Vector3(0,.0015f,.0005f);
+            pistolGameObject.transform.localEulerAngles=new Vector3(-12.5f,265,-190);
+
+            pistolGameObject.SetActive(false);
+
+            return pistolGameObject.GetComponent<WeaponPistolMono>();
         }
     }
     public class WeaponModule:MonoBehaviour
