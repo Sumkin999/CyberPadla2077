@@ -8,13 +8,13 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 {
     public class WeaponAttackBase
     {
-        public WeaponAttackBase(WeaponModuleMethodsHolder weaponModuleMethodsHolder,WeaponMethodsHolder weaponMethodsHolder)
+        public WeaponAttackBase(WeaponModuleMethodsHolder weaponModuleMethodsHolder)
         {
             WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
-            WeaponMethodsHolder = weaponMethodsHolder;
+            
         }
         protected WeaponModuleMethodsHolder WeaponModuleMethodsHolder;
-        protected WeaponMethodsHolder WeaponMethodsHolder;
+        
 
         public virtual void NullingAction()
         {

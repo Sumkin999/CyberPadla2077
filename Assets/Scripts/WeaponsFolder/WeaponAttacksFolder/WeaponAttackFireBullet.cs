@@ -9,10 +9,13 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 {
     public class WeaponAttackFireBullet:WeaponAttackBase
     {
-        public WeaponAttackFireBullet(WeaponModuleMethodsHolder weaponModuleMethodsHolder,WeaponMethodsHolder weaponMethodsHolder):base(weaponModuleMethodsHolder,weaponMethodsHolder)
+        private IWeaponHasTimers _iWeaponHasTimers;
+        private IWeaponHasMuzzle _iweaponHasMuzzle;
+        public WeaponAttackFireBullet(WeaponModuleMethodsHolder weaponModuleMethodsHolder,IWeaponHasTimers iWeaponHasTimers,IWeaponHasMuzzle iWeaponHasMuzzle ):base(weaponModuleMethodsHolder)
         {
             WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
-            WeaponMethodsHolder = weaponMethodsHolder;
+            _iWeaponHasTimers = iWeaponHasTimers;
+            _iweaponHasMuzzle = iWeaponHasMuzzle;
         }
         public override bool Predicate(WeaponBase weaponBase)
         {
@@ -25,18 +28,19 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
         }
 
 
-        private float _primatyPressedTimer;
+      
 
         public override void ExecuteAttack()
         {
-            _primatyPressedTimer += Time.deltaTime;
+            
 
-            if (_primatyPressedTimer>1f)
+            if (_iWeaponHasTimers.PrimaryPressedTimer>1f)
             {
                 WeaponModuleMethodsHolder.SetShotAnimation();
                 Debug.Log("FIRE");
+                _iweaponHasMuzzle.CreateMuzzle();
 
-                _primatyPressedTimer = 0;
+                _iWeaponHasTimers.PrimaryPressedTimer = 0;
             }
             
             

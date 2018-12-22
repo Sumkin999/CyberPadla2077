@@ -10,18 +10,18 @@ using UnityEngine;
 namespace Assets.Scripts.WeaponsFolder
 {
     [System.Serializable]
-    public class WeaponPistol:WeaponBase
+    public class WeaponPistol:WeaponBase,IWeaponHasTimers,IWeaponHasMuzzle
     {
         public WeaponPistol(WeaponModuleMethodsHolder weaponModuleMethodsHolder):base(weaponModuleMethodsHolder)
         {
             EnumWeaponType=EnumWeaponType.Pistol;
 
-            WeaponMethodsHolder = new WeaponMethodsHolder(this);
+
 
             InstantiateMonoForThisWeapon();
             WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
 
-            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponModuleMethodsHolder,WeaponMethodsHolder));
+            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponModuleMethodsHolder,this,this));
 
 
         }
@@ -30,17 +30,30 @@ namespace Assets.Scripts.WeaponsFolder
         private float _primatyPressedTimer;
         private float _secondaryPressedTimer;
 
-        public override void WeaponSetPressedFlags(bool prim, bool secondary)
+        public float PrimaryPressedTimer
         {
-            IsPrimaryPressed = prim;
-            IsSecondaryPressed = secondary;
-            if (prim && _primatyPressedTimer<1f)
+            get { return _primatyPressedTimer; }
+
+            set { _primatyPressedTimer = value; }
+        }
+
+        public float SecondaryPressedTimer
+        {
+            get { return _secondaryPressedTimer; }
+
+            set { _secondaryPressedTimer = value; }
+        }
+
+        public override void AdditionalUpdateAction()//WeaponSetPressedFlags(bool prim, bool secondary)
+        {
+            
+            if (IsPrimaryPressed && _primatyPressedTimer<1f)
             {
-                _primatyPressedTimer += Time.deltaTime * 2f;
+                _primatyPressedTimer += Time.deltaTime ;
             }
-            if (secondary && _secondaryPressedTimer<1f)
+            if (IsSecondaryPressed && _secondaryPressedTimer<1f)
             {
-                _secondaryPressedTimer += Time.deltaTime * 2f;
+                _secondaryPressedTimer += Time.deltaTime ;
             }
             
         }
@@ -55,6 +68,9 @@ namespace Assets.Scripts.WeaponsFolder
             WeaponPistolMono.gameObject.SetActive(false);
         }
 
-        
+        public void CreateMuzzle()
+        {
+            WeaponPistolMono.ShowMuzzle();
+        }
     }
 }

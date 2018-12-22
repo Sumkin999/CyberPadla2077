@@ -23,33 +23,26 @@ namespace Assets.Scripts.WeaponsFolder
         Shotgun
     }
 
-    public class WeaponMethodsHolder
+    public interface IWeaponHasTimers
     {
-        private WeaponBase _weapon;
-        public WeaponMethodsHolder(WeaponBase weaponBase)
-        {
-            _weapon = weaponBase;
-        }
-
-        public bool GetPrimary()
-        {
-            return _weapon.IsPrimaryPressed;
-        }
-
-        public bool GetSecondary()
-        {
-            return _weapon.IsSecondaryPressed;
-        }
+        float PrimaryPressedTimer { get; set; }
+        float SecondaryPressedTimer { get; set; }
     }
+
+    public interface IWeaponHasMuzzle
+    {
+        void CreateMuzzle();
+    }
+    
     [System.Serializable]
     public class WeaponBase
     {
         public EnumWeaponType EnumWeaponType;
 
-        protected WeaponMethodsHolder WeaponMethodsHolder;
+        
 
         protected WeaponModuleMethodsHolder WeaponModuleMethodsHolder;
-        public WeaponVisuals WeaponVisulasPrefab;
+        public WeaponMonoVisuals WeaponMonoVisulasPrefab;
 
         public bool IsShootOrReload { get;  set; }
         public bool IsPrimaryPressed { get;  set; }
@@ -63,7 +56,7 @@ namespace Assets.Scripts.WeaponsFolder
 
             InstantiateMonoForThisWeapon();
         }
-        public WeaponVisuals WeaponVisuals;
+        public WeaponMonoVisuals WeaponMonoVisuals;
 
         
 
@@ -110,17 +103,24 @@ namespace Assets.Scripts.WeaponsFolder
         
         public void WeaponUpdate()
         {
+            AdditionalUpdateAction();
             if (CurrentWeaponAttack != null)
             {
                 CurrentWeaponAttack.ExecuteAttack();
             }
+            
         }
 
-        public virtual void WeaponSetPressedFlags(bool prim,bool secondary)
+        public virtual void AdditionalUpdateAction()
+        {
+            
+        }
+
+        public  void WeaponSetPressedFlags(bool prim,bool secondary)
         {
             IsPrimaryPressed = prim;
             IsSecondaryPressed = secondary;
-            //Потом в любом случае в false in Update
+            
         }
 
 

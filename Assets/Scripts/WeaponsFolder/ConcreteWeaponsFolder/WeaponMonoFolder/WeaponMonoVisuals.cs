@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder
 {
-    public class WeaponVisuals:MonoBehaviour
+    public class WeaponMonoVisuals:MonoBehaviour
     {
 
     }
