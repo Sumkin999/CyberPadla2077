@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: AimStandingState-IdleState
   m_EditorClassIdentifier: 
   TriggerName: 3
-  FromStateSo: {fileID: 11400000, guid: eb1b2a9c1d7f5bc46adb7da98c12cf1d, type: 2}
-  ToStateSo: {fileID: 11400000, guid: 1d62329c552076a439a56c8b20a8ad28, type: 2}
+  FromStateSo: {fileID: 11400000, guid: 9d2d5ce2cd4b1d1429cb990d1d95a3fc, type: 2}
+  ToStateSo: {fileID: 11400000, guid: 01faab95bfb2cd24a820a3128cbc049b, type: 2}

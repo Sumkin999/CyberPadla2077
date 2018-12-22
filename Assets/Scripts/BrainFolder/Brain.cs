@@ -14,6 +14,7 @@ namespace Assets.Scripts.ComandDataSenderFolder
         public MoveDataSender MoveDataSender=new MoveDataSender();
         public WeaponDataSender WeaponDataSender=new WeaponDataSender();
         public RotateDataSender RotateDataSender=new RotateDataSender();
+        public FallDataSender FallDataSender=new FallDataSender();
 
         private Vector3 _lookDirVector3;
 
@@ -93,9 +94,9 @@ namespace Assets.Scripts.ComandDataSenderFolder
 
             if (Input.GetKeyDown("f"))
             {
-                Debug.Log("Force!");
-                Facade.TransformModule.RigidbodyMain.AddForce(Vector3.forward*200f,ForceMode.Impulse);
-                
+                Debug.Log("Fall!");
+                //Facade.TransformModule.RigidbodyMain.AddForce(Vector3.forward*200f,ForceMode.Impulse);
+                FallDataSender.SendFallComand(Facade);
             }
 
             //MoveDataSender.SendMoveComand(Facade,v);

@@ -14,5 +14,6 @@ MonoBehaviour:
   StateName: IdleState
   StateEnum: 0
   ConnectionsFromThisArray:
-  - {fileID: 11400000, guid: 536a4e521192ef54e8255d0ca381d252, type: 2}
-  - {fileID: 11400000, guid: 35f1bffb5bc9d3343b6313494fdc0f03, type: 2}
+  - {fileID: 11400000, guid: f25e99abca31cab4e9a8b8d0e84a263c, type: 2}
+  - {fileID: 11400000, guid: 42ad3cc3508ff694e91f9c90d5617351, type: 2}
+  - {fileID: 11400000, guid: 698ebae9b25247b45b0aa1d82cad700e, type: 2}

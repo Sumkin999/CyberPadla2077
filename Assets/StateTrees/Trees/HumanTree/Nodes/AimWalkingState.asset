@@ -14,5 +14,6 @@ MonoBehaviour:
   StateName: AimWalkingState
   StateEnum: 3
   ConnectionsFromThisArray:
-  - {fileID: 11400000, guid: 6f55066948ae19640b742f3b7f8f86c9, type: 2}
-  - {fileID: 11400000, guid: bc08157c7d89b8a4796185ae0e0c7dd6, type: 2}
+  - {fileID: 11400000, guid: b19f4ab375f5fe44386eb2c0284b9991, type: 2}
+  - {fileID: 11400000, guid: 30fddd22118327743a465047d662e17c, type: 2}
+  - {fileID: 11400000, guid: bb07433078bb55c46b7320dd52025b9a, type: 2}

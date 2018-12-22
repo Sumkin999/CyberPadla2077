@@ -15,7 +15,9 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
         IdleState,
         WalkState,
         AimStandingState,
-        AimWalkingState
+        AimWalkingState,
+        FallingState,
+        FalledState
     }
 
     [CreateAssetMenu(fileName = "Tree", menuName = "StateTree/Trees", order = 1)]
@@ -40,6 +42,12 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
 
                 case StateEnum.AimWalkingState:
                     return new StateAimWalking(stateController);
+
+                case StateEnum.FallingState:
+                    return new StateFalling(stateController);
+
+                case StateEnum.FalledState:
+                    return new StateFalled(stateController);
             }
 
             Debug.LogAssertion("Error!");
@@ -93,9 +101,9 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
 
             stateController.StateTree.CurrentNode = stateController.StateTree.Nodes[0];
 
-
+            stateController.CurrentState= stateController.StateTree.SetIdleStateAsCurrent();
             //stateController.StateTree.LastNode = humanStateModule.StateTree.Nodes[0];
-            
+
         }
 
 

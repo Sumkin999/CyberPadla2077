@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2035c1a08fcbc48a7d6ae872100c96, type: 3}
+  m_Name: TreeOfLife
+  m_EditorClassIdentifier: 
+  NodesSo:
+  - {fileID: 11400000, guid: 1d62329c552076a439a56c8b20a8ad28, type: 2}
+  - {fileID: 11400000, guid: 388c419e5f7532d4aa0c19cb20380246, type: 2}
+  - {fileID: 11400000, guid: c28404f087272ea44b792bfa2ddc6e49, type: 2}
+  - {fileID: 11400000, guid: eb1b2a9c1d7f5bc46adb7da98c12cf1d, type: 2}
+  ConnectionsSo:
+  - {fileID: 11400000, guid: 536a4e521192ef54e8255d0ca381d252, type: 2}
+  - {fileID: 11400000, guid: 35f1bffb5bc9d3343b6313494fdc0f03, type: 2}
+  - {fileID: 11400000, guid: 3928ac2dae9f9474c9a31b3439c49e6a, type: 2}
+  - {fileID: 11400000, guid: 6a644c98ebcfe6341b2d7c3dd442d737, type: 2}
+  - {fileID: 11400000, guid: 6f55066948ae19640b742f3b7f8f86c9, type: 2}
+  - {fileID: 11400000, guid: bc08157c7d89b8a4796185ae0e0c7dd6, type: 2}
+  - {fileID: 11400000, guid: 21c22b4e4e70c9f4bb9b62ad8a0cc5d6, type: 2}
+  - {fileID: 11400000, guid: bf12a4fce1fb5a5408e4ace74670cb1b, type: 2}

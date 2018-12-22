@@ -30,6 +30,14 @@ namespace Assets.Scripts.HumanMonoModules
 
         public void ComandGet(ComandDataBase comandData) 
         {
+            if (_stateController == null)
+            {
+                return;
+            }
+            if (_stateController.CurrentState==null)
+            {
+                return;
+            }
             _stateController.CurrentState.AddCommandData(comandData);
 
         }
@@ -37,18 +45,26 @@ namespace Assets.Scripts.HumanMonoModules
         void Start()
         {
             _stateController=new StateController(this,TransformModule,AnimatorModule,PhysicsModule,WeaponModule);
+           
 
             ScrObjStateTree.InicateTree(_stateController);
+
+            //_stateController.CurrentState = _stateController.StateTree.SetIdleStateAsCurrent();
 
             WeaponModule.SetFacade(this);
 
 
             WeaponModule.IniciateWeaponModule();
             AnimatorModule.IniciateAnimatorModule(this);
+            PhysicsModule.InicPhysicModule(this);
         }
 
         void Update()
         {
+            if (_stateController==null)
+            {
+                return;
+            }
            _stateController.StateControllerUpdateAction();
 
 
@@ -58,6 +74,10 @@ namespace Assets.Scripts.HumanMonoModules
 
         void FixedUpdate()
         {
+            if (_stateController == null)
+            {
+                return;
+            }
             _stateController.StateControllerFixedUpdateAction();
         }
     }

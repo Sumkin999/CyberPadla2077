@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a996fd4b161aaf64080a1630fa0135fd, type: 3}
+  m_Name: AimStandingState-AimWalkingState
+  m_EditorClassIdentifier: 
+  TriggerName: 1
+  FromStateSo: {fileID: 11400000, guid: eb1b2a9c1d7f5bc46adb7da98c12cf1d, type: 2}
+  ToStateSo: {fileID: 11400000, guid: c28404f087272ea44b792bfa2ddc6e49, type: 2}

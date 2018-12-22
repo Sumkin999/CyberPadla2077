@@ -41,10 +41,10 @@ namespace Assets.Scripts.HumanMonoModules
 
         public ScrObjWeaponBase GetScriptableObkect(EnumWeaponType enumWeaponType)
         {
-            Debug.Log("aaa");
+
             if (enumWeaponType==EnumWeaponType.Pistol)
             {
-                Debug.Log("Return");
+
                 return _facadeHuman.WeaponModule.ScrObjWeaponPistol;
             }
 
@@ -184,8 +184,8 @@ namespace Assets.Scripts.HumanMonoModules
             weaponPistol.WeaponPistolMono.ShowMuzzle();
             Debug.Log("Actual Fire!");
 
-            Ray ray = new Ray(RightHandTransform.position,
-                _facadeHuman.TransformModule.MainTransform.forward);
+            /*Ray ray = new Ray(RightHandTransform.position,
+                _facadeHuman.TransformModule.MainTransform.forward);*/
 
             Debug.DrawRay(RightHandTransform.position,
                 _facadeHuman.TransformModule.MainTransform.forward*100f);

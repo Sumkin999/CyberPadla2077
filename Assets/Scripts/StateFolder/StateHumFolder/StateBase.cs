@@ -105,6 +105,19 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                     }
                 }
             }
+            ComandDataFall comandDataFall=comandData as ComandDataFall;
+            if (comandDataFall != null)
+            {
+                foreach (var command in CommandsInState)
+                {
+                    if (command is ComandFall)
+                    {
+                        command.GetInputDataAndStart(comandData);
+
+                        return;
+                    }
+                }
+            }
         }
 
         public  void StateUpdateAction()

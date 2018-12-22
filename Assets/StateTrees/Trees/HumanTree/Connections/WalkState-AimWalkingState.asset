@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: WalkState-AimWalkingState
   m_EditorClassIdentifier: 
   TriggerName: 2
-  FromStateSo: {fileID: 11400000, guid: 388c419e5f7532d4aa0c19cb20380246, type: 2}
-  ToStateSo: {fileID: 11400000, guid: c28404f087272ea44b792bfa2ddc6e49, type: 2}
+  FromStateSo: {fileID: 11400000, guid: ebd28045c2f1cbf459ef773188d94a17, type: 2}
+  ToStateSo: {fileID: 11400000, guid: dde71cbb9d085d5418250e507405298a, type: 2}

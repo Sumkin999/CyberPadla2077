@@ -14,5 +14,6 @@ MonoBehaviour:
   StateName: WalkState
   StateEnum: 1
   ConnectionsFromThisArray:
-  - {fileID: 11400000, guid: 3928ac2dae9f9474c9a31b3439c49e6a, type: 2}
-  - {fileID: 11400000, guid: 6a644c98ebcfe6341b2d7c3dd442d737, type: 2}
+  - {fileID: 11400000, guid: 3e4d55c5ed5f8bd4591bd2a4d5516c65, type: 2}
+  - {fileID: 11400000, guid: 5f8ad18ddb24e5743b0438d1b2f494e2, type: 2}
+  - {fileID: 11400000, guid: 5b9caa2c2cd9de44698f943fbe163089, type: 2}

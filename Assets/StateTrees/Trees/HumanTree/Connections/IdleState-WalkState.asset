@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: IdleState-WalkState
   m_EditorClassIdentifier: 
   TriggerName: 1
-  FromStateSo: {fileID: 11400000, guid: 1d62329c552076a439a56c8b20a8ad28, type: 2}
-  ToStateSo: {fileID: 11400000, guid: 388c419e5f7532d4aa0c19cb20380246, type: 2}
+  FromStateSo: {fileID: 11400000, guid: 01faab95bfb2cd24a820a3128cbc049b, type: 2}
+  ToStateSo: {fileID: 11400000, guid: ebd28045c2f1cbf459ef773188d94a17, type: 2}

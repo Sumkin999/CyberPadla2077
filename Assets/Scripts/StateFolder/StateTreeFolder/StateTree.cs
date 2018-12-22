@@ -15,13 +15,24 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
         {
             StateController = stateController;
 
-            _walkState=new StateWalk(StateController);
-            _stateIdle=new StateIdle(StateController);
+            
+        }
+
+        public StateBase SetIdleStateAsCurrent()
+        {
+            StateBase stateIdle=Array.Find(Nodes,h=>h.State is StateIdle).State  ;
+            if (stateIdle!=null)
+            {
+                return stateIdle;
+            }
+            else
+            {
+                return Nodes[0].State;
+            }
         }
         public StateController StateController;
 
-        public StateWalk _walkState;
-        public StateIdle _stateIdle;
+        
 
         public StateNode CurrentNode;//{ get; private set; }
         //public StateNode LastNode { get; private set; }

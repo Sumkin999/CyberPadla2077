@@ -15,7 +15,10 @@ namespace Assets.Scripts.HumanMonoModules
         TriggerIdle,
         TriggerWalk,
         TriggerAim,
-        TriggerUnaim
+        TriggerUnaim,
+        TriggerFall,
+        TriggerFalled,
+        TriggerGetUp
     }
     public class StateController
     {
@@ -28,7 +31,7 @@ namespace Assets.Scripts.HumanMonoModules
             Ifacade = iFacade;
 
             StateTree=new StateTree(this);
-            CurrentState = StateTree._stateIdle;
+            //CurrentState = StateTree.SetIdleStateAsCurrent();
         }
         public TransformModule TransformModule;
         public AnimatorModule AnimatorModule;
@@ -44,11 +47,19 @@ namespace Assets.Scripts.HumanMonoModules
 
         public void StateControllerUpdateAction()
         {
+            if (CurrentState == null)
+            {
+                return;
+            }
             CurrentState.StateUpdateAction();
 
             if (Triggers.Count>0)
             {
                 //StateTree.NewStateTrigger(Triggers[0]);
+                if (Triggers[0]==TriggersTemp.TriggerFall)
+                {
+                    Debug.Log("Fall Trigger");
+                }
                 StateTree.TrySetTrigger(Triggers[0]);
 
                 Triggers.RemoveAt(0);
@@ -60,6 +71,10 @@ namespace Assets.Scripts.HumanMonoModules
 
         public void StateControllerFixedUpdateAction()
         {
+            if (CurrentState==null)
+            {
+                return;
+            }
             CurrentState.StateFixedUpdateAction();
         }
 
