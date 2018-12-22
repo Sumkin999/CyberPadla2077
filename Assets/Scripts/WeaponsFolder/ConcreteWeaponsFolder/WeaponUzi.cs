@@ -9,23 +9,25 @@ namespace Assets.Scripts.WeaponsFolder
 {
     public class WeaponUzi: WeaponBase
     {
-        public WeaponUzi(WeaponMethodsHolder weaponMethodsHolder):base(weaponMethodsHolder)
+        public WeaponUzi(WeaponModuleMethodsHolder weaponModuleMethodsHolder):base(weaponModuleMethodsHolder)
         {
-            WeaponMethodsHolder = weaponMethodsHolder;
+            WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
 
             //WeaponVisuals = new WeaponVisuals();
+
+            EnumWeaponHoldType=EnumWeaponHoldType.Shotgun;
         }
 
 
         public override void WeaponSelectedAction()
         {
-            WeaponMethodsHolder.SetAnimatorWeaponSelected(this);
+            WeaponModuleMethodsHolder.SetAnimatorWeaponSelected(this);
             Debug.Log("Uzi Selected!");
         }
 
         public override void WeaponDeselectedAction()
         {
-            WeaponMethodsHolder.SetAnimatorWeaponDeSelected(this);
+            WeaponModuleMethodsHolder.SetAnimatorWeaponDeSelected();
             Debug.Log("Uzi Hided!");
         }
 

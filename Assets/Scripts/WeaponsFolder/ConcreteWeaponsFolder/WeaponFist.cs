@@ -10,9 +10,9 @@ namespace Assets.Scripts.WeaponsFolder
     [Serializable]
     public class WeaponFist:WeaponBase
     {
-        public WeaponFist(WeaponMethodsHolder weaponMethodsHolder):base(weaponMethodsHolder)
+        public WeaponFist(WeaponModuleMethodsHolder weaponModuleMethodsHolder):base(weaponModuleMethodsHolder)
         {
-            WeaponMethodsHolder = weaponMethodsHolder;
+            WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
 
             //WeaponVisuals = new WeaponVisuals();
 

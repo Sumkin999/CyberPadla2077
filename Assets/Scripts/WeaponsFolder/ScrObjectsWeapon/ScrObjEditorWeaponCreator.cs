@@ -26,7 +26,7 @@ namespace Assets.Scripts.WeaponsFolder.ScrObjectsWeapon
         public WeaponCreateType WeaponCreateType;
 
         //private ScrObjWeapon<T> scrObjWeapon;
-        private WeaponMethodsHolder _wmh;
+        private WeaponModuleMethodsHolder _wmh;
 
 
         public void Create()

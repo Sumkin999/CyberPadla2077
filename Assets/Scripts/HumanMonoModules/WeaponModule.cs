@@ -10,14 +10,19 @@ using UnityEngine;
 
 namespace Assets.Scripts.HumanMonoModules
 {
-    public class WeaponMethodsHolder
+    /*
+     Для взаимодействия оружия и атаки с дугими модулями!!!
+         (В основном с AnimatorModule)
+         */
+    public class WeaponModuleMethodsHolder
     {
         private FacadeHumanMono _facadeHuman;
-        private Transform _rightHandTransform;
-        public WeaponMethodsHolder(FacadeHumanMono facadeHuman,Transform rightHandTransform)
+        public Transform RightHandTransform;
+        
+        public WeaponModuleMethodsHolder(FacadeHumanMono facadeHuman,Transform rightHandTransform)
         {
             _facadeHuman = facadeHuman;
-            _rightHandTransform = rightHandTransform;
+            RightHandTransform = rightHandTransform;
         }
 
         public void SetShotAnimation()
@@ -27,27 +32,26 @@ namespace Assets.Scripts.HumanMonoModules
 
         public virtual void SetAnimatorWeaponSelected(WeaponBase weaponBase)
         {
-            _facadeHuman.AnimatorModule.ToggleAim(true,weaponBase);
+            _facadeHuman.AnimatorModule.ToggleWeaponHold(weaponBase);
         }
-        public virtual void SetAnimatorWeaponDeSelected(WeaponBase weaponBase)
+        public virtual void SetAnimatorWeaponDeSelected()
         {
-            _facadeHuman.AnimatorModule.ToggleAim(false,weaponBase);
+            _facadeHuman.AnimatorModule.ToggleNoWeaponHold();
         }
 
-        public WeaponPistolMono SpawnPistolAtRightHand()
+        public ScrObjWeaponBase GetScriptableObkect(EnumWeaponType enumWeaponType)
         {
-            GameObject pistolGameObject =
-                GameObject.Instantiate(_facadeHuman.WeaponModule.ScrObjWeaponPistol.VisualPrefab,
-                    _facadeHuman.WeaponModule.RightHandTransform.position, Quaternion.identity);
+            Debug.Log("aaa");
+            if (enumWeaponType==EnumWeaponType.Pistol)
+            {
+                Debug.Log("Return");
+                return _facadeHuman.WeaponModule.ScrObjWeaponPistol;
+            }
 
-            pistolGameObject.transform.parent = _facadeHuman.WeaponModule.RightHandTransform;
-            pistolGameObject.transform.localPosition=new Vector3(0,.0015f,.0005f);
-            pistolGameObject.transform.localEulerAngles=new Vector3(-12.5f,265,-190);
-
-            pistolGameObject.SetActive(false);
-
-            return pistolGameObject.GetComponent<WeaponPistolMono>();
+            return null;
         }
+
+      
     }
     public class WeaponModule:MonoBehaviour
     {
@@ -60,12 +64,12 @@ namespace Assets.Scripts.HumanMonoModules
         public void SetFacade(FacadeHumanMono facadeHumanMono)
         {
             _facadeHuman = facadeHumanMono;
-            _weaponMethodsHolder=new WeaponMethodsHolder(_facadeHuman,RightHandTransform);
+            _weaponModuleMethodsHolder=new WeaponModuleMethodsHolder(_facadeHuman,RightHandTransform);
         }
 
-        public List<WeaponBase> InventoryWeapon=new List<WeaponBase>();
+        protected List<WeaponBase> InventoryWeapon=new List<WeaponBase>();
 
-        private WeaponMethodsHolder _weaponMethodsHolder;
+        private WeaponModuleMethodsHolder _weaponModuleMethodsHolder;
 
         public Transform RightHandTransform;
 
@@ -88,7 +92,7 @@ namespace Assets.Scripts.HumanMonoModules
         }
         public void SpawnWeapon<T>() where  T:WeaponBase//,new()
         {
-            InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponMethodsHolder)); //new T(_weaponMethodsHolder));
+            InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponModuleMethodsHolder)); //new T(_weaponMethodsHolder));
         }
 
         public bool CheckIfAttackAvailable()
@@ -144,6 +148,10 @@ namespace Assets.Scripts.HumanMonoModules
 
         public void SelectNextWeapon()
         {
+            if (InventoryWeapon.Count <= 1)
+            {
+                return;
+            }
             int index = 0;
             if (CurrentWeapon!=null)
             {

@@ -17,30 +17,25 @@ namespace Assets.Scripts.HumanMonoModules
             Animator.SetBool("Walk",walkbool);
         }
 
-        public void ToggleAim(bool aimBool,WeaponBase weaponBase)
+        public void ToggleWeaponHold(WeaponBase weaponBase)
         {
-            
-
-            WeaponFist weaponFist=weaponBase as WeaponFist;
-            if (weaponFist!=null)
+            if (weaponBase.EnumWeaponHoldType==EnumWeaponHoldType.Default)
             {
-                return;    
-            }
-            WeaponPistol weaponPistol=weaponBase as WeaponPistol;
-
-            if (weaponPistol!=null)
-            {
-                Animator.SetBool("IsAiming", aimBool);
+                Animator.SetBool("HoldShotgun", false);
+                Animator.CrossFade("HoldEmpty",0);
                 return;
             }
-
-            WeaponUzi weaponUzi=weaponBase as WeaponUzi;
-            if (weaponUzi!=null)
+            if (weaponBase.EnumWeaponHoldType==EnumWeaponHoldType.Shotgun)
             {
-                Animator.SetBool("IsAiming2",aimBool);
-                return;
-            }
-           
+                Animator.CrossFade("HoldEmpty", 0);
+                Animator.SetBool("HoldShotgun",true);
+            } 
+        }
+
+        public void ToggleNoWeaponHold()
+        {
+            Animator.SetBool("HoldShotgun", false);
+            Animator.CrossFade("HoldEmpty", 0);
         }
 
         public void SetWalkBlendDirection(Vector3 relativeVector,float velocitySmooth)

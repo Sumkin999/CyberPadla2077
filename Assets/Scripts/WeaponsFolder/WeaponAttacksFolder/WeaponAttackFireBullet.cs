@@ -9,8 +9,9 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 {
     public class WeaponAttackFireBullet:WeaponAttackBase
     {
-        public WeaponAttackFireBullet(WeaponMethodsHolder weaponMethodsHolder):base(weaponMethodsHolder)
+        public WeaponAttackFireBullet(WeaponModuleMethodsHolder weaponModuleMethodsHolder,WeaponMethodsHolder weaponMethodsHolder):base(weaponModuleMethodsHolder,weaponMethodsHolder)
         {
+            WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
             WeaponMethodsHolder = weaponMethodsHolder;
         }
         public override bool Predicate(WeaponBase weaponBase)
@@ -32,7 +33,7 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 
             if (_primatyPressedTimer>1f)
             {
-                WeaponMethodsHolder.SetShotAnimation();
+                WeaponModuleMethodsHolder.SetShotAnimation();
                 Debug.Log("FIRE");
 
                 _primatyPressedTimer = 0;

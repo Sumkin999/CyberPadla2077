@@ -13,16 +13,7 @@ namespace Assets.Scripts.ComandFolder.Commands
         {
             
         }
-        protected override bool StartConditionCheck()
-        {
-            
-            if (StateController.WeaponModule.InventoryWeapon.Count>1)
-            {
-                Debug.Log("Has more guns");
-                return true;
-            }
-            return false;
-        }
+        
         protected override void PrepareCommandoAction()
         {
             StateController.WeaponModule.SelectNextWeapon();

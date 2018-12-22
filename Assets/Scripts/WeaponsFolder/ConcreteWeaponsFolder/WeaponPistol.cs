@@ -12,16 +12,18 @@ namespace Assets.Scripts.WeaponsFolder
     [System.Serializable]
     public class WeaponPistol:WeaponBase
     {
-        public WeaponPistol(WeaponMethodsHolder weaponMethodsHolder):base(weaponMethodsHolder)
+        public WeaponPistol(WeaponModuleMethodsHolder weaponModuleMethodsHolder):base(weaponModuleMethodsHolder)
         {
-            WeaponMethodsHolder = weaponMethodsHolder;
+            EnumWeaponType=EnumWeaponType.Pistol;
 
-            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponMethodsHolder));
+            WeaponMethodsHolder = new WeaponMethodsHolder(this);
 
-            WeaponPistolMono = weaponMethodsHolder.SpawnPistolAtRightHand() ;
+            InstantiateMonoForThisWeapon();
+            WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
 
-            
-            //WeaponVisuals = new WeaponVisuals();
+            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponModuleMethodsHolder,WeaponMethodsHolder));
+
+
         }
 
         public WeaponPistolMono WeaponPistolMono;
@@ -45,15 +47,12 @@ namespace Assets.Scripts.WeaponsFolder
 
         public override void WeaponSelectedAction()
         {
-           // WeaponMethodsHolder.SetAnimatorWeaponSelected(this);
            WeaponPistolMono.gameObject.SetActive(true);
-            Debug.Log("Pistol Selected!");
         }
 
         public override void WeaponDeselectedAction()
         {
             WeaponPistolMono.gameObject.SetActive(false);
-            Debug.Log("Pistol Hided!");
         }
 
         
