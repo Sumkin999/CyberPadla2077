@@ -10,12 +10,12 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
     public class WeaponAttackFireBullet:WeaponAttackBase
     {
         private IWeaponHasTimers _iWeaponHasTimers;
-        private IWeaponHasMuzzle _iweaponHasMuzzle;
-        public WeaponAttackFireBullet(WeaponModuleMethodsHolder weaponModuleMethodsHolder,IWeaponHasTimers iWeaponHasTimers,IWeaponHasMuzzle iWeaponHasMuzzle ):base(weaponModuleMethodsHolder)
+
+        public WeaponAttackFireBullet(WeaponModuleMethodsHolder weaponModuleMethodsHolder,IWeaponHasTimers iWeaponHasTimers ):base(weaponModuleMethodsHolder)
         {
             WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
             _iWeaponHasTimers = iWeaponHasTimers;
-            _iweaponHasMuzzle = iWeaponHasMuzzle;
+            
         }
         public override bool Predicate(WeaponBase weaponBase)
         {
@@ -34,11 +34,10 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
         {
             
 
-            if (_iWeaponHasTimers.PrimaryPressedTimer>1f)
+            if (_iWeaponHasTimers.PrimaryPressedTimer>.1f)
             {
                 WeaponModuleMethodsHolder.SetShotAnimation();
-                Debug.Log("FIRE");
-                _iweaponHasMuzzle.CreateMuzzle();
+                
 
                 _iWeaponHasTimers.PrimaryPressedTimer = 0;
             }

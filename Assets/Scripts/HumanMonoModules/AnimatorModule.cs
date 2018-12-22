@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.HumanMonoModules.AnimatorFolder;
 using Assets.Scripts.WeaponsFolder;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -11,6 +12,15 @@ namespace Assets.Scripts.HumanMonoModules
     public class AnimatorModule:MonoBehaviour
     {
         public Animator Animator;
+        private WeaponModule _weaponModule;
+
+        public AnimatorToWeaponListener AnimatorToWeaponListener;
+
+        public void IniciateAnimatorModule(WeaponModule weaponModule)
+        {
+            _weaponModule = weaponModule;
+            AnimatorToWeaponListener.SetWeaponModule(_weaponModule);
+        }
 
         public void ToggleWalk(bool walkbool)
         {

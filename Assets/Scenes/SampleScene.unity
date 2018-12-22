@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 715615278}
+  AnimatorToWeaponListener: {fileID: 0}
 --- !u!95 &715615278 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 4210ffdcfc4f64a4fa527833ff7e632e,
@@ -585,7 +586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrObjWeaponPistol: {fileID: 11400000, guid: 42f2e38a3ac67034bbed9c7138ca0812, type: 2}
-  InventoryWeapon: []
   RightHandTransform: {fileID: 694340046}
 --- !u!114 &838452993
 MonoBehaviour:
@@ -1017,7 +1017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrObjWeaponPistol: {fileID: 0}
-  InventoryWeapon: []
   RightHandTransform: {fileID: 0}
 --- !u!114 &1332477357
 MonoBehaviour:
@@ -1222,6 +1221,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 1754084661}
+  AnimatorToWeaponListener: {fileID: 1754084664}
+--- !u!114 &1754084664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754084660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a833a42575508d34c849f6be9b79e760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1837768829
 GameObject:
   m_ObjectHideFlags: 0

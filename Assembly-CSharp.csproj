@@ -201,6 +201,7 @@
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandSelectWeapon.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\Command.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\CommandMove.cs" />
+    <Compile Include="Assets\Scripts\HumanMonoModules\AnimatorFolder\AnimatorToWeaponListener.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\AnimatorModule.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\HumanFacadeFolder\FacadeHumanMono.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\PhysicsModule.cs" />

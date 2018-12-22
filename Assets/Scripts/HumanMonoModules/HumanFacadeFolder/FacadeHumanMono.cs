@@ -44,7 +44,7 @@ namespace Assets.Scripts.HumanMonoModules
 
 
             WeaponModule.IniciateWeaponModule();
-            //WeaponPistol pistol=new WeaponPistol(WeaponModule.);
+            AnimatorModule.IniciateAnimatorModule(WeaponModule);
         }
 
         void Update()

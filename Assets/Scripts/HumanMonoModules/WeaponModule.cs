@@ -169,6 +169,26 @@ namespace Assets.Scripts.HumanMonoModules
             CurrentWeapon.WeaponSelectedAction();
         }
 
+
+        public void WeaponModuleShootWeapon()
+        {
+            if (CurrentWeapon==null)
+            {
+                return;
+            }
+            WeaponPistol weaponPistol=CurrentWeapon as WeaponPistol;
+            if (weaponPistol==null)
+            {
+                return;
+            }
+            weaponPistol.WeaponPistolMono.ShowMuzzle();
+            Debug.Log("Actual Fire!");
+
+
+
+
+        }
+
         
 
 

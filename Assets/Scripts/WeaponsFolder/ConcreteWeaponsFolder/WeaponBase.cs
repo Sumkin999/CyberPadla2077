@@ -60,7 +60,7 @@ namespace Assets.Scripts.WeaponsFolder
 
         
 
-        public List<WeaponAttackBase> PotencialAttacks=new List<WeaponAttackBase>();
+        protected List<WeaponAttackBase> PotencialAttacks=new List<WeaponAttackBase>();
 
         public virtual void WeaponSelectedAction()
         {

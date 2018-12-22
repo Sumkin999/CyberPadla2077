@@ -21,7 +21,7 @@ namespace Assets.Scripts.WeaponsFolder
             InstantiateMonoForThisWeapon();
             WeaponModuleMethodsHolder = weaponModuleMethodsHolder;
 
-            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponModuleMethodsHolder,this,this));
+            PotencialAttacks.Add(new WeaponAttackFireBullet(WeaponModuleMethodsHolder,this));
 
 
         }
