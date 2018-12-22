@@ -44,7 +44,7 @@ namespace Assets.Scripts.HumanMonoModules
 
 
             WeaponModule.IniciateWeaponModule();
-            AnimatorModule.IniciateAnimatorModule(WeaponModule);
+            AnimatorModule.IniciateAnimatorModule(this);
         }
 
         void Update()
@@ -52,10 +52,6 @@ namespace Assets.Scripts.HumanMonoModules
            _stateController.StateControllerUpdateAction();
 
 
-            /*if (Input.GetKeyDown("a"))
-            {
-                AnimatorModule.Animator.SetBool("IsAiming",!AnimatorModule.Animator.GetBool("IsAiming"));
-            }*/
             
             
         }

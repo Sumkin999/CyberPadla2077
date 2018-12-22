@@ -10,9 +10,11 @@ namespace Assets.Scripts.HumanMonoModules.AnimatorFolder
     {
         private WeaponModule _weaponModule;
 
-        public void SetWeaponModule(WeaponModule weaponModule)
+
+        public void SetModules(WeaponModule weaponModule)
         {
             _weaponModule = weaponModule;
+            
         }
 
 

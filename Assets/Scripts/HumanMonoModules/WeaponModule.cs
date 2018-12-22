@@ -184,7 +184,14 @@ namespace Assets.Scripts.HumanMonoModules
             weaponPistol.WeaponPistolMono.ShowMuzzle();
             Debug.Log("Actual Fire!");
 
+            Ray ray = new Ray(RightHandTransform.position,
+                _facadeHuman.TransformModule.MainTransform.forward);
 
+            Debug.DrawRay(RightHandTransform.position,
+                _facadeHuman.TransformModule.MainTransform.forward*100f);
+
+            //hits = Physics.RaycastAll(ray,
+            //    100.0F, layerMask, queryTriggerInteraction);
 
 
         }

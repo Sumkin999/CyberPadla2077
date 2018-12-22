@@ -12,14 +12,15 @@ namespace Assets.Scripts.HumanMonoModules
     public class AnimatorModule:MonoBehaviour
     {
         public Animator Animator;
-        private WeaponModule _weaponModule;
+
+        private FacadeHumanMono _facadeHumanMono;
 
         public AnimatorToWeaponListener AnimatorToWeaponListener;
 
-        public void IniciateAnimatorModule(WeaponModule weaponModule)
+        public void IniciateAnimatorModule(FacadeHumanMono facadeHumanMono)
         {
-            _weaponModule = weaponModule;
-            AnimatorToWeaponListener.SetWeaponModule(_weaponModule);
+            _facadeHumanMono = facadeHumanMono;
+            AnimatorToWeaponListener.SetModules(_facadeHumanMono.WeaponModule);
         }
 
         public void ToggleWalk(bool walkbool)
