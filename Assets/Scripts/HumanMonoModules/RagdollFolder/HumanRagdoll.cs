@@ -143,8 +143,8 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
 
             HipsTransform.parent = null;
 
-            GodTransform.position = MOrientTransform.position;
-            GodTransform.position = new Vector3(GodTransform.position.x, 0.2f, GodTransform.position.z);
+            GodTransform.position = HipsTransform.position; //MOrientTransform.position;
+            GodTransform.position =  new Vector3(GodTransform.position.x, 0.2f, GodTransform.position.z);
 
 
             if (upwards)
@@ -160,7 +160,7 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
 
             
             Animator.CrossFade(_getUpAnimName, 0.0f, 3, 0.0f);
-            Animator.applyRootMotion = true;
+            //Animator.applyRootMotion = true;
 
             IsFullRagdoll = false;
 
