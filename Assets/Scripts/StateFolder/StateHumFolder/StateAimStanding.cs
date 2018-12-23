@@ -13,14 +13,18 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateAimStanding(StateController stateController)
         {
             StateController = stateController;
-            CommandsInState.Add(new CommandMove(true));
+
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is CommandMove));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAttack));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandRotate));
+            /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAttack());
             CommandsInState.Add(new ComandRotate(true));
 
             CommandsInState[0].StateController = StateController;
             
             CommandsInState[1].StateController = stateController;
-            CommandsInState[2].StateController = StateController;
+            CommandsInState[2].StateController = StateController;*/
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = false;

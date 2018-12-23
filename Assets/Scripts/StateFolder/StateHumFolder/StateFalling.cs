@@ -12,7 +12,9 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateFalling(StateController stateController)
         {
             StateController = stateController;
-            CommandsInState.Add(new ComandFall());
+
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandFall));
+            //CommandsInState.Add(new ComandFall());
             /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
             CommandsInState.Add(new ComandSelectWeapon());
@@ -22,7 +24,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState[1].StateController = StateController;
             CommandsInState[2].StateController = StateController;
             CommandsInState[3].StateController = StateController;*/
-            CommandsInState[0].StateController = StateController;
+            //CommandsInState[0].StateController = StateController;
 
             StateFlags.CanMove = false;
             StateFlags.IsMoving = false;

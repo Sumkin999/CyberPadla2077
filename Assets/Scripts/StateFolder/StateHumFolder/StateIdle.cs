@@ -14,7 +14,13 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateIdle(StateController stateController)
         {
             StateController = stateController;
-            CommandsInState.Add(new CommandMove(true));
+
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h=>h is CommandMove));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAim));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandSelectWeapon));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandRotate));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandFall));
+            /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
             CommandsInState.Add(new ComandSelectWeapon());
             CommandsInState.Add(new ComandRotate(true));
@@ -24,7 +30,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState[1].StateController = StateController;
             CommandsInState[2].StateController = StateController;
             CommandsInState[3].StateController = StateController;
-            CommandsInState[4].StateController = StateController;
+            CommandsInState[4].StateController = StateController;*/
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = false;

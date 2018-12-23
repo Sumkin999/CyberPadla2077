@@ -14,13 +14,17 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateWalk(StateController stateController)
         {
             StateController = stateController;
-            CommandsInState.Add(new CommandMove(true));
+
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is CommandMove));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAim));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandSelectWeapon));
+            /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
             CommandsInState.Add(new ComandSelectWeapon());
 
             CommandsInState[0].StateController = StateController;
             CommandsInState[1].StateController = StateController;
-            CommandsInState[2].StateController = StateController;
+            CommandsInState[2].StateController = StateController;*/
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = true;

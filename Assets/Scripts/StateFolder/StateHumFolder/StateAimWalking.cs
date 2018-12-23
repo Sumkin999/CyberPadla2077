@@ -13,11 +13,14 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateAimWalking(StateController stateController)
         {
             StateController = stateController;
-            CommandsInState.Add(new CommandMove(true));
+
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is CommandMove));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAttack));
+            /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAttack());
 
             CommandsInState[0].StateController = StateController;
-            CommandsInState[1].StateController = stateController;
+            CommandsInState[1].StateController = stateController;*/
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = true;

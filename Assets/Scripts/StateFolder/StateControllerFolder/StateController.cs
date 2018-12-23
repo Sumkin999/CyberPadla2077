@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.ComandFolder;
 using Assets.Scripts.ComandFolder.ComandData;
+using Assets.Scripts.StateFolder.StateControllerFolder;
 using Assets.Scripts.StateFolder.StateHumFolder;
 using Assets.Scripts.StateFolder.StateTreeFolder;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace Assets.Scripts.HumanMonoModules
             Ifacade = iFacade;
 
             StateTree=new StateTree(this);
+            StateComandManager=new StateComandManager(this);
             //CurrentState = StateTree.SetIdleStateAsCurrent();
         }
         public TransformModule TransformModule;
@@ -38,6 +40,8 @@ namespace Assets.Scripts.HumanMonoModules
         public PhysicsModule PhysicsModule;
         public WeaponModule WeaponModule;
         public IFacade Ifacade;
+
+        public StateComandManager StateComandManager;
 
         public StateBase CurrentState;
         public StateTree StateTree;
