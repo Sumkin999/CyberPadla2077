@@ -10,9 +10,9 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 {
     public class StateAimWalking:StateBase
     {
-        public StateAimWalking(StateController stateController)
+        public StateAimWalking(StateController stateController) : base(stateController)
         {
-            StateController = stateController;
+            //StateController = stateController;
 
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is CommandMove));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAttack));
@@ -21,7 +21,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 
             CommandsInState[0].StateController = StateController;
             CommandsInState[1].StateController = stateController;*/
-
+            FillCommandsNotInState();
             StateFlags.CanMove = true;
             StateFlags.IsMoving = true;
             StateFlags.IsAiming = true;

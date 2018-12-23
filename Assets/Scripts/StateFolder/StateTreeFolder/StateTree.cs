@@ -79,6 +79,7 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder
                     
                     StateController.CurrentState = CurrentNode.State;
                     StateController.CurrentState.StateEnterAction();
+                    StateController.CurrentState.UnInicNotStateCommands();
                     //CurrentNode.State.StateEnterAction();
 
                     break;

@@ -12,6 +12,12 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 
     public class StateBase
     {
+        public StateBase(StateController stateController)
+        {
+            StateController = stateController;
+
+            
+        }
         public class StateFlagsClass
         {
             public bool CanMove { get;  protected internal set; }
@@ -21,8 +27,20 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public StateController StateController;
         public List<ComandDataBase> CommandDataToProcessList=new List<ComandDataBase>();
         protected List<Command> CommandsInState=new List<Command>();
+        protected List<Command> CommandsNotInState=new List<Command>();
         public StateFlagsClass StateFlags=new StateFlagsClass();
 
+        protected void FillCommandsNotInState()
+        {
+            foreach (var command in StateController.StateComandManager.AllCommands)
+            {
+                if (!CommandsInState.Contains(command))
+                {
+                    CommandsNotInState.Add(command);
+                }
+            }
+        }
+        
         public void AddCommandData(ComandDataBase comandData)
         {
             CommandDataToProcessList.Add(comandData);
@@ -36,6 +54,14 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         public virtual void StateExitAction(StateBase nextState)
         {
             
+        }
+
+        public void UnInicNotStateCommands()
+        {
+            foreach (var command in CommandsNotInState)
+            {
+                command.UnIniciate();
+            }
         }
 
         protected virtual void ProcessSingleData(ComandDataBase comandData)

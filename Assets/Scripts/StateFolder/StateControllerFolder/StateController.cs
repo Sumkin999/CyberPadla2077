@@ -59,11 +59,7 @@ namespace Assets.Scripts.HumanMonoModules
 
             if (Triggers.Count>0)
             {
-                //StateTree.NewStateTrigger(Triggers[0]);
-                if (Triggers[0]==TriggersTemp.TriggerFall)
-                {
-                    Debug.Log("Fall Trigger");
-                }
+                
                 StateTree.TrySetTrigger(Triggers[0]);
 
                 Triggers.RemoveAt(0);

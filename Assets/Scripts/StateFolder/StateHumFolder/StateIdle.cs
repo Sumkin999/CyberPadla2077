@@ -11,9 +11,9 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 {
     public class StateIdle:StateBase
     {
-        public StateIdle(StateController stateController)
+        public StateIdle(StateController stateController):base(stateController)
         {
-            StateController = stateController;
+            //StateController = stateController;
 
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h=>h is CommandMove));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAim));
@@ -31,6 +31,8 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState[2].StateController = StateController;
             CommandsInState[3].StateController = StateController;
             CommandsInState[4].StateController = StateController;*/
+
+            FillCommandsNotInState();
 
             StateFlags.CanMove = true;
             StateFlags.IsMoving = false;

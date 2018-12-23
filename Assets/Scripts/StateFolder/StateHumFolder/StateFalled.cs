@@ -8,9 +8,9 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 {
     public class StateFalled:StateBase
     {
-        public StateFalled(StateController stateController)
+        public StateFalled(StateController stateController) : base(stateController)
         {
-            StateController = stateController;
+            //StateController = stateController;
             /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
             CommandsInState.Add(new ComandSelectWeapon());
@@ -20,7 +20,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState[1].StateController = StateController;
             CommandsInState[2].StateController = StateController;
             CommandsInState[3].StateController = StateController;*/
-
+            FillCommandsNotInState();
             StateFlags.CanMove = false;
             StateFlags.IsMoving = false;
             StateFlags.IsAiming = false;

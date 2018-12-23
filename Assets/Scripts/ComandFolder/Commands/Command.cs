@@ -29,6 +29,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
         }
 
         public bool Iniciated { get; private set; }
+
+        public void UnIniciate()
+        {
+            Iniciated = false;
+        }
         private void StartCommando()
         {
 
