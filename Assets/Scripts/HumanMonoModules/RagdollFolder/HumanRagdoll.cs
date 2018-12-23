@@ -11,9 +11,11 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
         public bool IsFullRagdoll;
 
         public List<Rigidbody> AllRigidbodies = new List<Rigidbody>();
-        //private List<Collider> _allColliders=new List<Collider>();
+        
         public Animator Animator;
         public Transform GodTransform;
+        public Collider GodCollider;
+        public Rigidbody GodRigidbody;
 
 
         public Transform ModelTransform;
@@ -63,7 +65,7 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
                 _aPositions.Add(bp.transform.position);
                 _aRotations.Add(bp.transform.rotation);
 
-                //_allColliders.Add(bp.gameObject.GetComponent<Collider>());
+                
             }
         }
 
@@ -71,13 +73,12 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
         public void RagdollOn()
         {
 
-            Debug.Log("RAGDOLL");
+            
             Animator.enabled = false;
 
-            /*foreach (var col in _allColliders)
-            {
-                col.isTrigger = false;
-            }*/
+            GodCollider.isTrigger = true;
+            GodRigidbody.isKinematic = true;
+            
             foreach (var rb in AllRigidbodies)
             {
                 rb.gameObject.layer = 11;
@@ -113,15 +114,15 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
 
         public void RagdollOff()
         {
-            /*foreach (var col in _allColliders)
-            {
-                col.isTrigger = true;
-            }*/
+            
             foreach (var rb in AllRigidbodies)
             {
                 rb.gameObject.layer = 12;
                 rb.isKinematic = true;
             }
+
+            GodCollider.isTrigger = false;
+            GodRigidbody.isKinematic = false;
 
             Animator.enabled = true;
 

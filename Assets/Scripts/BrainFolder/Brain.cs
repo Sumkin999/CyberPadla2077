@@ -94,9 +94,9 @@ namespace Assets.Scripts.ComandDataSenderFolder
 
             if (Input.GetKeyDown("f"))
             {
-                Debug.Log("Fall!");
+                //Debug.Log("Fall!");
                 //Facade.TransformModule.RigidbodyMain.AddForce(Vector3.forward*200f,ForceMode.Impulse);
-                FallDataSender.SendFallComand(Facade);
+                FallDataSender.SendFallComand(Facade,Facade.PhysicsModule.HumanRagdoll.HipsTransform.GetComponent<Rigidbody>());
             }
 
             //MoveDataSender.SendMoveComand(Facade,v);
