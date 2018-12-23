@@ -1888,7 +1888,7 @@ MonoBehaviour:
   PhysicsModule: {fileID: 1332477358}
   AnimatorModule: {fileID: 715615277}
   WeaponModule: {fileID: 1332477356}
-  ScrObjStateTree: {fileID: 11400000, guid: 5cfd667f0f28d4846875f19da88bca52, type: 2}
+  ScrObjStateTree: {fileID: 0}
 --- !u!114 &1332477358
 MonoBehaviour:
   m_ObjectHideFlags: 0

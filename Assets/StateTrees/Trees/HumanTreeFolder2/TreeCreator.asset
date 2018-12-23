@@ -18,12 +18,10 @@ MonoBehaviour:
     StateEnum: 1
   - StateName: AimStandingState
     StateEnum: 2
-  - StateName: FallingState
-    StateEnum: 4
-  - StateName: FalledState
-    StateEnum: 5
   - StateName: AimWalkingState
     StateEnum: 3
+  - StateName: FallingState
+    StateEnum: 4
   TriggerDictionary:
   - TriggerName: IdleTrigger
     TriggerEnum: 0
@@ -36,9 +34,9 @@ MonoBehaviour:
   - TriggerName: FallTrigger
     TriggerEnum: 4
   - TriggerName: GetUpTrigger
-    TriggerEnum: 6
+    TriggerEnum: 5
   - TriggerName: FalledTrigger
     TriggerEnum: 5
   TreeFolderName: HumanTree
   Animator: {fileID: 9100000, guid: aa13b8dd86019b24e8a97cd5b1acb5ea, type: 2}
-  StateTreeSo: {fileID: 11400000, guid: 5cfd667f0f28d4846875f19da88bca52, type: 2}
+  StateTreeSo: {fileID: 0}

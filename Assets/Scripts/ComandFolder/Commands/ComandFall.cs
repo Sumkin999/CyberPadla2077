@@ -77,6 +77,11 @@ namespace Assets.Scripts.ComandFolder.Commands
             return true;
         }
 
+        protected override void BreakCommandoAction()
+        {
+            Debug.Log("Time To GetUp!");
+            StateController.Triggers.Add(TriggersTemp.TriggerGetUp);
+        }
         /*protected override bool ContinueCommandoCheck()
         {
             if (_groundedTimer > 0)

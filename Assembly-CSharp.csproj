@@ -216,7 +216,6 @@
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateAimStanding.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateAimWalking.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateBase.cs" />
-    <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateFalled.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateFalling.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateIdle.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateHumFolder\StateWalk.cs" />

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a996fd4b161aaf64080a1630fa0135fd, type: 3}
-  m_Name: WalkState-IdleState
+  m_Name: FallingState-IdleState
   m_EditorClassIdentifier: 
-  TriggerName: 0
-  FromStateSo: {fileID: 11400000, guid: 388c419e5f7532d4aa0c19cb20380246, type: 2}
-  ToStateSo: {fileID: 11400000, guid: 1d62329c552076a439a56c8b20a8ad28, type: 2}
+  TriggerName: 5
+  FromStateSo: {fileID: 11400000, guid: 0bd2cd8216506a943947f4d05a3213b2, type: 2}
+  ToStateSo: {fileID: 11400000, guid: 01faab95bfb2cd24a820a3128cbc049b, type: 2}

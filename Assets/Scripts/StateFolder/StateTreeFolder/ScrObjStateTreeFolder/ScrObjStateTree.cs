@@ -16,8 +16,7 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
         WalkState,
         AimStandingState,
         AimWalkingState,
-        FallingState,
-        FalledState
+        FallingState
     }
 
     [CreateAssetMenu(fileName = "Tree", menuName = "StateTree/Trees", order = 1)]
@@ -46,8 +45,7 @@ namespace Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder
                 case StateEnum.FallingState:
                     return new StateFalling(stateController);
 
-                case StateEnum.FalledState:
-                    return new StateFalled(stateController);
+                
             }
 
             Debug.LogAssertion("Error!");

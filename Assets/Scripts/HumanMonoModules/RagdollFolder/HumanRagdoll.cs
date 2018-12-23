@@ -178,6 +178,12 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
                 _oPositions[i] = _allPartsTransform[i].localPosition;
             }
             _currentBlendTime = 0;
+
+            /*HipsTransform.parent = null;
+            GodTransform.position = HipsTransform.position;
+            HipsTransform.parent = ModelTransform;*/
+            //HipsTransform.localPosition=
+
             BlendInProgress = true;
         }
 

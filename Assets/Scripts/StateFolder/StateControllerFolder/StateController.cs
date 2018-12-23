@@ -18,7 +18,6 @@ namespace Assets.Scripts.HumanMonoModules
         TriggerAim,
         TriggerUnaim,
         TriggerFall,
-        TriggerFalled,
         TriggerGetUp
     }
     public class StateController
