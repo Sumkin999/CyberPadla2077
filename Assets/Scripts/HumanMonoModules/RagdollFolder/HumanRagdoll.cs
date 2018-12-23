@@ -158,7 +158,8 @@ namespace Assets.Scripts.HumanMonoModules.RagdollFolder
 
             HipsTransform.parent = ModelTransform;
 
-            Animator.CrossFade(_getUpAnimName, 0.0f, 0, 0.0f);
+            
+            Animator.CrossFade(_getUpAnimName, 0.0f, 3, 0.0f);
             Animator.applyRootMotion = true;
 
             IsFullRagdoll = false;

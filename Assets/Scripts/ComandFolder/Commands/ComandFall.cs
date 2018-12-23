@@ -12,6 +12,8 @@ namespace Assets.Scripts.ComandFolder.Commands
     {
         private Rigidbody _humanRigidbody;
         private float _groundedTimer;
+        private float _gettingUpTimer;
+        private bool _startedToGetUp;
 
         protected override void GetInputData(ComandDataBase comandData)
         {
@@ -20,6 +22,8 @@ namespace Assets.Scripts.ComandFolder.Commands
             {
                 _humanRigidbody = comandDatafall.HumanRigidbody;
                 _groundedTimer = 2f;
+                _gettingUpTimer = 2f;
+                _startedToGetUp = false;
             }
         }
 
@@ -32,7 +36,7 @@ namespace Assets.Scripts.ComandFolder.Commands
 
         protected override void ExecuteAction()
         {
-            Debug.Log(_groundedTimer+"  "+_humanRigidbody.velocity.y);
+            
             if (Mathf.Abs(_humanRigidbody.velocity.y)<.1f)
             {
                 _groundedTimer -= Time.deltaTime;
@@ -45,10 +49,35 @@ namespace Assets.Scripts.ComandFolder.Commands
                     StateController.PhysicsModule.HumanRagdoll.RagdollOn();
                 }
                 _groundedTimer = 2f;
+                _gettingUpTimer = 2f;
+                _startedToGetUp = false;
             }
+            if (_groundedTimer<=0)
+            {
+                if (!_startedToGetUp)
+                {
+                    _gettingUpTimer = StateController.PhysicsModule.HumanRagdoll.TransitionDuration;
+                    StateController.PhysicsModule.HumanRagdoll.RagdollOff();
+
+                    _startedToGetUp = true;
+                }
+                _gettingUpTimer -= Time.deltaTime;
+            }
+
+
         }
 
         protected override bool ContinueCommandoCheck()
+        {
+            if (_gettingUpTimer<=0)
+            {
+                Debug.Log("Time To GetUp!");
+                return false;
+            }
+            return true;
+        }
+
+        /*protected override bool ContinueCommandoCheck()
         {
             if (_groundedTimer > 0)
             {
@@ -62,6 +91,6 @@ namespace Assets.Scripts.ComandFolder.Commands
         {
             Debug.Log("Time To GetUp!");
 
-        }
+        }*/
     }
 }

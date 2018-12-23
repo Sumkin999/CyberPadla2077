@@ -2119,11 +2119,11 @@ MonoBehaviour:
   GodRigidbody: {fileID: 838452986}
   ModelTransform: {fileID: 842634561}
   HipsTransform: {fileID: 842634560}
-  NameOfGetUpFromFrontState: 
-  NameOfGetUpFromBackState: 
+  NameOfGetUpFromFrontState: GetUpFront_
+  NameOfGetUpFromBackState: GetUpBack_
   AdditionalTransform: {fileID: 0}
   BlendInProgress: 0
-  TransitionDuration: 0
+  TransitionDuration: 2
 --- !u!1 &1837768829
 GameObject:
   m_ObjectHideFlags: 0
