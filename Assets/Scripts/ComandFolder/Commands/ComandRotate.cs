@@ -9,9 +9,9 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandRotate:Command
     {
-        public ComandRotate(bool isNeedProdlenie)
+        public ComandRotate()
         {
-            IsNeededProdlenie = isNeedProdlenie;
+            IsNeededProdlenie = true;
         }
 
         private Vector3 _targetVector3;

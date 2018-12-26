@@ -9,7 +9,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.StateFolder.StateHumFolder
 {
-
+    /*
+    Базовый класс СТЕЙТА
+    
+        Определяет, какие Команды выполняются/могут выполняться в данном стейте
+        Команды, не входящие в этот спсок деактивируются при входе в стейт
+        
+        Обрабатывает все входящие Data-контейнеры для команд   
+    */
     public class StateBase
     {
         public StateBase(StateController stateController)

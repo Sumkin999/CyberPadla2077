@@ -6,7 +6,13 @@ using Assets.Scripts.HumanMonoModules;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
+    /*
+    Базовый класс КОМАНДЫ
     
+        GetInputDataAndStart- старт команды/получение данных
+        Если выполнен StartConditionCheck, то иницирована и выполняется Update/FixedUpdate
+        IsProdlena-BreakComando в том числе если не получила обновления входящих данных
+    */
     public class Command
     {
         public StateController StateController;

@@ -35,11 +35,13 @@ namespace Assets.Scripts.ComandFolder.Commands
             {
                 return;
             }
-            if (!StateController.CurrentState.StateFlags.IsAiming)
+
+            StateController.AddTrigger(TriggersTemp.TriggerAim);
+            /*if (!StateController.CurrentState.StateFlags.IsAiming)
             {
                 
                 StateController.Triggers.Add(TriggersTemp.TriggerAim);
-            }
+            }*/
             
         }
         protected override bool ContinueCommandoCheck()

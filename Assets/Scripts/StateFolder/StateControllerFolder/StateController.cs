@@ -20,6 +20,8 @@ namespace Assets.Scripts.HumanMonoModules
         TriggerFall,
         TriggerGetUp
     }
+
+    
     public class StateController
     {
         public StateController(IFacade iFacade,TransformModule transformModule, AnimatorModule animatorModule, PhysicsModule physicsModule,WeaponModule weaponModule)
@@ -45,8 +47,61 @@ namespace Assets.Scripts.HumanMonoModules
         public StateBase CurrentState;
         public StateTree StateTree;
         
-        public List<TriggersTemp>Triggers=new List<TriggersTemp>();
+        protected List<TriggersTemp>Triggers=new List<TriggersTemp>();
 
+        public void AddTrigger(TriggersTemp newTrigger)
+        {
+            switch (newTrigger) 
+            {
+                case TriggersTemp.TriggerWalk:
+                {
+                    if (!CurrentState.StateFlags.IsMoving)
+                    {
+                        Triggers.Add(newTrigger);
+                    }
+                    break;
+                }
+                case TriggersTemp.TriggerIdle:
+                {
+                    if (CurrentState.StateFlags.IsMoving)
+                    {
+                        Triggers.Add(newTrigger);
+                    }
+                    break;
+                }
+                case TriggersTemp.TriggerAim:
+                {
+                    if (!CurrentState.StateFlags.IsAiming)
+                    {
+                        Triggers.Add(newTrigger);
+                    }
+                    break;
+                }
+                case TriggersTemp.TriggerUnaim:
+                {
+                    if (CurrentState.StateFlags.IsAiming)
+                    {
+                        Triggers.Add(newTrigger);
+                    }
+                    break;
+                }
+                case TriggersTemp.TriggerFall:
+                {
+                    
+                        Triggers.Add(newTrigger);
+                    
+                    break;
+                }
+                case TriggersTemp.TriggerGetUp:
+                {
+                    
+                        Triggers.Add(newTrigger);
+                    
+                    break;
+                }
+            }
+            
+        }
 
         public void StateControllerUpdateAction()
         {

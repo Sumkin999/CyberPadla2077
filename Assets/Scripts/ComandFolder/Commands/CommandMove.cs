@@ -10,9 +10,9 @@ namespace Assets.Scripts.ComandFolder.ComandData
 {
     public class CommandMove:Command
     {
-        public CommandMove(bool isNeedProdlenie)
+        public CommandMove()
         {
-            IsNeededProdlenie = isNeedProdlenie;
+            IsNeededProdlenie = true;
         }
 
 
@@ -55,10 +55,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
             StateController.TransformModule.MoveTargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
             StateController.TransformModule.MoveTargetVector3.Normalize();
 
-            if (!StateController.CurrentState.StateFlags.IsMoving)
+            StateController.AddTrigger(TriggersTemp.TriggerWalk);
+            /*if (!StateController.CurrentState.StateFlags.IsMoving)
             {
                 StateController.Triggers.Add(TriggersTemp.TriggerWalk);
-            }
+            }*/
 
             IsProdlena = true;
 
@@ -85,11 +86,12 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         protected override void BreakCommandoAction()
         {
-            if (StateController.CurrentState.StateFlags.IsMoving)
+            StateController.AddTrigger(TriggersTemp.TriggerIdle);
+            /*if (StateController.CurrentState.StateFlags.IsMoving)
             {
                 StateController.Triggers.Add(TriggersTemp.TriggerIdle);
-            }
-            
+            }*/
+
         }
 
         

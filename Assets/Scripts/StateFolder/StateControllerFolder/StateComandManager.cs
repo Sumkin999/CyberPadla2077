@@ -16,8 +16,8 @@ namespace Assets.Scripts.StateFolder.StateControllerFolder
         {
             _stateController = stateController;
 
-            AllCommands.Add(new CommandMove(true));
-            AllCommands.Add(new ComandRotate(true));
+            AllCommands.Add(new CommandMove());
+            AllCommands.Add(new ComandRotate());
             AllCommands.Add(new ComandAim());
             AllCommands.Add(new ComandAttack());
             AllCommands.Add(new ComandSelectWeapon());

@@ -10,6 +10,17 @@ using UnityEngine;
 
 namespace Assets.Scripts.HumanMonoModules
 {
+    /*
+    Главный класс Хумана 
+         
+         Модули-модули управления различными аспектами
+         
+         IFacade-интерфейс для взаимодействия с другим сущностями
+         
+         
+         
+         
+    */
     public interface IFacade
     {
         

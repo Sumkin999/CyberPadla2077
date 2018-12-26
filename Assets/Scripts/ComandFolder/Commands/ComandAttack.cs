@@ -46,11 +46,12 @@ namespace Assets.Scripts.ComandFolder.Commands
 
         protected override void BreakCommandoAction()
         {
-            if (StateController.CurrentState.StateFlags.IsAiming)
+            StateController.AddTrigger(TriggersTemp.TriggerUnaim);
+            /*if (StateController.CurrentState.StateFlags.IsAiming)
             {
 
                 StateController.Triggers.Add(TriggersTemp.TriggerUnaim);
-            }
+            }*/
         }
 
 

@@ -30,7 +30,8 @@ namespace Assets.Scripts.ComandFolder.Commands
 
         protected override void PrepareCommandoAction()
         {
-            StateController.Triggers.Add(TriggersTemp.TriggerFall);
+            StateController.AddTrigger(TriggersTemp.TriggerFall);
+            //StateController.Triggers.Add(TriggersTemp.TriggerFall);
 
         }
 
@@ -80,7 +81,8 @@ namespace Assets.Scripts.ComandFolder.Commands
         protected override void BreakCommandoAction()
         {
             Debug.Log("Time To GetUp!");
-            StateController.Triggers.Add(TriggersTemp.TriggerGetUp);
+            StateController.AddTrigger(TriggersTemp.TriggerGetUp);
+            //StateController.Triggers.Add(TriggersTemp.TriggerGetUp);
         }
         /*protected override bool ContinueCommandoCheck()
         {
