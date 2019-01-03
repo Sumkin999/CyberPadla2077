@@ -30,6 +30,12 @@ namespace Assets.Scripts.HumanMonoModules
             _facadeHuman.AnimatorModule.Animator.SetTrigger("ShotTrigger");
         }
 
+        public void SetFistAnimation()
+        {
+            Debug.Log("Fist Time!");
+            //_facadeHuman.AnimatorModule.Animator.SetTrigger("ShotTrigger");
+        }
+
         public virtual void SetAnimatorWeaponSelected(WeaponBase weaponBase)
         {
             _facadeHuman.AnimatorModule.ToggleWeaponHold(weaponBase);

@@ -241,6 +241,7 @@
     <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponPistol.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponUzi.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponMonoFolder\WeaponMonoVisuals.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\WeaponAttacksFolder\WeaponAttackFistHit.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/TestProjects/CyberPadla2077/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

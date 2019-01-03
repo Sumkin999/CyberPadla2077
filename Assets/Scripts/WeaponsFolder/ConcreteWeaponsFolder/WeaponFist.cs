@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
+using Assets.Scripts.WeaponsFolder.WeaponAttacksFolder;
 using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder
@@ -16,8 +17,18 @@ namespace Assets.Scripts.WeaponsFolder
 
             //WeaponVisuals = new WeaponVisuals();
 
+            PotencialAttacks.Add(new WeaponAttackFistHit(WeaponModuleMethodsHolder));
 
+        }
 
+        public float HitTimerCurrent;
+
+        public override void AdditionalUpdateAction()
+        {
+            if (HitTimerCurrent > 0)
+            {
+                HitTimerCurrent -= Time.deltaTime;
+            }
         }
 
         public override void WeaponSelectedAction()
