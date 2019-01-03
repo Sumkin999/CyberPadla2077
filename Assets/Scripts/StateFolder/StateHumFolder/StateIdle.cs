@@ -20,6 +20,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandSelectWeapon));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandRotate));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandFall));
+
             /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
             CommandsInState.Add(new ComandSelectWeapon());

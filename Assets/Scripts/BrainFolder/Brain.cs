@@ -80,7 +80,11 @@ namespace Assets.Scripts.ComandDataSenderFolder
                 }
                 WeaponDataSender.Attack(Facade,b0,b1);
             }
-
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                
+                MoveDataSender.SendRunComand(Facade);
+            }
 
 
             Ray ray = CameraMain.ScreenPointToRay(Input.mousePosition);

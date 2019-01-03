@@ -49,6 +49,8 @@ namespace Assets.Scripts.ComandFolder.ComandData
                 Iniciated = true;
 
                 PrepareCommandoAction();
+
+                IsProdlena = true;
             }
 
         }

@@ -193,6 +193,7 @@
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataAttack.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataFall.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataRotate.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataRun.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataSelectWeapon.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\CommandCreatorFolder\ComandCreator.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataBase.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandAttack.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandFall.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandRotate.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandRun.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandSelectWeapon.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\Command.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\CommandMove.cs" />

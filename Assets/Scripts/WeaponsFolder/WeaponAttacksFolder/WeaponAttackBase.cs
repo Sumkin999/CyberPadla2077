@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
+using UnityEngine;
 
 namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 {
@@ -18,7 +19,7 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 
         public virtual void NullingAction()
         {
-            
+            Debug.Log("N!");
         }
 
         public virtual bool Predicate(WeaponBase weaponBase)

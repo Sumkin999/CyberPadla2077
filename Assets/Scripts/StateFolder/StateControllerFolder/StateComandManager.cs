@@ -22,6 +22,7 @@ namespace Assets.Scripts.StateFolder.StateControllerFolder
             AllCommands.Add(new ComandAttack());
             AllCommands.Add(new ComandSelectWeapon());
             AllCommands.Add(new ComandFall());
+            AllCommands.Add(new ComandRun());
 
             foreach (var comand in AllCommands)
             {

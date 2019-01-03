@@ -151,6 +151,20 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                     }
                 }
             }
+
+            ComandDataRun comandDataRun=comandData as ComandDataRun;
+            if (comandDataRun != null)
+            {
+                foreach (var command in CommandsInState)
+                {
+                    if (command is ComandRun)
+                    {
+                        command.GetInputDataAndStart(comandData);
+
+                        return;
+                    }
+                }
+            }
         }
 
         public  void StateUpdateAction()

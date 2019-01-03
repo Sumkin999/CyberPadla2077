@@ -16,6 +16,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
 
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is CommandMove));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAttack));
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandRun));
             /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAttack());
 

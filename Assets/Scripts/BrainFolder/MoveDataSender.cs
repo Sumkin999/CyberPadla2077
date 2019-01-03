@@ -17,5 +17,12 @@ namespace Assets.Scripts.ComandDataSenderFolder
 
             facadeI.ComandGet(cmm);
         }
+
+        public void SendRunComand(IFacade facadeI)
+        {
+            ComandDataRun cmr=new ComandDataRun();
+
+            facadeI.ComandGet(cmr);
+        }
     }
 }

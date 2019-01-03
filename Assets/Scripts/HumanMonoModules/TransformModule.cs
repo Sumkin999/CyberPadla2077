@@ -23,6 +23,7 @@ namespace Assets.Scripts.HumanMonoModules
         private Vector3 _previousMoveTargetVector3;
 
         public float MoveSpeed;
+        public float RunSpeedModifier=1;
         public Seeker Seeker;
         public Path CurrentPath;
         private float nextWaypointDistance = 3;
@@ -44,7 +45,7 @@ namespace Assets.Scripts.HumanMonoModules
         public void Move()
         {
             
-            RigidbodyMain.MovePosition(MainTransform.position + _localTarget.normalized * Time.deltaTime * MoveSpeed);
+            RigidbodyMain.MovePosition(MainTransform.position + _localTarget.normalized * Time.deltaTime * MoveSpeed*RunSpeedModifier);
             
         }
 
