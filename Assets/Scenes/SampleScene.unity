@@ -409,6 +409,34 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 4210ffdcfc4f64a4fa527833ff7e632e,
     type: 3}
   m_PrefabInternal: {fileID: 1892949783}
+--- !u!1 &240776687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240776688}
+  m_Layer: 0
+  m_Name: PFTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240776688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 240776687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 838452988}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300168173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100116, guid: 4210ffdcfc4f64a4fa527833ff7e632e,
@@ -995,6 +1023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1754084662}
+  - {fileID: 240776688}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1032,6 +1061,7 @@ MonoBehaviour:
   LookAtVector3: {x: 0, y: 0, z: 0}
   VelocitySmooth: 10
   RotationSpeed: 180
+  PathFindTransform: {fileID: 240776688}
   TEMP_AI_TARGET: {fileID: 1953469030}
 --- !u!114 &838452991
 MonoBehaviour:
@@ -2670,6 +2700,7 @@ MonoBehaviour:
   LookAtVector3: {x: 0, y: 0, z: 0}
   VelocitySmooth: 10
   RotationSpeed: 180
+  PathFindTransform: {fileID: 0}
   TEMP_AI_TARGET: {fileID: 0}
 --- !u!54 &1332477360
 Rigidbody:
@@ -3022,6 +3053,7 @@ MonoBehaviour:
   LookAtVector3: {x: 0, y: 0, z: 0}
   VelocitySmooth: 10
   RotationSpeed: 180
+  PathFindTransform: {fileID: 0}
   TEMP_AI_TARGET: {fileID: 1953469030}
 --- !u!54 &1667531190
 Rigidbody:

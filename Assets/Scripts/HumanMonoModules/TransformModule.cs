@@ -39,7 +39,8 @@ namespace Assets.Scripts.HumanMonoModules
         private Vector3 _localTarget;
         private Vector3 _lastPosition;
         private float _timerLastPosition;
-        [Space (40)]
+        [Space(40)]
+        public Transform PathFindTransform;
         public GameObject TEMP_AI_TARGET;
 
         public void Move()
@@ -48,6 +49,9 @@ namespace Assets.Scripts.HumanMonoModules
             RigidbodyMain.MovePosition(MainTransform.position + _localTarget.normalized * Time.deltaTime * MoveSpeed*RunSpeedModifier);
             
         }
+
+#region PathFindRegion
+
 
         public void MovePathControl()
         {
@@ -129,6 +133,11 @@ namespace Assets.Scripts.HumanMonoModules
                 currentWaypoint = 0;
             }
         }
+
+
+
+#endregion
+
 
 
         public void MoveAnimationControl()

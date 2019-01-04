@@ -29,6 +29,20 @@ namespace Assets.Scripts.ComandFolder.ComandData
             if (comandDataMove!=null)
             {
                 _targetVector3 = comandDataMove.Vector3;
+
+                StateController.TransformModule.PathFindIsOn = comandDataMove.IsMoveByPathFind;
+
+                if (!comandDataMove.IsMoveByPathFind)
+                {
+                    StateController.TransformModule.PathFindTransform.parent = null;
+                }
+                else
+                {
+                    if (comandDataMove.TransformParent != null)
+                    {
+                        StateController.TransformModule.PathFindTransform.parent = comandDataMove.TransformParent;
+                    }
+                }
                 //StartCommando();
             }
             
@@ -52,8 +66,17 @@ namespace Assets.Scripts.ComandFolder.ComandData
         {
             
             //TODO ПЕРЕДЕЛАТЬ
-            StateController.TransformModule.MoveTargetVector3 = _targetVector3-StateController.TransformModule.MainTransform.position;
-            StateController.TransformModule.MoveTargetVector3.Normalize();
+
+            if (StateController.TransformModule.PathFindIsOn)
+            {
+                //StateController.TransformModule.PathFindTransform
+            }
+            else
+            {
+                StateController.TransformModule.MoveTargetVector3 = _targetVector3 - StateController.TransformModule.MainTransform.position;
+                StateController.TransformModule.MoveTargetVector3.Normalize();
+            }
+            
 
             StateController.AddTrigger(TriggersTemp.TriggerWalk);
             /*if (!StateController.CurrentState.StateFlags.IsMoving)

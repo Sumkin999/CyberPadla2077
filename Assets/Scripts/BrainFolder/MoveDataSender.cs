@@ -15,6 +15,8 @@ namespace Assets.Scripts.ComandDataSenderFolder
             ComandDataMove cmm=new ComandDataMove();
             cmm.Vector3 = vec;
 
+            cmm.IsMoveByPathFind = false;
+
             facadeI.ComandGet(cmm);
         }
 

@@ -9,5 +9,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
     public class ComandDataMove:ComandDataBase
     {
         public Vector3 Vector3;
+        public bool IsMoveByPathFind;
+        public Transform TransformParent;
     }
 }
