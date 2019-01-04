@@ -87,11 +87,15 @@ namespace Assets.Scripts.ComandDataSenderFolder
             }
 
 
-            Ray ray = CameraMain.ScreenPointToRay(Input.mousePosition);
-            float dist = Mathf.Sqrt(ray.direction.y * ray.direction.y + CameraMain.transform.position.y * CameraMain.transform.position.y);
+            Ray ray = CameraMain.ScreenPointToRay(Input.mousePosition);       
+            Vector3 vVertical=new Vector3(ray.origin.x,0, ray.origin.z)- ray.origin;
+            float angleBetweenVertical = Vector3.Angle(vVertical, ray.direction);
+            float cosBetweenVertical= Mathf.Cos(angleBetweenVertical * Mathf.PI / 180);
+            float dist = vVertical.magnitude/cosBetweenVertical;
             _lookDirVector3 = ray.GetPoint(dist);
-            _lookDirVector3.y = 0;
-           // Facade.TransformModule.LookAtVector3 = _lookDirVector3;
+
+            TargetTEMP.transform.position = _lookDirVector3;
+
 
 
             RotateDataSender.SendRotateComand(Facade,_lookDirVector3);
