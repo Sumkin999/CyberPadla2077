@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.HumanMonoModules;
 
+
 namespace Assets.Scripts.ComandFolder.ComandData
 {
+    
     /*
     Базовый класс КОМАНДЫ
     
@@ -15,10 +17,12 @@ namespace Assets.Scripts.ComandFolder.ComandData
     */
     public class Command
     {
+        
+
         public StateController StateController;
 
-        public bool IsNeededProdlenie { get; protected set; }
-        public bool IsProdlena { get; set; }
+        //public bool IsNeededProdlenie { get; protected set; }
+        //public bool IsProdlena { get; set; }
 
         protected virtual void GetInputData(ComandDataBase comandData)
         {
@@ -50,7 +54,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
                 PrepareCommandoAction();
 
-                IsProdlena = true;
+                //IsProdlena = true;
             }
 
         }
@@ -77,6 +81,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         }
 
+        protected virtual void AfterUpdateAction()
+        {
+            
+        }
+
         public void FixedUpdateCommand()
         {
             if (Iniciated)
@@ -93,7 +102,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
                 Iniciated = ContinueCommandoCheck();
 
-                if (IsNeededProdlenie)
+                /*if (IsNeededProdlenie)
                 {
                     if (!IsProdlena)
                     {
@@ -103,12 +112,15 @@ namespace Assets.Scripts.ComandFolder.ComandData
                     {
                         IsProdlena=false;
                     }
-                }
-                
+                }*/
+                AfterUpdateAction();
+
                 if (!Iniciated)
                 {
                     BreakCommandoAction();
                 }
+
+                
                 
             }
         }

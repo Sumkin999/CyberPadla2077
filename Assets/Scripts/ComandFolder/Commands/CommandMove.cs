@@ -12,10 +12,10 @@ namespace Assets.Scripts.ComandFolder.ComandData
     {
         public CommandMove()
         {
-            IsNeededProdlenie = true;
+            //IsNeededProdlenie = true;
         }
 
-
+        public bool IsProdlena;
 
         private Vector3 _targetVector3;
         protected override bool StartConditionCheck()
@@ -93,7 +93,17 @@ namespace Assets.Scripts.ComandFolder.ComandData
             }*/
 
         }
+        protected override void AfterUpdateAction()
+        {
+            if (!IsProdlena)
+            {
+                UnIniciate();
+            }
+            else
+            {
+                IsProdlena = false;
+            }
+        }
 
-        
     }
 }

@@ -11,9 +11,9 @@ namespace Assets.Scripts.ComandFolder.Commands
     {
         public ComandRun()
         {
-            IsNeededProdlenie = true;
+            //IsNeededProdlenie = true;
         }
-
+        public bool IsProdlena;
         protected override void GetInputData(ComandDataBase comandData)
         {
             ComandDataRun comandDataRun = comandData as ComandDataRun;
@@ -27,8 +27,8 @@ namespace Assets.Scripts.ComandFolder.Commands
         {
             StateController.TransformModule.RunSpeedModifier = 2f;
 
-
-           // IsProdlena = true;
+            IsProdlena = true;
+            // IsProdlena = true;
 
         }
         protected override void ExecuteAction()
@@ -47,6 +47,18 @@ namespace Assets.Scripts.ComandFolder.Commands
             StateController.TransformModule.RunSpeedModifier = 1f;
 
 
+        }
+
+        protected override void AfterUpdateAction()
+        {
+            if (!IsProdlena)
+            {
+                UnIniciate();
+            }
+            else
+            {
+                IsProdlena = false;
+            }
         }
     }
 }

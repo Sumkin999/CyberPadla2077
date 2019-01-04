@@ -11,9 +11,9 @@ namespace Assets.Scripts.ComandFolder.Commands
     {
         public ComandRotate()
         {
-            IsNeededProdlenie = true;
+            //IsNeededProdlenie = true;
         }
-
+        public bool IsProdlena;
         private Vector3 _targetVector3;
 
 
@@ -46,6 +46,16 @@ namespace Assets.Scripts.ComandFolder.Commands
             return true;
         }
 
-
+        protected override void AfterUpdateAction()
+        {
+            if (!IsProdlena)
+            {
+                UnIniciate();
+            }
+            else
+            {
+                IsProdlena = false;
+            }
+        }
     }
 }
