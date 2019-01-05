@@ -33,7 +33,7 @@ namespace Assets.Scripts.ComandFolder.Commands
         }
         protected override void ExecuteAction()
         {
-            Debug.Log("Is Running!");
+
         }
 
         protected override bool ContinueCommandoCheck()
@@ -43,7 +43,7 @@ namespace Assets.Scripts.ComandFolder.Commands
 
         protected override void BreakCommandoAction()
         {
-            Debug.Log("BreakRun");
+
             StateController.TransformModule.RunSpeedModifier = 1f;
 
 

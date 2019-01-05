@@ -19,7 +19,7 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 
         public virtual void NullingAction()
         {
-            Debug.Log("N!");
+
         }
 
         public virtual bool Predicate(WeaponBase weaponBase)

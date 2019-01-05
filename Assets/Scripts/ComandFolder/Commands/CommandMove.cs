@@ -70,6 +70,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
             if (!_isPfGet)
             {
                 StateController.TransformModule.MoveTargetVector3 = _targetVector3;
+                StateController.TransformModule.FreeMovePrepare();
             }
             else
             {
@@ -83,6 +84,8 @@ namespace Assets.Scripts.ComandFolder.ComandData
                     StateController.TransformModule.PathFindTransform.parent = _parentTransform;
                     StateController.TransformModule.PathFindTransform.position = _parentTransform.position;
                 }
+
+                StateController.TransformModule.PathFindMovePrepare();
             }
 
             StateController.AddTrigger(TriggersTemp.TriggerWalk);
@@ -105,13 +108,15 @@ namespace Assets.Scripts.ComandFolder.ComandData
             {
                 _distanceToTargetTransform = Vector3.Distance(StateController.TransformModule.MainTransform.position,
                     StateController.TransformModule.PathFindTransform.position);
-                StateController.TransformModule.PathFindMovePrepare();
+
+
+                StateController.TransformModule.PathFindMoveUpdate();
 
                 //Debug.Log("Dist "+ _distanceToTargetTransform);
             }
             else
             {
-                StateController.TransformModule.FreeMovePrepare();
+                //StateController.TransformModule.FreeMovePrepare();
             }
             
             StateController.TransformModule.MoveAnimationControl();

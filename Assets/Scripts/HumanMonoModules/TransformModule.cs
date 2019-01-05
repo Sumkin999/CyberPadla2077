@@ -65,10 +65,19 @@ namespace Assets.Scripts.HumanMonoModules
         {
             MoveTargetVector3 = PathFindTransform.position;
             Seeker.StartPath(MainTransform.position, MoveTargetVector3, OnPathComplete);
+            
+        }
+
+        public void PathFindMoveUpdate()
+        {
+            if(Vector3.Distance(MoveTargetVector3,PathFindTransform.position)>1)
+                PathFindMovePrepare();
+
+
             if (CurrentPath == null)
             {
                 Debug.Log("Path is null");
-                
+
                 // We have no path to follow yet, so don't do anything
                 return;
             }
@@ -104,11 +113,11 @@ namespace Assets.Scripts.HumanMonoModules
 
 
 
-            
+
             //MoveTargetVector3 -= MainTransform.position;
-            MoveTargetVector3 = CurrentPath.vectorPath[currentWaypoint] - MainTransform.position;
-            MoveTargetVector3.Normalize();
-            _localTarget = MoveTargetVector3;
+            _localTarget = CurrentPath.vectorPath[currentWaypoint] - MainTransform.position;
+            _localTarget.Normalize();
+            //_localTarget = MoveTargetVector3;
         }
         #region PathFindRegion
         private void OnPathComplete(Path p)
