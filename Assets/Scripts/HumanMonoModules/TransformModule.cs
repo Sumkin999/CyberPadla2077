@@ -26,8 +26,8 @@ namespace Assets.Scripts.HumanMonoModules
         public float RunSpeedModifier=1;
         public Seeker Seeker;
         public Path CurrentPath;
-        //private float nextWaypointDistance = 3;
-        //private int currentWaypoint = 0;
+        private float nextWaypointDistance = 3;
+        private int currentWaypoint = 0;
         //private bool reachedEndOfPath;
         private float distanceToWaypoint;
 
@@ -64,12 +64,63 @@ namespace Assets.Scripts.HumanMonoModules
         public void PathFindMovePrepare()
         {
             MoveTargetVector3 = PathFindTransform.position;
-            MoveTargetVector3 -= MainTransform.position;
+            Seeker.StartPath(MainTransform.position, MoveTargetVector3, OnPathComplete);
+            if (CurrentPath == null)
+            {
+                Debug.Log("Path is null");
+                
+                // We have no path to follow yet, so don't do anything
+                return;
+            }
+            while (true)
+            {
+                // If you want maximum performance you can check the squared distance instead to get rid of a
+                // square root calculation. But that is outside the scope of this tutorial.
+                distanceToWaypoint = Vector3.Distance(MainTransform.position, CurrentPath.vectorPath[currentWaypoint]);
+                if (distanceToWaypoint < nextWaypointDistance)
+                {
+                    // Check if there is another waypoint or if we have reached the end of the path
+                    if (currentWaypoint + 1 < CurrentPath.vectorPath.Count)
+                    {
+                        currentWaypoint++;
+                    }
+                    else
+                    {
+                        // Set a status variable to indicate that the agent has reached the end of the path.
+                        // You can use this to trigger some special code if your game requires that.
+                        //TODO
+                        //reachedEndOfPath = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+
+                //_localTarget = CurrentPath.vectorPath[currentWaypoint] - MainTransform.position;
+            }
+
+
+
+
+            
+            //MoveTargetVector3 -= MainTransform.position;
+            MoveTargetVector3 = CurrentPath.vectorPath[currentWaypoint] - MainTransform.position;
             MoveTargetVector3.Normalize();
             _localTarget = MoveTargetVector3;
         }
-#region PathFindRegion
-
+        #region PathFindRegion
+        private void OnPathComplete(Path p)
+        {
+            Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
+            if (!p.error)
+            {
+                CurrentPath = p;
+                // Reset the waypoint counter so that we start to move towards the first point in the path
+                currentWaypoint = 0;
+            }
+        }
 
         /*public void MovePathControl()
         {
@@ -151,7 +202,7 @@ namespace Assets.Scripts.HumanMonoModules
 
 
 
-#endregion
+        #endregion
 
 
 
