@@ -18,6 +18,9 @@ namespace Assets.Scripts.ComandFolder.ComandData
         public bool IsProdlena;
 
         private Vector3 _targetVector3;
+        private bool _isPfGet;
+        private Transform _parentTransform;
+        private float _distanceToTargetTransform;
         protected override bool StartConditionCheck()
         {
             
@@ -30,20 +33,17 @@ namespace Assets.Scripts.ComandFolder.ComandData
             {
                 _targetVector3 = comandDataMove.Vector3;
 
-                StateController.TransformModule.PathFindIsOn = comandDataMove.IsMoveByPathFind;
+                _isPfGet = comandDataMove.IsMoveByPathFind;
 
-                if (!comandDataMove.IsMoveByPathFind)
+                if (comandDataMove.TransformParent!=null)
                 {
-                    StateController.TransformModule.PathFindTransform.parent = null;
+                    _parentTransform = comandDataMove.TransformParent;
                 }
                 else
                 {
-                    if (comandDataMove.TransformParent != null)
-                    {
-                        StateController.TransformModule.PathFindTransform.parent = comandDataMove.TransformParent;
-                    }
+                    _parentTransform = null;
                 }
-                //StartCommando();
+                
             }
             
             
@@ -64,26 +64,28 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         protected override void PrepareCommandoAction()
         {
-            
-            //TODO ПЕРЕДЕЛАТЬ
 
-            if (StateController.TransformModule.PathFindIsOn)
+            StateController.TransformModule.PathFindIsOn = _isPfGet;
+            
+            if (!_isPfGet)
             {
-                //StateController.TransformModule.PathFindTransform
+                StateController.TransformModule.MoveTargetVector3 = _targetVector3;
             }
             else
             {
-                StateController.TransformModule.MoveTargetVector3 = _targetVector3 - StateController.TransformModule.MainTransform.position;
-                StateController.TransformModule.MoveTargetVector3.Normalize();
+                if (_parentTransform == null)
+                {
+                    StateController.TransformModule.PathFindTransform.parent = null;
+                    StateController.TransformModule.PathFindTransform.position = _targetVector3;
+                }
+                else
+                {
+                    StateController.TransformModule.PathFindTransform.parent = _parentTransform;
+                    StateController.TransformModule.PathFindTransform.position = _parentTransform.position;
+                }
             }
-            
 
             StateController.AddTrigger(TriggersTemp.TriggerWalk);
-            /*if (!StateController.CurrentState.StateFlags.IsMoving)
-            {
-                StateController.Triggers.Add(TriggersTemp.TriggerWalk);
-            }*/
-
             IsProdlena = true;
 
         }
@@ -99,8 +101,19 @@ namespace Assets.Scripts.ComandFolder.ComandData
 
         protected override void ExecuteAction()
         {
+            if (StateController.TransformModule.PathFindIsOn)
+            {
+                _distanceToTargetTransform = Vector3.Distance(StateController.TransformModule.MainTransform.position,
+                    StateController.TransformModule.PathFindTransform.position);
+                StateController.TransformModule.PathFindMovePrepare();
 
-            StateController.TransformModule.MovePathControl();
+                //Debug.Log("Dist "+ _distanceToTargetTransform);
+            }
+            else
+            {
+                StateController.TransformModule.FreeMovePrepare();
+            }
+            
             StateController.TransformModule.MoveAnimationControl();
             
             
@@ -110,22 +123,29 @@ namespace Assets.Scripts.ComandFolder.ComandData
         protected override void BreakCommandoAction()
         {
             StateController.AddTrigger(TriggersTemp.TriggerIdle);
-            /*if (StateController.CurrentState.StateFlags.IsMoving)
-            {
-                StateController.Triggers.Add(TriggersTemp.TriggerIdle);
-            }*/
+
 
         }
         protected override void AfterUpdateAction()
         {
-            if (!IsProdlena)
+            if (StateController.TransformModule.PathFindIsOn && _distanceToTargetTransform>1.2f)
             {
-                UnIniciate();
+                IsProdlena = true;
             }
             else
             {
-                IsProdlena = false;
+                if (!IsProdlena)
+                {
+                    UnIniciate();
+                }
+                else
+                {
+                    IsProdlena = false;
+                }
             }
+            
+
+            
         }
 
     }

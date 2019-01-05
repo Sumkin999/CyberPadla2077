@@ -26,8 +26,8 @@ namespace Assets.Scripts.HumanMonoModules
         public float RunSpeedModifier=1;
         public Seeker Seeker;
         public Path CurrentPath;
-        private float nextWaypointDistance = 3;
-        private int currentWaypoint = 0;
+        //private float nextWaypointDistance = 3;
+        //private int currentWaypoint = 0;
         //private bool reachedEndOfPath;
         private float distanceToWaypoint;
 
@@ -50,10 +50,28 @@ namespace Assets.Scripts.HumanMonoModules
             
         }
 
+
+        public void FreeMovePrepare()
+        {
+            MoveTargetVector3 -= MainTransform.position;
+            MoveTargetVector3.Normalize();
+            _localTarget = MoveTargetVector3;
+
+            PathFindTransform.position = MainTransform.position;
+            PathFindTransform.parent = null;
+        }
+
+        public void PathFindMovePrepare()
+        {
+            MoveTargetVector3 = PathFindTransform.position;
+            MoveTargetVector3 -= MainTransform.position;
+            MoveTargetVector3.Normalize();
+            _localTarget = MoveTargetVector3;
+        }
 #region PathFindRegion
 
 
-        public void MovePathControl()
+        /*public void MovePathControl()
         {
             
             _previousMoveTargetVector3 = MoveTargetVector3;
@@ -111,10 +129,7 @@ namespace Assets.Scripts.HumanMonoModules
                 {
                     _localTarget = CurrentPath.vectorPath[currentWaypoint] - MainTransform.position;
                 }
-                /*else
-                {
-                    _localTarget = MainTransform.position;
-                }*/
+                
                 
 
             }
@@ -132,7 +147,7 @@ namespace Assets.Scripts.HumanMonoModules
                 // Reset the waypoint counter so that we start to move towards the first point in the path
                 currentWaypoint = 0;
             }
-        }
+        }*/
 
 
 

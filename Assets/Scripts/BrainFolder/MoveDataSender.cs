@@ -20,6 +20,25 @@ namespace Assets.Scripts.ComandDataSenderFolder
             facadeI.ComandGet(cmm);
         }
 
+        public void SendMovePathFindComand(IFacade facadeI,Transform parnt)
+        {
+            ComandDataMove cmm = new ComandDataMove();
+            
+            cmm.IsMoveByPathFind = true;
+      
+            cmm.TransformParent = parnt;
+
+            facadeI.ComandGet(cmm);
+        }
+        public void SendMovePathFindComand(IFacade facadeI, Vector3 vec)
+        {
+            ComandDataMove cmm = new ComandDataMove();
+            cmm.Vector3 = vec;
+            cmm.IsMoveByPathFind = true;
+
+            facadeI.ComandGet(cmm);
+        }
+
         public void SendRunComand(IFacade facadeI)
         {
             ComandDataRun cmr=new ComandDataRun();

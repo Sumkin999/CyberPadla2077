@@ -94,7 +94,7 @@ namespace Assets.Scripts.ComandDataSenderFolder
             float dist = vVertical.magnitude/cosBetweenVertical;
             _lookDirVector3 = ray.GetPoint(dist);
 
-            TargetTEMP.transform.position = _lookDirVector3;
+            //TargetTEMP.transform.position = _lookDirVector3;
 
 
 
@@ -105,6 +105,15 @@ namespace Assets.Scripts.ComandDataSenderFolder
                 //Debug.Log("Fall!");
                 //Facade.TransformModule.RigidbodyMain.AddForce(Vector3.forward*200f,ForceMode.Impulse);
                 FallDataSender.SendFallComand(Facade,Facade.PhysicsModule.HumanRagdoll.HipsTransform.GetComponent<Rigidbody>());
+            }
+
+            if (Input.GetKeyDown("q"))
+            {
+                MoveDataSender.SendMovePathFindComand(Facade,TargetTEMP.transform);
+            }
+            if (Input.GetKeyDown("n"))
+            {
+                MoveDataSender.SendMovePathFindComand(Facade, TargetTEMP.transform.position);
             }
 
             //MoveDataSender.SendMoveComand(Facade,v);
