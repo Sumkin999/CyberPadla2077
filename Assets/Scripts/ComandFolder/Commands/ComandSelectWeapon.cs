@@ -9,9 +9,16 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandSelectWeapon:Command
     {
-        protected override void GetInputData(ComandDataBase comandData)
+        protected override bool GetInputData(ComandDataBase comandData)
         {
-            
+            ComandDataSelectWeapon cdsm=comandData as ComandDataSelectWeapon;
+
+            if (cdsm != null)
+            {
+                return true;
+            }
+
+            return false;
         }
         
         protected override void PrepareCommandoAction()

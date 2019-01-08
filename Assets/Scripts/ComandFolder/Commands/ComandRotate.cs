@@ -17,14 +17,18 @@ namespace Assets.Scripts.ComandFolder.Commands
         private Vector3 _targetVector3;
 
 
-        protected override void GetInputData(ComandDataBase comandData)
+        protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataRotate comandDataRotate = comandData as ComandDataRotate;
             if (comandDataRotate != null)
             {
                 _targetVector3 = comandDataRotate.LookAtVector3;
                 //StartCommando();
+
+                return true;
             }
+
+            return false;
         }
 
 

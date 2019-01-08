@@ -11,7 +11,7 @@ namespace Assets.Scripts.ComandFolder.Commands
     public class ComandAim:Command
     {
         
-        protected override void GetInputData(ComandDataBase comandData)
+        protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataAim comandDataAim=comandData as ComandDataAim;
             if (comandDataAim!=null)
@@ -19,10 +19,12 @@ namespace Assets.Scripts.ComandFolder.Commands
                 
                 StateController.WeaponModule.SetPressedFlags(comandDataAim.IsPrimaryPressed,comandDataAim.IsSecondaryPressed);
 
+
+                return true;
                 //StartCommando();
             }
-            
 
+            return false;
         }
 
         private bool _r;

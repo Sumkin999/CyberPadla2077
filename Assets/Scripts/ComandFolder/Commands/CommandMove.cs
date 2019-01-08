@@ -26,7 +26,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
             
             return true;
         }
-        protected override void GetInputData(ComandDataBase comandData)
+        protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataMove comandDataMove=comandData as ComandDataMove;
             if (comandDataMove!=null)
@@ -43,10 +43,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
                 {
                     _parentTransform = null;
                 }
-                
+
+                return true;
             }
-            
-            
+
+            return false;
         }
         //TODO
         /*

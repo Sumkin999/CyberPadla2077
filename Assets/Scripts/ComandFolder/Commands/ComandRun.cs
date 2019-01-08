@@ -14,13 +14,15 @@ namespace Assets.Scripts.ComandFolder.Commands
             //IsNeededProdlenie = true;
         }
         public bool IsProdlena;
-        protected override void GetInputData(ComandDataBase comandData)
+        protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataRun comandDataRun = comandData as ComandDataRun;
             if (comandDataRun != null)
             {
-                
+                return true;
             }
+
+            return false;
         }
 
         protected override void PrepareCommandoAction()

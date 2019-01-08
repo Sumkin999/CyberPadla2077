@@ -5,16 +5,20 @@ using System.Text;
 
 namespace Assets.Scripts.ComandFolder.ComandData
 {
-    public class ComandDataBase
+    public abstract class ComandDataBase
     {
         public bool IsProcessed { get; private set; }
 
-        public void Process()
+        public void Process(List<Command> commands)
         {
-            
+            ProcessAction(commands);
+
             IsProcessed = true;
         }
 
-        
+        protected abstract void ProcessAction(List<Command> commands );
+
+
+
     }
 }

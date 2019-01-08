@@ -71,7 +71,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             }
         }
 
-        protected virtual void ProcessSingleData(ComandDataBase comandData)
+        /*protected virtual void ProcessSingleData(ComandDataBase comandData)
         {
             ComandDataMove comandDataMove=comandData as ComandDataMove;
             if (comandDataMove!=null)
@@ -165,7 +165,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
                     }
                 }
             }
-        }
+        }*/
 
         public  void StateUpdateAction()
         {
@@ -174,8 +174,8 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             {
                 if (!commandData.IsProcessed)
                 {
-                    ProcessSingleData(commandData);
-                    commandData.Process();
+                    //ProcessSingleData(commandData);
+                    commandData.Process(CommandsInState);
                 }  
             }
             if (CommandDataToProcessList.Count > 0)

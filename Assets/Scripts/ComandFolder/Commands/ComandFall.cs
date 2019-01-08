@@ -15,7 +15,7 @@ namespace Assets.Scripts.ComandFolder.Commands
         private float _gettingUpTimer;
         private bool _startedToGetUp;
 
-        protected override void GetInputData(ComandDataBase comandData)
+        protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataFall comandDatafall = comandData as ComandDataFall;
             if (comandDatafall != null)
@@ -24,7 +24,11 @@ namespace Assets.Scripts.ComandFolder.Commands
                 _groundedTimer = 2f;
                 _gettingUpTimer = 2f;
                 _startedToGetUp = false;
+
+                return true;
             }
+
+            return false;
         }
 
 
