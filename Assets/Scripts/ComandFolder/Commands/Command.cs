@@ -15,7 +15,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         Если выполнен StartConditionCheck, то иницирована и выполняется Update/FixedUpdate
         IsProdlena-BreakComando в том числе если не получила обновления входящих данных
     */
-    public class Command
+    public abstract class Command
     {
         
 
