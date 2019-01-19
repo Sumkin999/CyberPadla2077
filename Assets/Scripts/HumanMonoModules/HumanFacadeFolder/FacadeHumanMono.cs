@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.BrainFolder.InteractionDataSenderFolder;
 using Assets.Scripts.ComandFolder.ComandData;
+using Assets.Scripts.HumanMonoModules.HumanInteractionFolder;
 using Assets.Scripts.StateFolder.StateHumFolder;
 using Assets.Scripts.StateFolder.StateTreeFolder.ScrObjStateTreeFolder;
 using Assets.Scripts.WeaponsFolder;
@@ -37,7 +39,14 @@ namespace Assets.Scripts.HumanMonoModules
         public ScrObjStateTree ScrObjStateTree;
         private StateController _stateController;
 
+
         
+        public List<ColliderHumanPart> ColliderHumanParts=new List<ColliderHumanPart>();
+
+
+
+
+
 
         public void ComandGet(ComandDataBase comandData) 
         {
@@ -68,6 +77,12 @@ namespace Assets.Scripts.HumanMonoModules
             WeaponModule.IniciateWeaponModule();
             AnimatorModule.IniciateAnimatorModule(this);
             PhysicsModule.InicPhysicModule(this);
+
+
+            foreach (var coll in ColliderHumanParts)
+            {
+                coll.IfFacade = this;
+            }
         }
 
         void Update()

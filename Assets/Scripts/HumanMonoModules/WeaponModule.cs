@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.HumanMonoModules.HumanInteractionFolder;
 using Assets.Scripts.WeaponsFolder;
 using Assets.Scripts.WeaponsFolder.ConcreteWeaponsFolder.WeaponMonoFolder;
 using Assets.Scripts.WeaponsFolder.ScrObjectsWeapon;
@@ -175,7 +176,8 @@ namespace Assets.Scripts.HumanMonoModules
             CurrentWeapon.WeaponSelectedAction();
         }
 
-
+        private LayerMask _layerMask = -1;
+        private QueryTriggerInteraction queryTriggerInteraction=QueryTriggerInteraction.Collide;
         public void WeaponModuleShootWeapon()
         {
             if (CurrentWeapon==null)
@@ -190,16 +192,23 @@ namespace Assets.Scripts.HumanMonoModules
             weaponPistol.WeaponPistolMono.ShowMuzzle();
             Debug.Log("Actual Fire!");
 
-            /*Ray ray = new Ray(RightHandTransform.position,
-                _facadeHuman.TransformModule.MainTransform.forward);*/
+            Ray ray = new Ray(RightHandTransform.position,
+                _facadeHuman.TransformModule.MainTransform.forward);
 
             Debug.DrawRay(RightHandTransform.position,
                 _facadeHuman.TransformModule.MainTransform.forward*100f);
 
-            //hits = Physics.RaycastAll(ray,
-            //    100.0F, layerMask, queryTriggerInteraction);
+            RaycastHit[] hits = Physics.RaycastAll(ray,
+                100.0F, _layerMask, queryTriggerInteraction);
 
-
+            foreach (var hit in hits)
+            {
+                ColliderHumanPart chm = hit.collider.gameObject.GetComponent<ColliderHumanPart>();
+                if (chm != null)
+                {
+                    chm.Foo();
+                }
+            }
         }
 
         

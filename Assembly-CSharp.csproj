@@ -186,6 +186,7 @@
     <Compile Include="Assets\Scripts\BrainFolder\AiBrain.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\Brain.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\FallDataSender.cs" />
+    <Compile Include="Assets\Scripts\BrainFolder\InteractionDataSenderFolder\ShottedDataSender.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\MoveDataSender.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\RotateDataSender.cs" />
     <Compile Include="Assets\Scripts\BrainFolder\TestBrain.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataRotate.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataRun.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataSelectWeapon.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\ComandData\InteractionComandDataFolder\ComandInDataShotted.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\CommandCreatorFolder\ComandCreator.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataBase.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\ComandData\ComandDataMove.cs" />
@@ -207,9 +209,11 @@
     <Compile Include="Assets\Scripts\ComandFolder\Commands\ComandSelectWeapon.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\Command.cs" />
     <Compile Include="Assets\Scripts\ComandFolder\Commands\CommandMove.cs" />
+    <Compile Include="Assets\Scripts\ComandFolder\Commands\CommandsInteraction\ComandInShotted.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\AnimatorFolder\AnimatorToWeaponListener.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\AnimatorModule.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\HumanFacadeFolder\FacadeHumanMono.cs" />
+    <Compile Include="Assets\Scripts\HumanMonoModules\HumanInteractionFolder\ColliderHumanPart.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\PhysicsModule.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\RagdollFolder\HumanRagdoll.cs" />
     <Compile Include="Assets\Scripts\HumanMonoModules\WeaponModule.cs" />

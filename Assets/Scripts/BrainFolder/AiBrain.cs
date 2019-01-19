@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.BrainFolder.InteractionDataSenderFolder;
 using Assets.Scripts.ComandDataSenderFolder;
 using Assets.Scripts.HumanMonoModules;
 using UnityEngine;
@@ -15,6 +16,11 @@ namespace Assets.Scripts.BrainFolder
         public WeaponDataSender WeaponDataSender = new WeaponDataSender();
         public RotateDataSender RotateDataSender = new RotateDataSender();
         public FallDataSender FallDataSender = new FallDataSender();
+
+        
+
+
+
 
         private Vector3 _lookDirVector3;
 

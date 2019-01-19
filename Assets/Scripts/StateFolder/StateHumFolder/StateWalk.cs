@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
 using Assets.Scripts.ComandFolder.Commands;
+using Assets.Scripts.ComandFolder.Commands.CommandsInteraction;
 using Assets.Scripts.HumanMonoModules;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandAim));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandSelectWeapon));
             CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h=>h is ComandRun));
+
+            CommandsInState.Add(StateController.StateComandManager.AllCommands.Find(h => h is ComandInShotted));
             /*CommandsInState.Add(new CommandMove(true));
             CommandsInState.Add(new ComandAim());
             CommandsInState.Add(new ComandSelectWeapon());

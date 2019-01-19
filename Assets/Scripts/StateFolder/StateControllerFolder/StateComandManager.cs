@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.ComandFolder.ComandData;
 using Assets.Scripts.ComandFolder.Commands;
+using Assets.Scripts.ComandFolder.Commands.CommandsInteraction;
 using Assets.Scripts.HumanMonoModules;
 
 namespace Assets.Scripts.StateFolder.StateControllerFolder
@@ -23,6 +24,8 @@ namespace Assets.Scripts.StateFolder.StateControllerFolder
             AllCommands.Add(new ComandSelectWeapon());
             AllCommands.Add(new ComandFall());
             AllCommands.Add(new ComandRun());
+
+            AllCommands.Add(new ComandInShotted());
 
             foreach (var comand in AllCommands)
             {
