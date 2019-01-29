@@ -235,6 +235,7 @@
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateConnections\StateConnection.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateNodes\StateNode.cs" />
     <Compile Include="Assets\Scripts\StateFolder\StateTreeFolder\StateTree.cs" />
+    <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponMonoFolder\WeaponFistMono.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ConcreteWeaponsFolder\WeaponMonoFolder\WeaponPistolMono.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\CustomeditorWeaponsCreator.cs" />
     <Compile Include="Assets\Scripts\WeaponsFolder\ScrObjectsWeapon\ScrObjEditorWeaponCreator.cs" />

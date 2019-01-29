@@ -42,6 +42,7 @@ namespace Assets.Scripts.StateFolder.StateHumFolder
         {
             if (!stateTo.StateFlags.IsAiming)
             {
+                StateController.WeaponModule.BreakAttack();
                 //StateController.AnimatorModule.ToggleAim(false, StateController.WeaponModule.CurrentWeapon);
             }
         }

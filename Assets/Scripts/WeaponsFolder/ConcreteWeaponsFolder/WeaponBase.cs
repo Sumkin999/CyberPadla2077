@@ -123,7 +123,10 @@ namespace Assets.Scripts.WeaponsFolder
             
         }
 
-
+        public virtual void StateBreakAction()
+        {
+            
+        }
 
 
         public void InstantiateMonoForThisWeapon()
@@ -154,7 +157,45 @@ namespace Assets.Scripts.WeaponsFolder
                 weaponPistol.WeaponPistolMono = pistolGameObject.GetComponent<WeaponPistolMono>();
 
                 pistolGameObject.SetActive(false);
+
+                return;
             }
+
+            if (EnumWeaponType == EnumWeaponType.Fists)
+            {
+                WeaponFist weaponFist = this as WeaponFist;
+                if (weaponFist == null)
+                {
+                    return;
+                }
+
+                ScrObjWeaponFist scrObjWeaponFist = WeaponModuleMethodsHolder.GetScriptableObkect(EnumWeaponType) as ScrObjWeaponFist;
+
+                if (scrObjWeaponFist == null)
+                {
+                    return;
+                }
+
+                GameObject fistGameObject =
+               GameObject.Instantiate(scrObjWeaponFist.VisualPrefab,
+                   WeaponModuleMethodsHolder.MainTransform.position, Quaternion.identity);
+
+                fistGameObject.transform.parent = WeaponModuleMethodsHolder. MainTransform;
+                //fistGameObject.transform.localPosition = new Vector3(0, .0015f, .0005f);
+               // fistGameObject.transform.localEulerAngles = new Vector3(-12.5f, 265, -190);
+
+                weaponFist.WeaponFistMono = fistGameObject.GetComponent<WeaponFistMono>();
+
+                fistGameObject.SetActive(false);
+
+                return;
+
+
+
+
+
+            }
+            
         }
 
         

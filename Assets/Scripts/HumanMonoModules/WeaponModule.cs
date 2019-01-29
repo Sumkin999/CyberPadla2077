@@ -19,11 +19,13 @@ namespace Assets.Scripts.HumanMonoModules
     {
         private FacadeHumanMono _facadeHuman;
         public Transform RightHandTransform;
+        public Transform MainTransform;
         
-        public WeaponModuleMethodsHolder(FacadeHumanMono facadeHuman,Transform rightHandTransform)
+        public WeaponModuleMethodsHolder(FacadeHumanMono facadeHuman,Transform rightHandTransform,Transform mainTransform)
         {
             _facadeHuman = facadeHuman;
             RightHandTransform = rightHandTransform;
+            MainTransform = mainTransform;
         }
 
         public void SetShotAnimation()
@@ -34,7 +36,7 @@ namespace Assets.Scripts.HumanMonoModules
         public void SetFistAnimation()
         {
             Debug.Log("Fist Time!");
-            //_facadeHuman.AnimatorModule.Animator.SetTrigger("ShotTrigger");
+            _facadeHuman.AnimatorModule.Animator.SetTrigger("FistTrigger");
         }
 
         public virtual void SetAnimatorWeaponSelected(WeaponBase weaponBase)
@@ -54,6 +56,10 @@ namespace Assets.Scripts.HumanMonoModules
 
                 return _facadeHuman.WeaponModule.ScrObjWeaponPistol;
             }
+            if (enumWeaponType == EnumWeaponType.Fists)
+            {
+                return _facadeHuman.WeaponModule.ScrObjWeaponFist;
+            }
 
             return null;
         }
@@ -64,6 +70,11 @@ namespace Assets.Scripts.HumanMonoModules
     {
         
         public ScrObjWeaponPistol ScrObjWeaponPistol;
+
+        public ScrObjWeaponFist ScrObjWeaponFist;
+
+
+
         protected WeaponBase CurrentWeapon;
 
         private FacadeHumanMono _facadeHuman;
@@ -71,7 +82,7 @@ namespace Assets.Scripts.HumanMonoModules
         public void SetFacade(FacadeHumanMono facadeHumanMono)
         {
             _facadeHuman = facadeHumanMono;
-            _weaponModuleMethodsHolder=new WeaponModuleMethodsHolder(_facadeHuman,RightHandTransform);
+            _weaponModuleMethodsHolder=new WeaponModuleMethodsHolder(_facadeHuman,RightHandTransform,MainTransform);
         }
 
         protected List<WeaponBase> InventoryWeapon=new List<WeaponBase>();
@@ -79,6 +90,7 @@ namespace Assets.Scripts.HumanMonoModules
         private WeaponModuleMethodsHolder _weaponModuleMethodsHolder;
 
         public Transform RightHandTransform;
+        public Transform MainTransform;
 
         public void IniciateWeaponModule()
         {
@@ -149,7 +161,12 @@ namespace Assets.Scripts.HumanMonoModules
             CurrentWeapon.WeaponUpdate();
         }
 
-        
+        public void BreakAttack()
+        {
+            
+            if(CurrentWeapon!=null)
+                CurrentWeapon.StateBreakAction();
+        }
 
         
 
@@ -211,7 +228,21 @@ namespace Assets.Scripts.HumanMonoModules
             }
         }
 
-        
+        public void WeaponModuleFistHit()
+        {
+            if (CurrentWeapon == null)
+            {
+                return;
+            }
+            WeaponFist weaponFist = CurrentWeapon as WeaponFist;
+            if (weaponFist == null)
+            {
+                return;
+            }
+            
+            weaponFist.WeaponFistMono.ActivateCollider();
+            Debug.Log("Actual FIST!");
+        }
 
 
 

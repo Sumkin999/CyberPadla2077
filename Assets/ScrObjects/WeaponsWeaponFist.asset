@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: WeaponsWeaponFist
+  m_EditorClassIdentifier: Assembly-CSharp:Assets.Scripts.WeaponsFolder.ScrObjectsWeapon:ScrObjWeaponFist
+  VisualPrefab: {fileID: 1848886687363716, guid: e7615d79c8df3a0468fde35ff58a6ee1,
+    type: 2}
+  classes:
+    EnumWeaponType: 0
+    WeaponMonoVisulasPrefab: {fileID: 0}
+    EnumWeaponHoldType: 0
+    WeaponMonoVisuals: {fileID: 0}
+    HitTimerCurrent: 0

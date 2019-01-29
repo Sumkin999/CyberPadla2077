@@ -31,6 +31,8 @@ namespace Assets.Scripts.WeaponsFolder.ScrObjectsWeapon
         [SerializeField]
         public WeaponPistol classes;
 
+        [SerializeField] public int TestValue;
+
     }
 
     [CreateAssetMenu(fileName = "WeaponUzi", menuName = "Weapons/WeaponUzi")]

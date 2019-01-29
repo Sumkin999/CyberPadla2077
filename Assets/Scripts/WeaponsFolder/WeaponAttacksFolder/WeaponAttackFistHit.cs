@@ -43,5 +43,11 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
 
 
         }
+
+
+        /*public override void NullingAction()
+        {
+            _weaponFist.WeaponFistMono.DeactivateHit();
+        }*/
     }
 }

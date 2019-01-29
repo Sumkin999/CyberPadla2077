@@ -23,6 +23,11 @@ namespace Assets.Scripts.HumanMonoModules.AnimatorFolder
         {
             _weaponModule.WeaponModuleShootWeapon();
         }
+
+        public void EventFistHit()
+        {
+            _weaponModule.WeaponModuleFistHit();
+        }
         
     }
 }

@@ -628,7 +628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrObjWeaponPistol: {fileID: 11400000, guid: 42f2e38a3ac67034bbed9c7138ca0812, type: 2}
+  ScrObjWeaponFist: {fileID: 11400000, guid: 9e7abf6e5b6c5cf45b6cc2a6415d8825, type: 2}
   RightHandTransform: {fileID: 1786316598}
+  MainTransform: {fileID: 516490163}
 --- !u!114 &516490158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,7 +1153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrObjWeaponPistol: {fileID: 11400000, guid: 42f2e38a3ac67034bbed9c7138ca0812, type: 2}
+  ScrObjWeaponFist: {fileID: 11400000, guid: 9e7abf6e5b6c5cf45b6cc2a6415d8825, type: 2}
   RightHandTransform: {fileID: 694340046}
+  MainTransform: {fileID: 838452988}
 --- !u!114 &838452993
 MonoBehaviour:
   m_ObjectHideFlags: 0
