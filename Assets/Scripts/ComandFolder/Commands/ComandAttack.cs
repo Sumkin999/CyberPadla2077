@@ -9,7 +9,10 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandAttack:Command
     {
-
+        public override void IniciateCommand()
+        {
+            StartCommando();
+        }
         protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataAttack comandDataAttack=comandData as ComandDataAttack;
@@ -19,7 +22,7 @@ namespace Assets.Scripts.ComandFolder.Commands
                 {
 
                     StateController.WeaponModule.SetPressedFlags(comandDataAttack.IsPrimaryPressed,comandDataAttack.IsSecondaryPressed);
-                    //StartCommando();
+                    
                 }
 
                 return true;
@@ -31,30 +34,22 @@ namespace Assets.Scripts.ComandFolder.Commands
         
         protected override void ExecuteAction()
         {
-            
-            
+
+            if (!StateController.WeaponModule.CheckIfAttackAvailable() && !StateController.WeaponModule.CheckIfAttackInProgress())
+            {
+                StateController.AddTrigger(TriggersTemp.TriggerUnaim);
+            }
 
 
         }
 
         protected override bool ContinueCommandoCheck()
         {
-            if (StateController.WeaponModule.CheckIfAttackAvailable())
-            {
-                return true;
-            }
-            return false;
+            
+            return true;
         }
 
-        protected override void BreakCommandoAction()
-        {
-            StateController.AddTrigger(TriggersTemp.TriggerUnaim);
-            /*if (StateController.CurrentState.StateFlags.IsAiming)
-            {
-
-                StateController.Triggers.Add(TriggersTemp.TriggerUnaim);
-            }*/
-        }
+        
 
 
     }

@@ -114,6 +114,19 @@ namespace Assets.Scripts.HumanMonoModules
             InventoryWeapon.Add((T)Activator.CreateInstance(typeof(T), _weaponModuleMethodsHolder)); //new T(_weaponMethodsHolder));
         }
 
+        //TODO this
+        public bool CheckIfAttackInProgress()
+        {
+            if (CurrentWeapon == null)
+                return false;
+
+            if (CurrentWeapon.CurrentWeaponAttack == null)
+                return false;
+            
+            //Ne dohodit
+            return CurrentWeapon.CurrentWeaponAttack.IsAttackInProgress(CurrentWeapon);
+        }
+        //TODO thissss
         public bool CheckIfAttackAvailable()
         {
             if (CurrentWeapon==null)
@@ -241,6 +254,7 @@ namespace Assets.Scripts.HumanMonoModules
             }
             
             weaponFist.WeaponFistMono.ActivateCollider();
+            //ВЫЗОВ ПОСЛЕ БРЕЙКА, БРЕЙК ПРИ СМЕНЕ СОСТОЯНИЙ!!!!!!!!!!!!!!!
             Debug.Log("Actual FIST!");
         }
 

@@ -78,17 +78,22 @@ namespace Assets.Scripts.WeaponsFolder
         {
             foreach (var attack in PotencialAttacks)
             {
-                if (attack.Predicate(this))
+                if (attack.Predicate(this) )
                 {
                     
                     if (attack!=CurrentWeaponAttack)
                     {
-                        if (CurrentWeaponAttack!=null)
+                        if (CurrentWeaponAttack!=null )//&& CurrentWeaponAttack.IsAttackCanChange(this))
                         {
                             CurrentWeaponAttack.NullingAction();
                         }
+
+                        CurrentWeaponAttack = attack;
+                        CurrentWeaponAttack.EnterAttack();
                     }
-                    CurrentWeaponAttack = attack;
+                    
+                    //CurrentWeaponAttack = attack;
+                    //CurrentWeaponAttack.EnterAttack();
                     return true;
                 }
             }

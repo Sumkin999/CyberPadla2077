@@ -28,6 +28,11 @@ namespace Assets.Scripts.ComandFolder.ComandData
         {
             return false;
         }
+
+        public virtual void IniciateCommand()
+        {
+            
+        } 
         public void GetInputDataAndStart(ComandDataBase comandData)
         {
             if(GetInputData(comandData))
@@ -44,7 +49,7 @@ namespace Assets.Scripts.ComandFolder.ComandData
         {
             Iniciated = false;
         }
-        private void StartCommando()
+        protected void StartCommando()
         {
 
             

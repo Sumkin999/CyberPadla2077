@@ -31,6 +31,15 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
             return false;
         }
 
+
+        public override bool IsAttackInProgress(WeaponBase weaponBase)
+        {
+            if(_weaponFist.HitTimerCurrent>.7f)
+            return true;
+
+            return false;
+        }
+
         public override void ExecuteAttack()
         {
 

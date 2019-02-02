@@ -27,8 +27,16 @@ namespace Assets.Scripts.WeaponsFolder.WeaponAttacksFolder
             return false;
         }
 
-       
+        public virtual bool IsAttackInProgress(WeaponBase weaponBase)
+        {
 
+            return true;
+        }
+
+        public virtual void EnterAttack()
+        {
+            
+        }
         public virtual void ExecuteAttack()
         {
             

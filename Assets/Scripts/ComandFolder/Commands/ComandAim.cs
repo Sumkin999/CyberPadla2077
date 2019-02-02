@@ -10,7 +10,10 @@ namespace Assets.Scripts.ComandFolder.Commands
 {
     public class ComandAim:Command
     {
-        
+        public override void IniciateCommand()
+        {
+            StartCommando();
+        }
         protected override bool GetInputData(ComandDataBase comandData)
         {
             ComandDataAim comandDataAim=comandData as ComandDataAim;
@@ -21,34 +24,24 @@ namespace Assets.Scripts.ComandFolder.Commands
 
 
                 return true;
-                //StartCommando();
+                
             }
 
             return false;
         }
 
-        private bool _r;
+        
         protected override void ExecuteAction()
         {
 
-            _r = StateController.WeaponModule.CheckIfAttackAvailable();
+            if (StateController.WeaponModule.CheckIfAttackAvailable()  ||  StateController.WeaponModule.CheckIfAttackInProgress())
+                StateController.AddTrigger(TriggersTemp.TriggerAim);
             
-            if (!_r)
-            {
-                return;
-            }
-
-            StateController.AddTrigger(TriggersTemp.TriggerAim);
-            /*if (!StateController.CurrentState.StateFlags.IsAiming)
-            {
-                
-                StateController.Triggers.Add(TriggersTemp.TriggerAim);
-            }*/
             
         }
         protected override bool ContinueCommandoCheck()
         {
-            return _r;
+            return true;
         }
 
     }

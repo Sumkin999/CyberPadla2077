@@ -30,6 +30,7 @@ namespace Assets.Scripts.StateFolder.StateControllerFolder
             foreach (var comand in AllCommands)
             {
                 comand.StateController = _stateController;
+                comand.IniciateCommand();
             }
 
         }
