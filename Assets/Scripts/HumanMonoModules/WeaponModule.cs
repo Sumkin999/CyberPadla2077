@@ -14,6 +14,7 @@ namespace Assets.Scripts.HumanMonoModules
     /*
      Для взаимодействия оружия и атаки с дугими модулями!!!
          (В основном с AnimatorModule)
+         TODO VERY ALT
          */
     public class WeaponModuleMethodsHolder
     {
